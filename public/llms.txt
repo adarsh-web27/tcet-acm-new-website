@@ -1,0 +1,19 @@
+# TCET ACM SIGITE Student Chapter
+
+> Thakur College of Engineering & Technology's premier ACM SIGITE Student Chapter in Mumbai, India.
+
+## Overview
+TCET ACM SIGITE is dedicated to empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, and industry exposure.
+
+## Key Sections & Links
+- [Home Portal](https://tcet.acm.org/)
+- [Who We Are & Department Heritage](https://tcet.acm.org/who-we-are)
+- [Flagship Events & Hackathons](https://tcet.acm.org/events)
+- [Awards & Chapter Achievements](https://tcet.acm.org/achievements)
+- [Executive Core Team & Faculty](https://tcet.acm.org/team)
+- [Visual Archive & Gallery](https://tcet.acm.org/gallery)
+- [Contact & Connect](https://tcet.acm.org/contact)
+
+## Contact Information
+- Location: Thakur College of Engineering & Technology, Kandivali (E), Mumbai - 400101
+- Email: tcetacmsigite@thakureducation.org
