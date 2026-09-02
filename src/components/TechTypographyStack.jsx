@@ -84,16 +84,16 @@ export default function TechTypographyStack() {
           ref={centerLineRef}
           className="flex items-center justify-center gap-[clamp(0.4rem,1.5vw,1.2rem)] my-2 z-10 will-change-transform"
         >
-          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1D4ED8]">
+          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1E3A8A]">
             from
           </span>
           <span 
-            className="text-[clamp(2.2rem,6.5vw,5.6rem)] leading-none tracking-tight font-black text-transparent"
-            style={{ WebkitTextStroke: '2px #1D4ED8' }}
+            className="text-[clamp(2.2rem,6.5vw,5.6rem)] leading-none tracking-tight font-black text-[#1E3A8A]"
+            style={{ WebkitTextStroke: '1.5px #1E3A8A' }}
           >
             CLASSROOM
           </span>
-          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1D4ED8]">
+          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1E3A8A]">
             to production
           </span>
         </div>

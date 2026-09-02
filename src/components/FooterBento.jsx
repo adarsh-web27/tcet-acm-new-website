@@ -91,11 +91,11 @@ export default function FooterBento() {
                 <div className="font-mono text-xs md:text-sm space-y-2 text-neutral-200">
                   <p className="text-[#93C5FD] font-bold">$ initialize future</p>
                   {steps.map((step, idx) => (
-                    <div key={idx} className={`transition-opacity duration-300 ${idx <= terminalStep ? 'opacity-100' : 'opacity-30'}`}>
+                    <div key={idx} className={`transition-opacity duration-300 ${idx <= terminalStep ? 'opacity-100' : 'opacity-70'}`}>
                       {idx <= terminalStep ? (
                         <span className="text-[#34D399]">✓ {step}</span>
                       ) : (
-                        <span className="text-neutral-400">⏳ {step}</span>
+                        <span className="text-slate-300">⏳ {step}</span>
                       )}
                     </div>
                   ))}

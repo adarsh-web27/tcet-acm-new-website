@@ -149,18 +149,22 @@ export default function PureCss3DCarousel() {
             </button>
 
             {/* Dots */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1">
               {mobileCards.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setMobileIdx(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`transition-all duration-300 rounded-full ${
-                    i === mobileIdx 
-                      ? 'w-5 h-2 bg-[#1D4ED8]' 
-                      : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                  }`}
-                />
+                  className="min-w-[32px] min-h-[32px] flex items-center justify-center p-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full"
+                >
+                  <span 
+                    className={`transition-all duration-300 rounded-full block ${
+                      i === mobileIdx 
+                        ? 'w-5 h-2.5 bg-[#1D4ED8]' 
+                        : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

@@ -275,10 +275,10 @@ export default function BentoGrid() {
             {pillarsData.map((pillar, index) => {
               const IconComp = pillar.icon;
               const pillarAccents = [
-                { bg: 'bg-[#FFD43B]', text: 'text-[#0B1F33]' },
-                { bg: 'bg-[#FF6B6B]', text: 'text-white' },
-                { bg: 'bg-[#8FE3CF]', text: 'text-[#0B1F33]' },
-                { bg: 'bg-[#3B82F6]', text: 'text-white' },
+                { bg: 'bg-amber-400', text: 'text-slate-950' },
+                { bg: 'bg-rose-700', text: 'text-white' },
+                { bg: 'bg-emerald-200', text: 'text-emerald-950' },
+                { bg: 'bg-blue-700', text: 'text-white' },
               ];
               const accentTheme = pillarAccents[index % pillarAccents.length];
 
