@@ -1,8 +1,7 @@
-﻿import heroTeam from './hero-team.webp';
 import heroBg from './hero-bg.webp';
 
 export const heroImages = {
-  heroTeam,
+  heroTeam: '/images/hero-team.webp',
   heroBg,
 };
 
