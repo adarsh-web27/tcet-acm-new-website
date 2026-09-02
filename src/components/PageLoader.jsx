@@ -13,7 +13,7 @@ export function PageLoader({ onComplete }) {
 
   useEffect(() => {
     const startTime = Date.now();
-    const duration = 650; // Preserved snappy display duration
+    const duration = 280; // Ultra-fast, snappy initial load for 90+ Lighthouse score
 
     let rafId;
     const tick = () => {
@@ -28,17 +28,15 @@ export function PageLoader({ onComplete }) {
         rafId = requestAnimationFrame(tick);
       } else {
         setIsComplete(true);
-        setTimeout(() => {
-          if (onCompleteRef.current) {
-            onCompleteRef.current();
-          }
-        }, 150);
+        if (onCompleteRef.current) {
+          onCompleteRef.current();
+        }
       }
     };
 
     rafId = requestAnimationFrame(tick);
 
-    // Fallback safety timeout in case background tab throttles RAF
+    // Fallback safety timeout
     const safetyTimeout = setTimeout(() => {
       if (progressFillRef.current) {
         progressFillRef.current.style.width = '100%';
@@ -47,7 +45,7 @@ export function PageLoader({ onComplete }) {
       if (onCompleteRef.current) {
         onCompleteRef.current();
       }
-    }, 1200);
+    }, 600);
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
@@ -60,8 +58,7 @@ export function PageLoader({ onComplete }) {
       initial={{ opacity: 1 }}
       exit={{
         opacity: 0,
-        scale: 1.02,
-        transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+        transition: { duration: 0.25, ease: 'easeOut' },
       }}
       className="fixed inset-0 z-[100] flex flex-col justify-between bg-[#BFDBFE] text-[#0B1F33] select-none overflow-hidden font-sans"
     >
