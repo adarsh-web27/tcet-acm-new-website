@@ -337,11 +337,11 @@ export default function Gallery() {
                 {/* Clean Optimized Image */}
                 <img
                   src={item.imageUrl}
-                  srcSet={item.srcSet}
                   alt={item.title}
                   className="w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
+                  fetchPriority={index === 0 ? "high" : "auto"}
                   width={540}
                   height={340}
                 />
