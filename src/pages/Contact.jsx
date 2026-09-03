@@ -306,7 +306,7 @@ export default function Contact() {
     const formattedDept = formData.department && formData.department.trim() ? formData.department.trim() : 'Not Specified';
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/tcetacm@thakureducation.org', {
+      const response = await fetch('https://formsubmit.co/ajax/1032250969@tcetmumbai.in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -315,6 +315,7 @@ export default function Contact() {
         body: JSON.stringify({
           _subject: `[TCET ACM Inquiry] ${formData.category} — ${trimmedSubject}`,
           _replyto: trimmedEmail,
+          _cc: '1032250974@tcetmumbai.in',
           _template: 'table',
           'Full Name': trimmedName,
           'Email Address': trimmedEmail,
@@ -360,7 +361,7 @@ export default function Contact() {
         `\nMessage Details:\n${trimmedMessage}`
       ].join('\n');
       
-      window.location.href = `mailto:tcetacm@thakureducation.org?subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
+      window.location.href = `mailto:1032250969@tcetmumbai.in?cc=1032250974@tcetmumbai.in&subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
       setSubmitStatus('fallback');
       setTimeout(() => setSubmitStatus(null), 8000);
     } finally {
