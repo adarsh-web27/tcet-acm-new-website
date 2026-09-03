@@ -281,13 +281,13 @@ export default function TeamGrid() {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-90 sm:opacity-0 group-hover:opacity-100 translate-y-0 sm:translate-y-2 group-hover:translate-y-0'
           }`}>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-display font-black text-sm sm:text-base md:text-lg text-[#0B1F33] leading-tight truncate">
+            <div className="flex flex-col items-center justify-center text-center gap-2">
+              <h3 className="font-display font-black text-sm sm:text-base md:text-lg text-[#0B1F33] leading-tight truncate w-full text-center">
                 {member.name}
               </h3>
 
               {/* Socials below name */}
-              <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
                 {member.github && (
                   <a
                     href={member.github}
