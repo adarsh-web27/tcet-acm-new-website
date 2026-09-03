@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Trophy, 
-  Sparkles, 
   Zap, 
   Star, 
   ShieldCheck, 
@@ -151,7 +150,6 @@ export default function Achievements() {
                     {/* Top Row: Category Tag + Year Badge */}
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-wider">
-                        <Sparkles className="w-3 h-3 text-[#1D4ED8]" />
                         <span>{item.category}</span>
                       </span>
 

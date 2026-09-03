@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
 import { homeAssets } from '../assets';
 import { LoadingContext } from '../App';
 import InfiniteTextMarquee from './InfiniteTextMarquee';
@@ -44,7 +43,6 @@ export default function Hero() {
 
           {/* Chapter Kicker Micro-Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#1D4ED8]" />
             <span>TCET ACM SIGITE CHAPTER</span>
           </div>
 

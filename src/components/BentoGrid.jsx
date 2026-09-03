@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Sparkles, 
   BookOpen, 
   Globe, 
   ShieldCheck, 
@@ -175,7 +174,6 @@ export default function BentoGrid() {
         {/* ================= SECTION HEADER ================= */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-[0.25em] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>About The Chapter</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight leading-[1.05] text-[#0F172A] uppercase">

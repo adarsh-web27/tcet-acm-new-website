@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Sparkles, 
   Award, 
   BookOpen, 
   Globe, 
@@ -118,7 +117,6 @@ export default function WhoWeAre() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-widest shadow-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#FFD43B]" />
             <span>Chartered July 2011 • ACM SIGITE New York, USA</span>
           </motion.div>
 

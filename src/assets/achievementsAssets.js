@@ -1,4 +1,4 @@
-import { Trophy, Sparkles, Zap, Star, Flame, Medal } from 'lucide-react';
+import { Trophy, Zap, Star, Flame, Medal } from 'lucide-react';
 import { achievementImages } from './images/achievements';
 
 /**

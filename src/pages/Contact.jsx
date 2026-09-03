@@ -11,7 +11,6 @@ import {
   MessageSquare, 
   Building2, 
   HelpCircle,
-  Sparkles,
   ArrowRight,
   ShieldCheck,
   AlertCircle
@@ -381,7 +380,6 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-widest shadow-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#FFD43B]" />
             <span>Connect & Collaborate</span>
           </motion.div>
 

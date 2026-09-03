@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../lib/gsap';
-import { ArrowUpRight, MapPin, FileText, Sparkles, Calendar } from 'lucide-react';
+import { ArrowUpRight, MapPin, FileText, Calendar } from 'lucide-react';
 import { clubEvents } from '../assets/eventsAssets';
 
 export default function EventsHorizontalScroll() {

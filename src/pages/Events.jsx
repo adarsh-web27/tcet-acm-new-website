@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, MapPin, Sparkles, ChevronDown, FileText, Instagram, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, ChevronDown, FileText, Instagram, ArrowRight } from 'lucide-react';
 import { EVENTS } from '../data/eventsTimelineData';
 
 export default function Events() {
@@ -45,7 +45,6 @@ export default function Events() {
           className="flex flex-col items-center space-y-3"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest text-[#0B1F33] uppercase bg-[#DBEAFE] border border-[#93C5FD] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFD43B]" />
             OUR JOURNEY • TIMELINE ARCHIVE
           </span>
 

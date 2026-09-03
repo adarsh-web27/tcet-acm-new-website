@@ -19,7 +19,6 @@ import {
   Calendar,
   Compass,
   Target,
-  Sparkles,
   Zap,
   Briefcase,
   Heart
@@ -222,7 +221,7 @@ export default function Navbar() {
                                 className="group/item flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#93C5FD]/60 transition-colors"
                               >
                                 <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                  <Sparkles className="w-3.5 h-3.5" />
+                                  <Target className="w-3.5 h-3.5" />
                                 </div>
                                 <div>
                                   <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
@@ -295,7 +294,7 @@ export default function Navbar() {
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                   <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] flex items-center justify-center text-[#1E40AF]">
-                                    <Sparkles className="w-3.5 h-3.5" />
+                                    <Zap className="w-3.5 h-3.5" />
                                   </div>
                                   <span className="font-display font-extrabold text-[13px] tracking-wide text-[#0B1F33] uppercase">
                                     WHAT WE DO

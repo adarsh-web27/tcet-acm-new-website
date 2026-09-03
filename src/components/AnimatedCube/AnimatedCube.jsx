@@ -97,8 +97,6 @@ export default function AnimatedCube() {
         engineRef.current?.handleClick();
       }}
     >
-      {/* Sparkles Effect Ref */}
-      <span ref={refs.sparkle} className="absolute -top-4 right-1/4 opacity-0 text-lg z-50 pointer-events-none">✨</span>
 
       {/* Non-rerender Speech Bubble Ref Container */}
       <div 

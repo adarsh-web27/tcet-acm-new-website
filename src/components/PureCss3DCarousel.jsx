@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import memory02 from '../assets/images/gallery/memory-02.webp'; // PixxelHack Winners (50 KB)
 import memory02Sm from '../assets/images/gallery/memory-02-sm.webp'; // PixxelHack Mobile (12.7 KB)
@@ -80,7 +80,6 @@ export default function PureCss3DCarousel() {
         {/* Mobile Header */}
         <div className="text-center flex flex-col items-center justify-center max-w-sm mx-auto mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-[10px] font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3 h-3 text-[#1D4ED8]" />
             <span>TCET ACM • 2025 — 2026</span>
           </div>
 
@@ -266,7 +265,6 @@ export default function PureCss3DCarousel() {
         {/* Editorial Header Section */}
         <div className="relative z-20 text-center flex flex-col items-center justify-center px-4 translate-y-[30px] pointer-events-none select-none max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-slate-200/90 text-[#2563EB] font-mono text-xs font-bold uppercase tracking-[0.2em] shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>TCET ACM • 2025 — 2026</span>
           </div>
 

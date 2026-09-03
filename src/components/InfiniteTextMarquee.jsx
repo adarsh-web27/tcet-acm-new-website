@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Trophy, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Trophy, ArrowUpRight } from 'lucide-react';
 
 const bannerItems = [
   {
