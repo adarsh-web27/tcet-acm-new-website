@@ -334,7 +334,7 @@ export default function Gallery() {
                   </p>
                 </div>
 
-                {/* Clean Optimized Image */}
+                {/* High-Definition Crisp Gallery Card Image */}
                 <img
                   src={item.imageUrl}
                   alt={item.title}
@@ -342,9 +342,9 @@ export default function Gallery() {
                   loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "auto"}
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 520px, 480px"
-                  width={480}
-                  height={320}
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 700px, 850px"
+                  width={850}
+                  height={567}
                 />
               </div>
             </div>
