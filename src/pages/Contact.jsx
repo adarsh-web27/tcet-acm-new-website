@@ -231,7 +231,6 @@ export default function Contact() {
 
     // 2. Strong Honeypot Spam Protection (detectable by bots, invisible to humans)
     if (honeypot && honeypot.trim()) {
-      console.warn('Silent bot trap activated.');
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
@@ -350,8 +349,7 @@ export default function Contact() {
       } else {
         throw new Error('FormSubmit returned a non-OK status.');
       }
-    } catch (err) {
-      console.warn('Form submission fallback:', err);
+    } catch (_err) {
       // Construct mailto link as graceful client fallback preserving user data
       const subjectEncoded = encodeURIComponent(`[TCET ACM Inquiry] ${formData.category} — ${trimmedSubject}`);
       const bodyContent = [
