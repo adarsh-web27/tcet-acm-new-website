@@ -112,15 +112,15 @@ export default function Hero() {
                       <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp" type="image/webp" />
                       <img 
                         src="/images/hero-team.webp" 
-                        srcSet="/images/hero-team-sm.webp 480w, /images/hero-team.webp 760w"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 760px"
+                        srcSet="/images/hero-team-sm.webp 1000w, /images/hero-team.webp 1400w"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 700px"
                         alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
                         className="w-full h-full object-cover object-center transform-gpu [backface-visibility:hidden]"
                         loading="eager"
                         decoding="async"
                         fetchpriority="high"
-                        width={760}
-                        height={507}
+                        width={1400}
+                        height={933}
                       />
                     </picture>
                   </div>
