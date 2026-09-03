@@ -586,17 +586,18 @@ export default function TeamGrid() {
       </section>
 
       {/* ================= SECTION 3: ANIMATED STATS BLOCK ================= */}
-      <section ref={statsRef} className="py-16 px-4 sm:px-8 max-w-7xl mx-auto relative z-10 mb-12">        <div className="team-stats-box rounded-[36px] bg-[#0B1F33] text-white p-8 sm:p-14 border border-[#3B82F6]/30 shadow-2xl relative overflow-hidden grid grid-cols-1 md:grid-cols-4 gap-8 items-end">
+      <section ref={statsRef} className="py-16 px-4 sm:px-8 max-w-7xl mx-auto relative z-10 mb-12">
+        <div className="team-stats-box rounded-[36px] bg-[#2E539F] text-white p-8 sm:p-14 border-2 border-[#BFDBFE]/40 shadow-2xl shadow-[#2E539F]/25 relative overflow-hidden grid grid-cols-1 md:grid-cols-4 gap-8 items-end">
           
           {/* Left Title */}
           <div className="md:col-span-1 relative z-10">
-            <span className="text-xs font-mono font-bold text-[#60B6FF] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-mono font-bold text-[#DBEAFE] uppercase tracking-widest block mb-2">
               EXCELLENCE AT SCALE
             </span>
             <h3 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-[1.25] pb-1">
               12 leaders.<br />
               One{' '}
-              <span className="inline-block pb-1 pr-1.5 italic text-transparent bg-clip-text bg-gradient-to-r from-[#60B6FF] to-[#FFD43B]">
+              <span className="inline-block pb-1 pr-1.5 italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#DBEAFE] to-[#FFD43B]">
                 tight ship.
               </span>
             </h3>
@@ -607,7 +608,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="10">
               <span>0</span><span className="text-[#FFD43B] text-3xl sm:text-4xl">+</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#93C5FD] mt-3 pt-3 border-t border-white/15">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Annual Tech Events
             </div>
           </div>
@@ -617,7 +618,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="250">
               <span>0</span><span className="text-[#34D399] text-3xl sm:text-4xl">+</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#93C5FD] mt-3 pt-3 border-t border-white/15">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Active Chapter Members
             </div>
           </div>
@@ -627,7 +628,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="100">
               <span>0</span><span className="text-[#60B6FF] text-3xl sm:text-4xl">%</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#93C5FD] mt-3 pt-3 border-t border-white/15">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Student-Driven Impact
             </div>
           </div>
