@@ -14,23 +14,34 @@ export default function EventsHorizontalScroll() {
 
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
-      if (!section) return;
-      const getScrollAmount = () => -(section.scrollWidth - window.innerWidth + 100);
+      const trigger = triggerRef.current;
+      if (!section || !trigger) return;
+
+      const getScrollAmount = () => -(section.scrollWidth - window.innerWidth + 120);
 
       gsap.to(section, {
         x: getScrollAmount,
         ease: "none",
         scrollTrigger: {
-          trigger: triggerRef.current,
+          trigger: trigger,
           pin: true,
           pinSpacing: true,
-          scrub: 1,
+          anticipatePin: 1,
+          scrub: 0.5,
           invalidateOnRefresh: true,
           start: "top top",
           end: () => `+=${Math.abs(getScrollAmount())}`,
-          refreshPriority: 1,
+          fastScrollEnd: true,
+          preventOverlaps: true,
         }
       });
+
+      // Refresh ScrollTrigger once DOM layout stabilizes
+      const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      return () => clearTimeout(refreshTimeout);
     }, triggerRef);
 
     return () => ctx.revert();
@@ -39,7 +50,7 @@ export default function EventsHorizontalScroll() {
   return (
     <section 
       ref={triggerRef} 
-      className="relative w-full min-h-0 lg:min-h-screen overflow-hidden bg-[#EFF6FF] transition-colors duration-300 flex flex-col justify-between pt-10 sm:pt-14 lg:pt-10 pb-8 sm:pb-12 z-30 select-none"
+      className="relative w-full min-h-0 lg:h-screen lg:max-h-screen overflow-hidden bg-[#EFF6FF] flex flex-col justify-between pt-6 sm:pt-10 lg:pt-6 pb-6 sm:pb-8 z-30 select-none will-change-transform"
     >
       {/* Solid opaque background */}
       <div className="absolute inset-0 bg-[#EFF6FF] -z-20" />
