@@ -19,6 +19,27 @@ import pixxelhackWebathon2025 from './pixxelhack-webathon-2025.webp';
 import genaiQuantumSeminar from './genai-quantum-seminar.webp';
 import membershipDrive2024 from './membership-drive-2024.webp';
 
+// 2025-26 additions
+import localIv2025 from './local-iv-2025.webp';
+import alumniInteraction2025 from './alumni-interaction-2025.webp';
+import recruitment2025 from './recruitment-2025.webp';
+
+// 2024-25 (6 events)
+import coreCommitteeMeeting2024 from './core-committee-meeting-2024.webp';
+import incubationSeminar2024 from './incubation-seminar-2024.webp';
+import educationalDrive2024 from './educational-drive-2024.webp';
+import devopsWorkshop2025 from './devops-workshop-2025.webp';
+import alumniInteractionFeb2025 from './alumni-interaction-feb-2025.webp';
+import ngoDrive2025 from './ngo-drive-2025.webp';
+
+// 2023-24 (6 events)
+import arVrExposure2023 from './ar-vr-exposure-2023.webp';
+import prototypeDesign2023 from './prototype-design-2023.webp';
+import localIv2023 from './local-iv-2023.webp';
+import ideaPresentation2023 from './idea-presentation-2023.webp';
+import timesOfIndia2024 from './times-of-india-2024.webp';
+import genaiSeminar2024 from './genai-seminar-2024.webp';
+
 export const eventImages = {
   pixxelhack2026,
   alumniInteraction2026,
@@ -40,6 +61,21 @@ export const eventImages = {
   pixxelhackWebathon2025,
   genaiQuantumSeminar,
   membershipDrive2024,
+  localIv2025,
+  alumniInteraction2025,
+  recruitment2025,
+  coreCommitteeMeeting2024,
+  incubationSeminar2024,
+  educationalDrive2024,
+  devopsWorkshop2025,
+  alumniInteractionFeb2025,
+  ngoDrive2025,
+  arVrExposure2023,
+  prototypeDesign2023,
+  localIv2023,
+  ideaPresentation2023,
+  timesOfIndia2024,
+  genaiSeminar2024,
 };
 
 export default eventImages;
