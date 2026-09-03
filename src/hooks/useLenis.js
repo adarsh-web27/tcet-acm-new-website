@@ -19,11 +19,12 @@ export function scrollToTop(immediate = true) {
 export default function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 1.2,
+      touchMultiplier: 1,
+      syncTouch: false,
     });
 
     globalLenis = lenis;

@@ -195,8 +195,8 @@ export default function BentoGrid() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-[#1D4ED8] text-white shadow-md scale-[1.02]'
-                    : 'bg-[#93C5FD] text-[#0B1F33] hover:bg-[#3B82F6] hover:text-white'
+                    ? 'bg-[#1D4ED8] text-white shadow-md scale-[1.02] border-2 border-[#1D4ED8]'
+                    : 'bg-white border-2 border-[#BFDBFE] text-[#0B1F33] hover:border-[#1D4ED8] hover:text-[#1D4ED8] hover:bg-[#EFF6FF]'
                 }`}
               >
                 <span>{tab.title}</span>

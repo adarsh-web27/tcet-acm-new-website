@@ -35,8 +35,8 @@ export default function Gallery() {
     document.documentElement.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = originalBodyOverflow;
-      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.body.style.overflow = originalBodyOverflow || '';
+      document.documentElement.style.overflow = originalHtmlOverflow || '';
     };
   }, []);
 
@@ -69,8 +69,10 @@ export default function Gallery() {
     applyProgress(newProgress);
   }, [applyProgress]);
 
-  // High-performance direct cursor tracking via requestAnimationFrame
+  // High-performance direct cursor tracking via requestAnimationFrame (desktop fine pointer only)
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) return;
+
     let mouseX = -100;
     let mouseY = -100;
     let cursorRaf = null;

@@ -21,10 +21,26 @@ export default function FooterBento() {
     return () => clearInterval(interval);
   }, [steps.length]);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("acm.sigite@tcet.ac.in");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyEmail = async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText("tcetacm@thakureducation.org");
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = "tcetacm@thakureducation.org";
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = "mailto:tcetacm@thakureducation.org";
+    }
   };
 
   return (
@@ -40,7 +56,7 @@ export default function FooterBento() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mb-12 sm:mb-16">
           
           {/* LEFT COLUMN: Large Immersive Animation Card (Mascot) */}
-          <div className="lg:col-span-5 rounded-3xl sm:rounded-[36px] bg-white/95 border-2 border-[#BFDBFE] p-6 sm:p-8 lg:p-10 flex flex-col items-center justify-between relative overflow-hidden backdrop-blur-xl group hover:border-[#1D4ED8] hover:shadow-[0_20px_50px_-10px_rgba(29,78,216,0.16)] transition-all duration-500 shadow-xl min-h-[460px] sm:min-h-[500px]">
+          <div className="lg:col-span-5 rounded-3xl sm:rounded-[36px] bg-white/95 border-2 border-[#BFDBFE] p-6 sm:p-8 flex flex-col items-center justify-between relative overflow-hidden backdrop-blur-xl group hover:border-[#1D4ED8] hover:shadow-[0_20px_50px_-10px_rgba(29,78,216,0.16)] transition-all duration-500 shadow-xl min-h-[380px] sm:min-h-[440px]">
             <div className="absolute inset-0 bg-gradient-to-b from-[#3B82F6]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none" />
             
             {/* Top Tag */}
@@ -159,7 +175,11 @@ export default function FooterBento() {
               <span>Instagram</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-            <button onClick={handleCopyEmail} className="hover:text-[#1D4ED8] transition-colors cursor-pointer flex items-center gap-1">
+            <button 
+              onClick={handleCopyEmail} 
+              aria-label="Copy chapter email address"
+              className="hover:text-[#1D4ED8] transition-colors cursor-pointer flex items-center gap-1"
+            >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-[#10B981]" />

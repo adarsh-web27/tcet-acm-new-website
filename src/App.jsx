@@ -8,6 +8,8 @@ import FooterBento from './components/FooterBento';
 import PageLoader from './components/PageLoader';
 import Home from './pages/Home';
 
+import ErrorBoundary from './components/ErrorBoundary';
+
 // Code-split secondary pages to dramatically reduce initial JavaScript payload & execution time
 const WhoWeAre = lazy(() => import('./pages/WhoWeAre'));
 const Events = lazy(() => import('./pages/Events'));
@@ -15,6 +17,7 @@ const Achievements = lazy(() => import('./pages/Achievements'));
 const Team = lazy(() => import('./pages/Team'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 export const LoadingContext = createContext({ isLoaded: true });
 
@@ -64,17 +67,20 @@ function AppContent() {
 
       {/* Dynamic Route Viewport */}
       <main className="relative z-10 flex-grow min-h-[85vh]">
-        <Suspense fallback={<div className="w-full min-h-[85vh] bg-[#F8FAFC]" />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/who-we-are" element={<WhoWeAre />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/achievements" element={<Achievements />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<div className="w-full min-h-[85vh] bg-[#F8FAFC]" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/who-we-are" element={<WhoWeAre />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/achievements" element={<Achievements />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Global Cinematic Bento Footer (Hidden on Gallery page to prevent layout overlapping) */}

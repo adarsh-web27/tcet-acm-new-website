@@ -65,7 +65,7 @@ export default function TechTypographyStack() {
         {/* Top Outer Layer: INNOVATION */}
         <div 
           ref={topOuterRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] dark:text-slate-700 tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           INNOVATION
         </div>
@@ -73,7 +73,7 @@ export default function TechTypographyStack() {
         {/* Top Inner Layer: ENGINEERING */}
         <div 
           ref={topInnerRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] dark:text-slate-500 tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           ENGINEERING
         </div>
@@ -83,15 +83,15 @@ export default function TechTypographyStack() {
           ref={centerLineRef}
           className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 my-1 sm:my-2 z-10 will-change-transform w-full"
         >
-          <span className="font-mono text-[9px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg font-bold lowercase text-[#204896] dark:text-[#60A5FA] shrink-0">
+          <span className="font-mono text-[9px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg font-bold lowercase text-[#204896] shrink-0">
             from
           </span>
           <span 
-            className="text-[clamp(1.75rem,7.5vw,7.5rem)] leading-none tracking-tight font-black text-[#204896] dark:text-[#3B82F6] shrink-0"
+            className="text-[clamp(1.75rem,7.5vw,7.5rem)] leading-none tracking-tight font-black text-[#204896] shrink-0"
           >
             CLASSROOM
           </span>
-          <span className="font-mono text-[7.5px] xs:text-[9px] sm:text-xs md:text-sm font-bold lowercase text-[#204896] dark:text-[#60A5FA] text-left leading-tight shrink-0">
+          <span className="font-mono text-[7.5px] xs:text-[9px] sm:text-xs md:text-sm font-bold lowercase text-[#204896] text-left leading-tight shrink-0">
             to<br />production
           </span>
         </div>
@@ -99,7 +99,7 @@ export default function TechTypographyStack() {
         {/* Bottom Inner Layer: LEADERSHIP */}
         <div 
           ref={bottomInnerRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] dark:text-slate-500 tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           LEADERSHIP
         </div>
@@ -107,7 +107,7 @@ export default function TechTypographyStack() {
         {/* Bottom Outer Layer: COMMUNITY */}
         <div 
           ref={bottomOuterRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] dark:text-slate-700 tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           COMMUNITY
         </div>
