@@ -19,6 +19,7 @@ export default {
         sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        syne: ['Syne', 'sans-serif'],
       },
       boxShadow: {
         'soft':  '0 2px 12px 0 rgba(29, 78, 216, 0.08)',

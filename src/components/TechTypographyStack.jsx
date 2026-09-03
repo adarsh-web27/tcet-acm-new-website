@@ -21,34 +21,34 @@ export default function TechTypographyStack() {
         }
       });
 
-      // Kinetic expansion animation: layers spread out vertically from center as you scroll
+      // Kinetic vertical expansion on scroll
       tl.fromTo(topOuterRef.current, 
-        { y: 50, opacity: 0.04, scale: 0.92 },
-        { y: -30, opacity: 0.18, scale: 1, ease: 'power2.out' },
-        0
-      );
-
-      tl.fromTo(topInnerRef.current, 
-        { y: 25, opacity: 0.15, scale: 0.95 },
+        { y: 25, opacity: 0.2, scale: 0.96 },
         { y: -15, opacity: 0.45, scale: 1, ease: 'power2.out' },
         0
       );
 
+      tl.fromTo(topInnerRef.current, 
+        { y: 15, opacity: 0.4, scale: 0.98 },
+        { y: -8, opacity: 0.75, scale: 1, ease: 'power2.out' },
+        0
+      );
+
       tl.fromTo(centerLineRef.current, 
-        { scale: 0.85, opacity: 0.2 },
-        { scale: 1.04, opacity: 1, ease: 'power2.out' },
+        { scale: 0.95, opacity: 0.85 },
+        { scale: 1.02, opacity: 1, ease: 'power2.out' },
         0
       );
 
       tl.fromTo(bottomInnerRef.current, 
-        { y: -25, opacity: 0.15, scale: 0.95 },
-        { y: 15, opacity: 0.45, scale: 1, ease: 'power2.out' },
+        { y: -15, opacity: 0.4, scale: 0.98 },
+        { y: 8, opacity: 0.75, scale: 1, ease: 'power2.out' },
         0
       );
 
       tl.fromTo(bottomOuterRef.current, 
-        { y: -50, opacity: 0.04, scale: 0.92 },
-        { y: 30, opacity: 0.18, scale: 1, ease: 'power2.out' },
+        { y: -25, opacity: 0.2, scale: 0.96 },
+        { y: 15, opacity: 0.45, scale: 1, ease: 'power2.out' },
         0
       );
     }, containerRef);
@@ -59,57 +59,56 @@ export default function TechTypographyStack() {
   return (
     <div 
       ref={containerRef}
-      className="w-full flex items-center justify-center relative select-none py-8 sm:py-12"
+      className="w-full flex items-center justify-center relative select-none py-6 sm:py-10 md:py-16 px-2 sm:px-4"
     >
-      <div className="flex flex-col items-center justify-center text-center font-['Syne',sans-serif] uppercase font-[900] tracking-tight space-y-1 sm:space-y-2">
+      <div className="flex flex-col items-center justify-center text-center font-syne uppercase font-[900] tracking-wide sm:tracking-wider space-y-1.5 sm:space-y-2.5 md:space-y-4 w-full max-w-6xl mx-auto">
         
-        {/* Top Outer Layer */}
+        {/* Top Outer Layer: INNOVATION */}
         <div 
           ref={topOuterRef}
-          className="text-[clamp(1.8rem,5.5vw,4.8rem)] leading-none text-[#0F172A] will-change-transform"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] dark:text-slate-700 tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           INNOVATION
         </div>
 
-        {/* Top Inner Layer */}
+        {/* Top Inner Layer: ENGINEERING */}
         <div 
           ref={topInnerRef}
-          className="text-[clamp(1.8rem,5.5vw,4.8rem)] leading-none text-[#0F172A] will-change-transform"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] dark:text-slate-500 tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           ENGINEERING
         </div>
 
-        {/* Center Hero Line */}
+        {/* Center Hero Line: from CLASSROOM to production */}
         <div 
           ref={centerLineRef}
-          className="flex items-center justify-center gap-[clamp(0.4rem,1.5vw,1.2rem)] my-2 z-10 will-change-transform"
+          className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 my-1 sm:my-2 z-10 will-change-transform w-full"
         >
-          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1E3A8A]">
+          <span className="font-mono text-[9px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg font-bold lowercase text-[#204896] dark:text-[#60A5FA] shrink-0">
             from
           </span>
           <span 
-            className="text-[clamp(2.2rem,6.5vw,5.6rem)] leading-none tracking-tight font-black text-[#1E3A8A]"
-            style={{ WebkitTextStroke: '1.5px #1E3A8A' }}
+            className="text-[clamp(1.75rem,7.5vw,7.5rem)] leading-none tracking-tight font-black text-[#204896] dark:text-[#3B82F6] shrink-0"
           >
             CLASSROOM
           </span>
-          <span className="font-mono text-[clamp(0.75rem,1.8vw,1.3rem)] font-bold lowercase text-[#1E3A8A]">
-            to production
+          <span className="font-mono text-[7.5px] xs:text-[9px] sm:text-xs md:text-sm font-bold lowercase text-[#204896] dark:text-[#60A5FA] text-left leading-tight shrink-0">
+            to<br />production
           </span>
         </div>
 
-        {/* Bottom Inner Layer */}
+        {/* Bottom Inner Layer: LEADERSHIP */}
         <div 
           ref={bottomInnerRef}
-          className="text-[clamp(1.8rem,5.5vw,4.8rem)] leading-none text-[#0F172A] will-change-transform"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] dark:text-slate-500 tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           LEADERSHIP
         </div>
 
-        {/* Bottom Outer Layer */}
+        {/* Bottom Outer Layer: COMMUNITY */}
         <div 
           ref={bottomOuterRef}
-          className="text-[clamp(1.8rem,5.5vw,4.8rem)] leading-none text-[#0F172A] will-change-transform"
+          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] dark:text-slate-700 tracking-wide sm:tracking-wider will-change-transform select-none"
         >
           COMMUNITY
         </div>
