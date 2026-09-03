@@ -14,18 +14,11 @@ import { achievementsData } from '../assets/achievementsAssets';
 export default function Achievements() {
   const achievements = achievementsData;
 
-  const stats = [
-    { label: "National Recognitions", value: "06+" },
-    { label: "Hackathon Victories", value: "18+" },
-    { label: "Cash Prizes Won", value: "₹1.8L+" },
-    { label: "Verified Submissions", value: "100%" }
-  ];
-
   return (
     <section id="achievements" className="py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative overflow-hidden font-sans">
 
       {/* Header */}
-      <div className="flex flex-col items-center text-center space-y-4 mb-20 relative z-10">
+      <div className="flex flex-col items-center text-center space-y-4 mb-12 sm:mb-16 relative z-10">
         <motion.span
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,33 +47,6 @@ export default function Achievements() {
         >
           Celebrating our student scholars, national hackathon champions, and research pioneers recognized across India for computational excellence.
         </motion.p>
-
-        {/* Quick Highlights Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl pt-4"
-        >
-          {stats.map((st, idx) => {
-            const statColors = ['text-[#1D4ED8]', 'text-[#D97706]', 'text-[#059669]', 'text-[#7C3AED]'];
-            const colorClass = statColors[idx % statColors.length];
-            return (
-              <div
-                key={st.label}
-                className="p-4 sm:p-5 rounded-2xl bg-white/95 border-2 border-[#93C5FD] shadow-md flex flex-col items-center justify-center text-center space-y-1 hover:border-[#1D4ED8]/40 hover:-translate-y-0.5 transition-all"
-              >
-                <span className={`font-display font-black text-2xl sm:text-3xl ${colorClass}`}>
-                  {st.value}
-                </span>
-                <span className="font-mono text-[10px] sm:text-xs font-bold text-[#1E40AF] uppercase tracking-wider">
-                  {st.label}
-                </span>
-              </div>
-            );
-          })}
-        </motion.div>
       </div>
 
       {/* Dynamic Alternating Timeline Showcase */}
