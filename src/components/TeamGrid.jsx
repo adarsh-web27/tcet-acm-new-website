@@ -318,7 +318,7 @@ export default function TeamGrid() {
                     <Linkedin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </a>
                 )}
-                {member.email && (
+                {member.badge.includes('FACULTY') && member.email && (
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email ${member.name}`}

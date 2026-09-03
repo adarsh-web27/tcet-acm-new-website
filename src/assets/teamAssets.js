@@ -1,4 +1,4 @@
-﻿import { teamImages } from './images/team';
+import { teamImages } from './images/team';
 
 /**
  * Team & Leadership Assets — Official TCET ACM SIGITE Core Team
@@ -63,7 +63,7 @@ export const teamAssets = [
     badge: "CHAIRPERSON",
     github: "https://github.com/Girikkk",
     linkedin: "https://www.linkedin.com/in/girik-shukla/",
-    email: "girik.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "anannya-salvi",
@@ -74,7 +74,7 @@ export const teamAssets = [
     badge: "VICE CHAIRPERSON",
     github: "http://github.com/anannyasalvi16",
     linkedin: "https://www.linkedin.com/in/anannya-salvi-a317623ab/",
-    email: "anannya.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "vedant-singh",
@@ -85,7 +85,7 @@ export const teamAssets = [
     badge: "SECRETARY",
     github: "https://github.com/vedantsingh1510",
     linkedin: "https://www.linkedin.com/in/vedantsingh10/",
-    email: "vedant.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "praham-tiwari",
@@ -96,7 +96,7 @@ export const teamAssets = [
     badge: "EVENT MANAGER",
     github: null,
     linkedin: null,
-    email: "praham.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "vedant-dusane",
@@ -107,7 +107,7 @@ export const teamAssets = [
     badge: "TREASURER",
     github: null,
     linkedin: "https://www.linkedin.com/in/vedant-dusane-/",
-    email: "vedant.d.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "harshvardhan-miskin",
@@ -118,7 +118,7 @@ export const teamAssets = [
     badge: "SPONSORSHIP HEAD",
     github: "https://github.com/harshvardhanmiskin-a11y",
     linkedin: "https://www.linkedin.com/in/harshvardhan-miskin-118800303/",
-    email: "harshvardhan.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "kaushal-pawar",
@@ -129,7 +129,7 @@ export const teamAssets = [
     badge: "PUBLICITY HEAD",
     github: null,
     linkedin: "https://www.linkedin.com/in/kaushal-pawar0210/",
-    email: "kaushal.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "dishi-jain",
@@ -140,7 +140,7 @@ export const teamAssets = [
     badge: "PUBLICATION HEAD",
     github: "https://github.com/dishiijain",
     linkedin: "https://www.linkedin.com/in/dishi-jain-439469422/",
-    email: "dishi.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "prashant-shukla",
@@ -151,7 +151,7 @@ export const teamAssets = [
     badge: "TECHNICAL HEAD",
     github: "https://github.com/ps20031812",
     linkedin: "https://www.linkedin.com/in/prashant-shukla-023b28208/",
-    email: "prashant.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "chirag-prajapati",
@@ -162,7 +162,7 @@ export const teamAssets = [
     badge: "CREATIVE HEAD",
     github: "https://github.com/ChiragPrajapati007",
     linkedin: "https://www.linkedin.com/in/chirag-prajapati-5b9a45382/",
-    email: "chirag.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "aaditya-gupta",
@@ -173,7 +173,7 @@ export const teamAssets = [
     badge: "DESIGN DIRECTOR",
     github: null,
     linkedin: null,
-    email: "aaditya.acm@tcetmumbai.in"
+    email: null
   },
   {
     id: "gesu-singh",
@@ -184,6 +184,6 @@ export const teamAssets = [
     badge: "WEBMASTER",
     github: "https://github.com/gesudesignstech-lgtm",
     linkedin: "https://www.linkedin.com/in/gesu-singh-a910783b7/",
-    email: "gesu.acm@tcetmumbai.in"
+    email: null
   }
 ];
