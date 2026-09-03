@@ -181,52 +181,7 @@ export default function Gallery() {
       onTouchMove={handleMouseMove}
       onTouchEnd={handleMouseUp}
     >
-      {/* ================= PLAYFUL TECH DOODLES BACKGROUND ================= */}
-      <div className="absolute inset-0 pointer-events-none z-0 select-none overflow-hidden" aria-hidden="true">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)] opacity-40" />
 
-        {/* Top-Left: Code tag < / > */}
-        <svg className="absolute top-8 left-10 w-24 h-24 text-[#1D4ED8]/30 animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ animationDuration: '4s' }}>
-          <path d="M 30 35 L 15 50 L 30 65" />
-          <path d="M 45 70 L 55 30" />
-          <path d="M 70 35 L 85 50 L 70 65" />
-        </svg>
-
-        {/* Top-Left: Starburst & Sparkles */}
-        <svg className="absolute top-28 left-44 w-12 h-12 text-[#3B82F6]/35" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          <path d="M 25 5 L 25 45 M 5 25 L 45 25 M 11 11 L 39 39 M 11 39 L 39 11" />
-        </svg>
-
-        {/* Left Side: Curly Braces { } */}
-        <svg className="absolute top-1/2 left-8 -translate-y-1/2 w-14 h-28 text-[#2E539F]/25" viewBox="0 0 60 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M 40 10 C 25 10 20 25 20 40 C 20 48 10 50 5 50 C 10 50 20 52 20 60 C 20 75 25 90 40 90" />
-        </svg>
-
-        {/* Right Side: Orbiting Atom */}
-        <svg className="absolute top-1/2 right-8 -translate-y-1/2 w-28 h-28 text-[#3B82F6]/25 animate-spin" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.8" style={{ animationDuration: '28s' }}>
-          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(0 50 50)" />
-          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(60 50 50)" />
-          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(120 50 50)" />
-          <circle cx="50" cy="50" r="4" fill="currentColor" />
-        </svg>
-
-        {/* Bottom-Right: Terminal Prompt >_ */}
-        <svg className="absolute bottom-14 right-14 w-28 h-20 text-[#1D4ED8]/30" viewBox="0 0 100 70" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="5" y="5" width="90" height="60" rx="8" />
-          <path d="M 5 20 L 95 20" />
-          <circle cx="15" cy="12" r="2" fill="currentColor" />
-          <circle cx="22" cy="12" r="2" fill="currentColor" />
-          <circle cx="29" cy="12" r="2" fill="currentColor" />
-          <path d="M 18 36 L 28 44 L 18 52" />
-          <path d="M 34 52 L 48 52" />
-        </svg>
-
-        {/* Bottom-Right: Squiggly Line */}
-        <svg className="absolute bottom-36 right-44 w-24 h-10 text-[#3B82F6]/30" viewBox="0 0 100 30" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          <path d="M 5 15 Q 18 5 30 15 T 55 15 T 80 15 T 95 15" />
-        </svg>
-      </div>
 
       {/* Top Mobile Header Tag — Gives purpose to upper space on mobile */}
       <div className="relative z-20 text-center pt-1 sm:pt-4 px-4 pointer-events-none select-none">
