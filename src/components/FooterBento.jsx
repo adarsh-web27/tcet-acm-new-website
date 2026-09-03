@@ -139,20 +139,6 @@ export default function FooterBento() {
               </div>
             </div>
 
-            {/* Primary Emotional CTA inside Right Bento */}
-            <div className="mt-6 sm:mt-8 pt-6 border-t border-[#BFDBFE] flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-              <span className="text-xs text-[#1E40AF] font-bold text-center sm:text-left">
-                Ready to build your engineering legacy?
-              </span>
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#FFD43B] text-[#0B1F33] font-mono font-black text-xs uppercase tracking-wider shadow-md shadow-[#FFD43B]/25 hover:scale-105 hover:bg-[#FFC71F] transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Join ACM SIGITE</span>
-                <span>→</span>
-              </Link>
-            </div>
-
           </div>
 
         </div>
