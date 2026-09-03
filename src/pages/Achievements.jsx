@@ -24,11 +24,6 @@ export default function Achievements() {
 
   return (
     <section id="achievements" className="py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative overflow-hidden font-sans">
-      
-      {/* Massive Faded Background Typography Watermark */}
-      <div className="absolute top-36 left-1/2 -translate-x-1/2 text-[15vw] font-display font-black text-[#0B1F33]/[0.04] uppercase tracking-tighter select-none pointer-events-none whitespace-nowrap">
-        HALL OF FAME
-      </div>
 
       {/* Header */}
       <div className="flex flex-col items-center text-center space-y-4 mb-20 relative z-10">
