@@ -257,6 +257,7 @@ export default function Events() {
                         href={activeEvent.reportUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Official Event PDF Report for ${activeEvent.title}`}
                         className="group flex items-center justify-between p-3.5 rounded-2xl bg-white border-2 border-[#93C5FD] hover:border-[#1D4ED8] hover:bg-[#1D4ED8] hover:shadow-lg transition-all duration-300"
                       >
                         <div className="flex items-center gap-2.5">

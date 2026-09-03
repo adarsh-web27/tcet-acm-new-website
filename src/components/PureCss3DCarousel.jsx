@@ -294,11 +294,13 @@ export default function PureCss3DCarousel() {
               <img
                 key={index}
                 src={src}
-                alt={`3D Carousel item ${index + 1}`}
+                alt={`TCET ACM Archive Memory ${index + 1}`}
                 className="carousel-card"
                 style={{ '--i': index }}
                 loading="lazy"
                 decoding="async"
+                width={640}
+                height={400}
               />
             ))}
           </div>

@@ -115,8 +115,8 @@ export default function Hero() {
                       loading="eager"
                       decoding="async"
                       fetchpriority="high"
-                      width={1400}
-                      height={933}
+                      width={850}
+                      height={567}
                     />
                   </div>
 

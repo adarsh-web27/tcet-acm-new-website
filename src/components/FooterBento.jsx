@@ -85,23 +85,23 @@ export default function FooterBento() {
                     <span className="w-3 h-3 rounded-full bg-yellow-500/90 block" />
                     <span className="w-3 h-3 rounded-full bg-[#10B981] block" />
                   </div>
-                  <span className="text-xs font-mono text-[#93C5FD]">bash • acm@tcet-sigite</span>
+                  <span className="text-xs font-mono text-[#BFDBFE] font-medium">bash • acm@tcet-sigite</span>
                 </div>
                 
-                <div className="font-mono text-xs md:text-sm space-y-2 text-neutral-200">
-                  <p className="text-[#93C5FD] font-bold">$ initialize future</p>
+                <div className="font-mono text-xs md:text-sm space-y-2 text-white">
+                  <p className="text-[#BFDBFE] font-bold">$ initialize future</p>
                   {steps.map((step, idx) => (
-                    <div key={idx} className={`transition-opacity duration-300 ${idx <= terminalStep ? 'opacity-100' : 'opacity-70'}`}>
+                    <div key={idx} className="transition-colors duration-300">
                       {idx <= terminalStep ? (
-                        <span className="text-[#34D399]">✓ {step}</span>
+                        <span className="text-[#6EE7B7] font-semibold">✓ {step}</span>
                       ) : (
-                        <span className="text-slate-300">⏳ {step}</span>
+                        <span className="text-slate-200 font-normal">⏳ {step}</span>
                       )}
                     </div>
                   ))}
                   {terminalStep === steps.length - 1 && (
-                    <p className="pt-2 text-white font-bold flex items-center gap-2 animate-fadeIn">
-                      <span className="text-[#93C5FD]">&gt;</span> Ready to execute? <span className="w-2 h-4 bg-[#FFD43B] animate-pulse inline-block" />
+                    <p className="pt-2 text-white font-bold flex items-center gap-2">
+                      <span className="text-[#6EE7B7]">&gt;</span> <span>Ready to execute?</span> <span className="w-2 h-4 bg-[#FFD43B] animate-pulse inline-block" />
                     </p>
                   )}
                 </div>

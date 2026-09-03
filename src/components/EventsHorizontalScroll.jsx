@@ -140,6 +140,7 @@ export default function EventsHorizontalScroll() {
                     href={event.reportUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Official Event PDF Report for ${event.title}`}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EFF6FF] border border-[#93C5FD] text-[11px] font-mono font-bold text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white transition-all shadow-xs"
                   >
                     <FileText className="w-3.5 h-3.5" />
