@@ -126,10 +126,10 @@ export default function WhoWeAre() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display font-black text-4xl sm:text-6xl md:text-7xl text-[#0B1F33] uppercase tracking-tight leading-[1.08]"
+            className="font-display font-black text-4xl sm:text-6xl md:text-7xl text-[#0B1F33] uppercase tracking-tight leading-[1.12] py-1"
           >
             Architecting <br className="hidden sm:inline" />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">
+            <span className="inline-block italic pr-3 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">
               Computing Leadership
             </span>
           </motion.h1>

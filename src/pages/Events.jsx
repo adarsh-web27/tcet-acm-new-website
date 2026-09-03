@@ -49,8 +49,11 @@ export default function Events() {
             OUR JOURNEY • TIMELINE ARCHIVE
           </span>
 
-          <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-none text-[#0B1F33]">
-            ARCHITECTING TECH <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">MILESTONES</span>
+          <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[1.12] text-[#0B1F33] py-2">
+            ARCHITECTING TECH <br className="hidden sm:inline" />
+            <span className="inline-block italic pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">
+              MILESTONES
+            </span>
           </h1>
 
           <p className="text-[#1E40AF] text-sm sm:text-base md:text-lg max-w-2xl font-medium leading-relaxed">
