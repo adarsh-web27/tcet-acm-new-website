@@ -84,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* ================= RIGHT COLUMN: CORE TEAM SHOWCASE (Expanded Width & Crisp Large Frame) ================= */}
-        <div className="lg:col-span-6 w-full flex justify-center lg:justify-end [perspective:1400px] order-2 mt-4 lg:mt-0">
+        <div className="lg:col-span-6 w-full flex-1 min-w-0 flex justify-center lg:justify-end [perspective:1400px] order-2 mt-4 lg:mt-0">
           <div className="relative w-full max-w-xl xl:max-w-2xl translate-y-0 lg:-translate-y-[25px]">
             
             {/* Layer A: Core Frame */}
@@ -108,16 +108,21 @@ export default function Hero() {
                   {/* Inner Image Container */}
                   <div className="relative aspect-[16/11] w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-slate-100 shadow-inner">
                     {/* Faculty & Core Photo */}
-                    <img 
-                      src={homeAssets.heroTeamImage} 
-                      alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
-                      className="w-full h-full object-cover object-center transform-gpu [backface-visibility:hidden]"
-                      loading="eager"
-                      decoding="async"
-                      fetchpriority="high"
-                      width={850}
-                      height={567}
-                    />
+                    <picture className="w-full h-full block">
+                      <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp" type="image/webp" />
+                      <img 
+                        src="/images/hero-team.webp" 
+                        srcSet="/images/hero-team-sm.webp 480w, /images/hero-team.webp 760w"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 760px"
+                        alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
+                        className="w-full h-full object-cover object-center transform-gpu [backface-visibility:hidden]"
+                        loading="eager"
+                        decoding="async"
+                        fetchpriority="high"
+                        width={760}
+                        height={507}
+                      />
+                    </picture>
                   </div>
 
                 </div>

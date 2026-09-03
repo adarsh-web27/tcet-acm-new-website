@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import memory02 from '../assets/images/gallery/memory-02.webp'; // PixxelHack Winners (50 KB)
+import memory02Sm from '../assets/images/gallery/memory-02-sm.webp'; // PixxelHack Mobile (12.7 KB)
 import memory08 from '../assets/images/gallery/memory-08.webp'; // InnovGenius / Idea to Impact Seminar (40 KB)
 import memory05 from '../assets/images/gallery/memory-05.webp'; // Chapter Moments & Innovation (63 KB)
 import memory17 from '../assets/images/gallery/memory-17.webp'; // GenAI & Transformers Seminar (33 KB)
@@ -28,7 +29,7 @@ const carouselImages = [
 ];
 
 const mobileCards = [
-  { image: memory02, title: "PixxelHack 2025 Winners", tag: "HACKATHON" },
+  { image: memory02Sm, title: "PixxelHack 2025 Winners", tag: "HACKATHON" },
   { image: memory08, title: "InnovGenius / Idea to Impact", tag: "SEMINAR" },
   { image: memory05, title: "Chapter Moments & Innovation", tag: "CHAPTER" },
   { image: memory17, title: "GenAI & Transformers Masterclass", tag: "AI WORKSHOP" },
@@ -116,8 +117,10 @@ export default function PureCss3DCarousel() {
                   alt={mobileCards[mobileIdx].title}
                   className="w-full h-full object-cover"
                   loading="lazy"
-                  width={600}
-                  height={450}
+                  decoding="async"
+                  sizes="(max-width: 768px) 90vw, 360px"
+                  width={360}
+                  height={270}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-black/20 pointer-events-none" />
                 
@@ -143,24 +146,24 @@ export default function PureCss3DCarousel() {
             <button
               onClick={prevMobile}
               aria-label="Previous slide"
-              className="w-9 h-9 rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-90 transition-transform"
+              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-95 transition-transform"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Dots */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               {mobileCards.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setMobileIdx(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className="min-w-[32px] min-h-[32px] flex items-center justify-center p-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full"
+                  className="w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full"
                 >
                   <span 
                     className={`transition-all duration-300 rounded-full block ${
                       i === mobileIdx 
-                        ? 'w-5 h-2.5 bg-[#1D4ED8]' 
+                        ? 'w-6 h-2.5 bg-[#1D4ED8]' 
                         : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
@@ -171,9 +174,9 @@ export default function PureCss3DCarousel() {
             <button
               onClick={nextMobile}
               aria-label="Next slide"
-              className="w-9 h-9 rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-90 transition-transform"
+              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-95 transition-transform"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 

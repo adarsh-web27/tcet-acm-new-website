@@ -445,18 +445,18 @@ export default function Navbar() {
             <Link 
               to="/contact" 
               aria-label="Contact TCET ACM Chapter"
-              className="hidden sm:inline-flex lg:hidden xl:inline-flex items-center justify-center px-3.5 sm:px-4 py-1.5 rounded-full bg-[#FFD43B] text-[#0B1F33] text-xs font-black uppercase tracking-wider shadow-md shadow-[#FFD43B]/25 hover:bg-[#FFC71F] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap"
+              className="hidden sm:inline-flex lg:hidden xl:inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full bg-[#FFD43B] text-[#0B1F33] text-xs font-black uppercase tracking-wider shadow-md shadow-[#FFD43B]/25 hover:bg-[#FFC71F] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap"
             >
               <span>Contact Us</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-1" aria-hidden="true" />
             </Link>
 
-            {/* Mobile Menu Toggle Button (44x44px touch target) */}
+            {/* Mobile Menu Toggle Button (48x48px touch target) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-all active:scale-95 focus:outline-none"
+              className="lg:hidden w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-all active:scale-95 focus:outline-none"
             >
               <Menu className="w-5 h-5" aria-hidden="true" />
             </button>
@@ -481,7 +481,7 @@ export default function Navbar() {
               <button 
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
-                className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-all active:scale-95"
+                className="w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-all active:scale-95"
               >
                 <X className="w-6 h-6" />
               </button>

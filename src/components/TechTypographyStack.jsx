@@ -17,7 +17,6 @@ export default function TechTypographyStack() {
           start: 'top 85%',
           end: 'bottom 20%',
           scrub: 0.6,
-          invalidateOnRefresh: true,
         }
       });
 
