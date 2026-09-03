@@ -281,30 +281,22 @@ export default function TeamGrid() {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-90 sm:opacity-0 group-hover:opacity-100 translate-y-0 sm:translate-y-2 group-hover:translate-y-0'
           }`}>
-            <div className="flex items-start justify-between gap-1.5">
-              <div className="min-w-0">
-                <h3 className="font-display font-black text-xs sm:text-base md:text-lg text-[#0B1F33] leading-tight truncate">
-                  {member.name}
-                </h3>
-                <p className="font-mono text-[10px] sm:text-xs text-[#1E40AF] font-bold mt-0.5 truncate">
-                  {member.role}
-                </p>
-                <p className="text-[9px] sm:text-[11px] text-[#1E40AF] mt-0.5 truncate">
-                  {member.department}
-                </p>
-              </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="font-display font-black text-sm sm:text-base md:text-lg text-[#0B1F33] leading-tight truncate">
+                {member.name}
+              </h3>
 
-              {/* Socials inside pill */}
-              <div className="flex items-center gap-1 shrink-0 pt-0.5" onClick={(e) => e.stopPropagation()}>
+              {/* Socials below name */}
+              <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
                 {member.github && (
                   <a
                     href={member.github}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${member.name}'s GitHub`}
-                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
                   >
-                    <Github className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {member.linkedin && (
@@ -313,18 +305,18 @@ export default function TeamGrid() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${member.name}'s LinkedIn`}
-                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
                   >
-                    <Linkedin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {member.badge.includes('FACULTY') && member.email && (
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email ${member.name}`}
-                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
                   >
-                    <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </a>
                 )}
               </div>
