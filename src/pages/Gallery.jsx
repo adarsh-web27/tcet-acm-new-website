@@ -342,8 +342,9 @@ export default function Gallery() {
                   loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "auto"}
-                  width={540}
-                  height={340}
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 520px, 480px"
+                  width={480}
+                  height={320}
                 />
               </div>
             </div>
