@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { RefreshCw, AlertTriangle, Home } from 'lucide-react';
 
 export default class ErrorBoundary extends React.Component {
@@ -12,9 +12,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    if (process.env.NODE_ENV === 'development') {
-      console.error('ErrorBoundary caught an error:', error, errorInfo);
-    }
+    console.error("Application error:", error, errorInfo);
   }
 
   handleReload = () => {
@@ -39,7 +37,7 @@ export default class ErrorBoundary extends React.Component {
                 Something Went Wrong
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                An unexpected interface issue occurred. You can reload this page or return to the chapter home.
+                The application couldn't load correctly or an update was deployed. Please reload the page to fetch the latest resources.
               </p>
             </div>
 
