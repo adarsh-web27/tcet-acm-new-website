@@ -14,7 +14,7 @@ export const teamAssets = [
     role: "Branch Counsellor IT & Head of Department",
     department: "IT Department • TCET",
     image: teamImages.drRajeshBansode,
-    badge: "FACULTY COUNSELLOR & HOD",
+    badge: "BRANCH COUNSELLOR & HOD",
     github: null,
     linkedin: null,
     email: "hod.it@tcetmumbai.in"

@@ -21,11 +21,9 @@ import {
   Target,
   Zap,
   Briefcase,
-  Heart,
-  Palette
+  Heart
 } from 'lucide-react';
 import { logoAssets } from '../assets';
-import { useTheme } from '../context/ThemeContext';
 
 const NAV_LINKS = [
   { path: '/', label: 'Home', number: '01' },
@@ -41,7 +39,6 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isLightBlue, toggleTheme } = useTheme();
   const location = useLocation();
   const megaMenuTimeoutRef = useRef(null);
 
@@ -444,22 +441,6 @@ export default function Navbar() {
 
           {/* Right: Actions */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* Light Blue Mode Switcher Button */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label={isLightBlue ? "Switch to Default White canvas" : "Switch to Light Blue canvas"}
-              title={isLightBlue ? "Switch to Default White canvas" : "Switch to Light Blue canvas"}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-200 border cursor-pointer ${
-                isLightBlue
-                  ? "bg-[#1D4ED8] text-white border-[#1D4ED8] shadow-sm"
-                  : "bg-slate-100 hover:bg-[#EFF6FF] text-[#0B1F33] hover:text-[#1D4ED8] border-slate-200 hover:border-[#93C5FD]"
-              }`}
-            >
-              <Palette className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{isLightBlue ? "Light Blue" : "Theme"}</span>
-            </button>
-
             <Link 
               to="/contact" 
               aria-label="Contact TCET ACM Chapter"
@@ -520,27 +501,6 @@ export default function Navbar() {
             </div>
 
             <div className="space-y-4 pt-2">
-              {/* Theme Canvas Switcher for Mobile Drawer */}
-              <div className="flex items-center justify-between p-3 rounded-2xl bg-white/10 border border-white/15">
-                <div className="flex items-center gap-2.5">
-                  <Palette className="w-4 h-4 text-[#93C5FD]" />
-                  <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
-                    {isLightBlue ? "Light Blue Canvas" : "Default White Canvas"}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={toggleTheme}
-                  className={`px-3 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
-                    isLightBlue
-                      ? "bg-[#60A5FA] text-[#0A2540]"
-                      : "bg-white/20 text-white hover:bg-white/30"
-                  }`}
-                >
-                  {isLightBlue ? "Active" : "Enable"}
-                </button>
-              </div>
-
               <Link 
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}

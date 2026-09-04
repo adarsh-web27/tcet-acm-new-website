@@ -9,7 +9,6 @@ import PageLoader from './components/PageLoader';
 import Home from './pages/Home';
 
 import ErrorBoundary from './components/ErrorBoundary';
-import { ThemeProvider } from './context/ThemeContext';
 
 // Code-split secondary pages to dramatically reduce initial JavaScript payload & execution time
 const WhoWeAre = lazy(() => import('./pages/WhoWeAre'));
@@ -100,9 +99,7 @@ export default function App() {
         {loading && <PageLoader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
       <Router>
-        <ThemeProvider>
-          <AppContent />
-        </ThemeProvider>
+        <AppContent />
       </Router>
     </LoadingContext.Provider>
   );

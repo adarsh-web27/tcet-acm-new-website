@@ -92,56 +92,6 @@
       radial-gradient(circle at 50% 80%, rgba(147, 197, 253, 0.04), transparent 60%);
   }
 
-  /* ================= LIGHT BLUE MODE CANVAS ================= */
-  html.light-blue-mode body {
-    background-color: #E2F0FD !important;
-  }
-
-  html.light-blue-mode body::before {
-    background-image: 
-      radial-gradient(circle at 12% 15%, rgba(59, 130, 246, 0.22), transparent 50%),
-      radial-gradient(circle at 88% 30%, rgba(147, 197, 253, 0.45), transparent 45%),
-      radial-gradient(circle at 50% 80%, rgba(29, 78, 216, 0.12), transparent 55%),
-      radial-gradient(circle at 75% 85%, rgba(191, 219, 254, 0.50), transparent 40%);
-  }
-
-  html.light-blue-mode .bg-\[\#F8FAFC\] {
-    background-color: #E2F0FD !important;
-  }
-
-  html.light-blue-mode .bg-white {
-    background-color: #F0F7FF !important;
-  }
-
-  html.light-blue-mode .bg-white\/95 {
-    background-color: rgba(240, 247, 255, 0.95) !important;
-  }
-
-  html.light-blue-mode .bg-white\/90 {
-    background-color: rgba(240, 247, 255, 0.90) !important;
-  }
-
-  html.light-blue-mode .bg-white\/80 {
-    background-color: rgba(240, 247, 255, 0.80) !important;
-  }
-
-  html.light-blue-mode .bg-slate-50 {
-    background-color: #EBF4FE !important;
-  }
-
-  html.light-blue-mode .bg-slate-100 {
-    background-color: #E1EFFE !important;
-  }
-
-  html.light-blue-mode .glass-card {
-    background: rgba(240, 247, 255, 0.94) !important;
-    border-color: rgba(147, 197, 253, 0.7) !important;
-  }
-
-  html.light-blue-mode .glass-pill {
-    background: rgba(240, 247, 255, 0.95) !important;
-  }
-
   /* Accessibility: Visible Focus Rings */
   *:focus-visible {
     @apply outline-none ring-2 ring-[#1D4ED8] ring-offset-2 ring-offset-[#EFF6FF] dark:ring-offset-[#0C1222];
