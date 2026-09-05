@@ -187,7 +187,7 @@ export default function Gallery() {
 
       {/* Top Mobile Header Tag — Gives purpose to upper space on mobile */}
       <div className="relative z-20 text-center pt-1 sm:pt-4 px-4 pointer-events-none select-none">
-        <span className="inline-block px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-[10px] font-bold uppercase tracking-widest shadow-2xs">
+        <span className="inline-block px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-xs font-bold uppercase tracking-widest shadow-2xs">
           TCET ACM • GALLERY ARCHIVES
         </span>
       </div>
@@ -276,7 +276,7 @@ export default function Gallery() {
                 </div>
 
                 {/* Category Badge — Visible on Hover */}
-                <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-[#0B1F33]/90 border border-white/20 text-[10px] font-mono font-bold text-white shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-[#0B1F33]/90 border border-white/20 text-xs font-mono font-bold text-white shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   {item.category}
                 </div>
 
@@ -285,7 +285,7 @@ export default function Gallery() {
                   <h3 className="font-display font-black text-base sm:text-lg md:text-xl tracking-tight leading-snug drop-shadow-sm line-clamp-1">
                     {item.title}
                   </h3>
-                  <p className="text-[11px] font-mono text-white/85 flex items-center gap-1 mt-0.5">
+                  <p className="text-xs font-mono text-white/85 flex items-center gap-1 mt-0.5">
                     <MapPin className="w-3 h-3 text-[#93C5FD]" />
                     <span className="truncate">{item.location}</span>
                   </p>
@@ -318,7 +318,7 @@ export default function Gallery() {
 
       {/* ================= MOBILE SLIDE COUNTER (Bottom-Right) ================= */}
       <div className="absolute bottom-4 right-6 sm:bottom-6 sm:right-10 z-20 pointer-events-none select-none">
-        <div className="px-3.5 py-1 rounded-full bg-[#0B1F33]/90 text-white border border-[#93C5FD]/40 shadow-md font-mono text-xs font-bold tracking-wider">
+        <div className="px-3.5 py-1 rounded-full bg-[#0B1F33]/90 text-white border border-[#93C5FD]/40 shadow-md font-mono text-xs sm:text-sm font-bold tracking-wider">
           <span className="text-[#93C5FD]">{String(active + 1).padStart(2, '0')}</span>
           <span className="text-white/40 mx-1">/</span>
           <span>{String(totalItems).padStart(2, '0')}</span>

@@ -208,7 +208,7 @@ export default function WhoWeAre() {
               </blockquote>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs font-mono font-semibold text-[#0B1F33]">
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs sm:text-sm font-mono font-semibold text-[#0B1F33]">
               <div>✦ ETHICAL INNOVATION</div>
               <div>✦ GLOBAL STANDARDS</div>
             </div>
@@ -246,7 +246,7 @@ export default function WhoWeAre() {
               </ul>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs font-mono font-semibold text-[#0B1F33]">
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs sm:text-sm font-mono font-semibold text-[#0B1F33]">
               <div>✦ SCOPUS MENTORSHIP</div>
               <div>✦ COMMUNITY IMPACT</div>
             </div>
@@ -323,7 +323,7 @@ export default function WhoWeAre() {
                     </span>
                   </div>
 
-                  <span className="inline-block font-mono text-[11px] font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+                  <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
                     {branchCounsellor.badge}
                   </span>
                 </div>
@@ -340,7 +340,7 @@ export default function WhoWeAre() {
                     <p className="font-mono text-sm font-bold text-[#0B1F33] mt-0.5">
                       {branchCounsellor.role}
                     </p>
-                    <p className="text-xs text-[#1E40AF]">
+                    <p className="text-xs sm:text-sm text-[#1E40AF]">
                       {branchCounsellor.department}
                     </p>
                   </div>
@@ -350,7 +350,7 @@ export default function WhoWeAre() {
                     <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
                       "{branchCounsellor.quote}"
                     </p>
-                    <p className="text-xs font-mono font-bold text-[#1E40AF]">
+                    <p className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF]">
                       — On transforming student engineers into ethical computing scholars.
                     </p>
                   </div>
@@ -358,7 +358,7 @@ export default function WhoWeAre() {
                   {/* Impact Highlights */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                     {branchCounsellor.impacts.map((imp, i) => (
-                      <div key={i} className="p-3 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20 text-xs font-semibold text-[#0B1F33] flex items-center gap-2">
+                      <div key={i} className="p-3 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20 text-xs sm:text-sm font-semibold text-[#0B1F33] flex items-center gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#0B1F33] shrink-0" />
                         <span>{imp}</span>
                       </div>
@@ -369,7 +369,7 @@ export default function WhoWeAre() {
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <button
                       onClick={() => setSelectedPerspective(branchCounsellor)}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
                     >
                       <UserCheck className="w-3.5 h-3.5" />
                       <span>Read Full Perspective</span>
@@ -379,7 +379,7 @@ export default function WhoWeAre() {
                       href={branchCounsellor.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
                     >
                       <Linkedin className="w-3.5 h-3.5" />
                       <span>LinkedIn Profile</span>
@@ -400,11 +400,11 @@ export default function WhoWeAre() {
                   <h3 className="font-display font-black text-2xl text-[#0B1F33] uppercase tracking-tight">
                     Faculty Mentorship Perspectives
                   </h3>
-                  <p className="text-xs text-[#1E40AF] mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#1E40AF] mt-0.5">
                     Insights from faculty chairs overseeing research, project development, and academic excellence.
                   </p>
                 </div>
-                <span className="hidden sm:inline-block font-mono text-xs text-[#1E40AF] font-bold">
+                <span className="hidden sm:inline-block font-mono text-xs sm:text-sm text-[#1E40AF] font-bold">
                   {facultyMentorsList.length} Mentors
                 </span>
               </div>
@@ -432,7 +432,7 @@ export default function WhoWeAre() {
                           <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
                             {mentor.role}
                           </p>
-                          <span className="inline-block text-[10px] font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
+                          <span className="inline-block text-xs font-mono font-bold text-[#0B1F33] px-2.5 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
                             {mentor.badge}
                           </span>
                         </div>
@@ -444,7 +444,7 @@ export default function WhoWeAre() {
                       </blockquote>
                     </div>
 
-                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
+                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
                       <span>Explore Perspective</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -462,11 +462,11 @@ export default function WhoWeAre() {
                   <h3 className="font-display font-black text-2xl text-[#0B1F33] uppercase tracking-tight">
                     Student & Alumni Reflections
                   </h3>
-                  <p className="text-xs text-[#1E40AF] mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#1E40AF] mt-0.5">
                     Real reflections from student leaders across SE, TE, BE and alumni leading in tech.
                   </p>
                 </div>
-                <span className="hidden sm:inline-block font-mono text-xs text-[#1E40AF] font-bold">
+                <span className="hidden sm:inline-block font-mono text-xs sm:text-sm text-[#1E40AF] font-bold">
                   {studentPerspectivesList.filter(s => perspectiveFilter === 'all' ? true : s.perspectiveType === perspectiveFilter).length} Reflections
                 </span>
               </div>
@@ -497,20 +497,20 @@ export default function WhoWeAre() {
                             <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
                               {student.role}
                             </p>
-                            <span className="inline-block text-[9.5px] font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
+                            <span className="inline-block text-xs font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
                               {student.badge}
                             </span>
                           </div>
                         </div>
 
                         {/* Quote */}
-                        <p className="italic text-xs text-[#1E40AF] font-medium leading-relaxed line-clamp-4 border-l-2 border-[#1D4ED8] pl-3">
+                        <p className="italic text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed line-clamp-4 border-l-2 border-[#1D4ED8] pl-3">
                           "{student.quote}"
                         </p>
                       </div>
 
                       {/* Card Footer */}
-                      <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-[11px] font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
+                      <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
                         <span>Read Experience</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -560,7 +560,7 @@ export default function WhoWeAre() {
                     <span className="sm:hidden font-mono font-black text-lg text-[#1E40AF]">
                       {item.year}
                     </span>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33]">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33]">
                       {item.badge}
                     </span>
                   </div>
@@ -621,16 +621,16 @@ export default function WhoWeAre() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <span className="inline-block text-[11px] font-mono font-bold text-[#0B1F33] px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+                  <span className="inline-block text-xs sm:text-sm font-mono font-bold text-[#0B1F33] px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
                     {selectedPerspective.badge}
                   </span>
                   <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33]">
                     {selectedPerspective.name}
                   </h3>
-                  <p className="font-mono text-xs font-bold text-[#0B1F33]">
+                  <p className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33]">
                     {selectedPerspective.role}
                   </p>
-                  <p className="text-xs text-[#1E40AF]">
+                  <p className="text-xs sm:text-sm text-[#1E40AF]">
                     {selectedPerspective.department}
                   </p>
                 </div>
@@ -646,7 +646,7 @@ export default function WhoWeAre() {
 
               {/* Full Narrative Experience */}
               <div className="space-y-2">
-                <h4 className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider">
+                <h4 className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider">
                   Chapter Leadership Experience & Philosophy
                 </h4>
                 <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
@@ -657,12 +657,12 @@ export default function WhoWeAre() {
               {/* Key Impact Points */}
               {selectedPerspective.impacts && (
                 <div className="space-y-2">
-                  <h4 className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider">
+                  <h4 className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider">
                     Key Chapter Contributions
                   </h4>
                   <div className="grid grid-cols-1 gap-2">
                     {selectedPerspective.impacts.map((imp, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#0B1F33] p-2.5 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20">
+                      <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0B1F33] p-2.5 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20">
                         <CheckCircle2 className="w-4 h-4 text-[#0B1F33] shrink-0" />
                         <span>{imp}</span>
                       </div>
@@ -678,7 +678,7 @@ export default function WhoWeAre() {
                     href={selectedPerspective.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1D4ED8] text-white text-xs font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1D4ED8] text-white text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
                     <span>LinkedIn</span>
@@ -690,7 +690,7 @@ export default function WhoWeAre() {
                     href={selectedPerspective.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
                   >
                     <Github className="w-3.5 h-3.5" />
                     <span>GitHub</span>
@@ -700,7 +700,7 @@ export default function WhoWeAre() {
                 {selectedPerspective.email && (
                   <a
                     href={`mailto:${selectedPerspective.email}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
                   >
                     <Mail className="w-3.5 h-3.5" />
                     <span>{selectedPerspective.email}</span>

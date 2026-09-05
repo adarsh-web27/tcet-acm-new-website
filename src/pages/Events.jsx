@@ -100,12 +100,12 @@ export default function Events() {
                           }`} 
                         />
                         <span className="font-display font-black text-xl text-[#0B1F33] tracking-tight">{yrStr}</span>
-                        <span className="text-[10px] font-mono font-bold text-[#1D4ED8] bg-[#DBEAFE] px-2.5 py-0.5 rounded-full border border-[#93C5FD]">
+                        <span className="text-xs font-mono font-bold text-[#1D4ED8] bg-[#DBEAFE] px-2.5 py-0.5 rounded-full border border-[#93C5FD]">
                           {yearGroup.events.length} Events
                         </span>
                       </div>
 
-                      <span className={`text-[11px] font-mono font-bold ${isExpanded ? 'text-[#1D4ED8]' : 'text-[#1E40AF]'}`}>
+                      <span className={`text-xs sm:text-sm font-mono font-bold ${isExpanded ? 'text-[#1D4ED8]' : 'text-[#1E40AF]'}`}>
                         {isExpanded ? 'ACTIVE' : 'VIEW'}
                       </span>
                     </button>
@@ -153,13 +153,13 @@ export default function Events() {
                                       <span className="text-xs font-bold truncate leading-tight">
                                         {ev.title}
                                       </span>
-                                      <span className={`text-[10px] font-mono ${isSelected ? 'text-white/80' : 'text-[#1E40AF]'}`}>
+                                      <span className={`text-xs font-mono ${isSelected ? 'text-white/80' : 'text-[#1E40AF]'}`}>
                                         {ev.date}
                                       </span>
                                     </div>
                                   </div>
 
-                                  <span className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase shrink-0 ${
+                                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full uppercase shrink-0 ${
                                     isSelected
                                       ? 'bg-white/20 text-white'
                                       : `${theme.bg} ${theme.text} shadow-2xs`
@@ -203,7 +203,7 @@ export default function Events() {
                       width={640}
                       height={360}
                     />
-                    <span className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 font-mono text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${activeCategoryTheme.bg} ${activeCategoryTheme.text} border ${activeCategoryTheme.border} shadow-md uppercase tracking-wider`}>
+                    <span className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 font-mono text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${activeCategoryTheme.bg} ${activeCategoryTheme.text} border ${activeCategoryTheme.border} shadow-md uppercase tracking-wider`}>
                       {activeEvent.category}
                     </span>
                   </div>
@@ -211,11 +211,11 @@ export default function Events() {
                   {/* Event Details */}
                   <div className="space-y-2.5 sm:space-y-3">
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
-                      <span className="flex items-center gap-1.5 bg-[#DBEAFE] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-[#93C5FD] font-bold text-[#0B1F33] shadow-xs text-[11px] sm:text-xs">
+                      <span className="flex items-center gap-1.5 bg-[#DBEAFE] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-[#93C5FD] font-bold text-[#0B1F33] shadow-xs text-xs sm:text-sm">
                         <Calendar className="w-3.5 h-3.5 text-[#D97706]" />
                         {activeEvent.date}
                       </span>
-                      <span className="flex items-center gap-1.5 text-[#1E40AF] font-semibold text-[11px] sm:text-xs">
+                      <span className="flex items-center gap-1.5 text-[#1E40AF] font-semibold text-xs sm:text-sm">
                         <MapPin className="w-3.5 h-3.5 text-[#EF4444]" />
                         {activeEvent.location}
                       </span>
@@ -243,7 +243,7 @@ export default function Events() {
                           <span className={`font-display font-black text-base sm:text-xl md:text-2xl ${statCol}`}>
                             {st.value}
                           </span>
-                          <span className="text-[9px] sm:text-[10px] font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-0.5">
+                          <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-0.5">
                             {st.label}
                           </span>
                         </div>
@@ -267,10 +267,10 @@ export default function Events() {
                             <FileText className="w-4 h-4" />
                           </div>
                           <div className="flex flex-col text-left">
-                            <span className="font-mono text-[11px] font-black text-[#0B1F33] group-hover:text-white tracking-wider uppercase">
+                            <span className="font-mono text-xs sm:text-sm font-black text-[#0B1F33] group-hover:text-white tracking-wider uppercase">
                               VIEW REPORT
                             </span>
-                            <span className="text-[9px] text-[#1E40AF] group-hover:text-white/80 font-medium">
+                            <span className="text-xs text-[#1E40AF] group-hover:text-white/80 font-medium">
                               Official Event PDF Report
                             </span>
                           </div>
@@ -292,10 +292,10 @@ export default function Events() {
                             <Instagram className="w-4 h-4" />
                           </div>
                           <div className="flex flex-col text-left">
-                            <span className="font-mono text-[11px] font-black text-pink-950 tracking-wider uppercase">
+                            <span className="font-mono text-xs sm:text-sm font-black text-pink-950 tracking-wider uppercase">
                               INSTAGRAM REEL
                             </span>
-                            <span className="text-[9px] text-pink-700 font-medium">
+                            <span className="text-xs text-pink-700 font-medium">
                               Watch event highlights
                             </span>
                           </div>

@@ -61,10 +61,10 @@ export default function FooterBento() {
             
             {/* Top Tag */}
             <div className="w-full flex items-center justify-between relative z-10 mb-3">
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] uppercase text-[#1E40AF] font-bold">
+              <span className="text-xs sm:text-sm font-mono tracking-[0.25em] uppercase text-[#1E40AF] font-bold">
                 // TCET_ACM_MASCOT
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-950 font-mono text-[9px] font-bold">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-950 font-mono text-xs font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
                 LIVE
               </span>
@@ -82,7 +82,7 @@ export default function FooterBento() {
               <h3 className="font-display font-black text-base sm:text-lg text-[#0B1F33] tracking-tight">
                 Byte • Chapter Mascot
               </h3>
-              <p className="text-xs text-[#1E40AF] mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-[#1E40AF] mt-1 font-medium">
                 Tap or move cursor to interact with Byte!
               </p>
             </div>
@@ -101,10 +101,10 @@ export default function FooterBento() {
                     <span className="w-3 h-3 rounded-full bg-yellow-500/90 block" />
                     <span className="w-3 h-3 rounded-full bg-[#10B981] block" />
                   </div>
-                  <span className="text-xs font-mono text-[#BFDBFE] font-medium">bash • acm@tcet-sigite</span>
+                  <span className="text-xs sm:text-sm font-mono text-[#BFDBFE] font-medium">bash • acm@tcet-sigite</span>
                 </div>
                 
-                <div className="font-mono text-xs md:text-sm space-y-2 text-white">
+                <div className="font-mono text-sm md:text-base space-y-2 text-white">
                   <p className="text-[#BFDBFE] font-bold">$ initialize future</p>
                   {steps.map((step, idx) => (
                     <div key={idx} className="transition-colors duration-300">
@@ -125,14 +125,14 @@ export default function FooterBento() {
 
               {/* Developer Journey Roadmap */}
               <div>
-                <span className="text-xs font-bold font-mono uppercase tracking-[0.25em] text-[#1E40AF] mb-3 block">
+                <span className="text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.25em] text-[#1E40AF] mb-3 block">
                   Your Developer Journey
                 </span>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-3">
                   {['Join', 'Learn', 'Build', 'Lead', 'Mentor'].map((stage, idx) => (
                     <div key={idx} className="p-3 rounded-2xl bg-[#EFF6FF] border-2 border-[#BFDBFE] text-center relative group/stage hover:border-[#1D4ED8] hover:bg-[#DBEAFE] transition-all shadow-xs">
-                      <span className="block font-mono font-black text-xs text-[#1D4ED8] mb-0.5">0{idx + 1}</span>
-                      <span className="font-bold text-xs text-[#0B1F33]">{stage}</span>
+                      <span className="block font-mono font-black text-xs sm:text-sm text-[#1D4ED8] mb-0.5">0{idx + 1}</span>
+                      <span className="font-bold text-xs sm:text-sm text-[#0B1F33]">{stage}</span>
                     </div>
                   ))}
                 </div>
@@ -148,7 +148,7 @@ export default function FooterBento() {
 
         {/* Bottom Bar: Socials & Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs md:text-sm font-bold text-[#1E40AF]">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm md:text-base font-bold text-[#1E40AF]">
             <a href="https://github.com/tcet-acm" target="_blank" rel="noreferrer" className="hover:text-[#1D4ED8] transition-colors flex items-center gap-1">
               <span>GitHub</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -180,7 +180,7 @@ export default function FooterBento() {
             </button>
           </div>
 
-          <p className="text-[11px] text-[#1E40AF] font-medium tracking-wide text-center">
+          <p className="text-xs sm:text-sm text-[#1E40AF] font-medium tracking-wide text-center">
             © 2026 TCET ACM SIGITE Chapter • Made with <Heart className="w-3.5 h-3.5 inline text-rose-500 fill-rose-500 mx-0.5" /> for engineering excellence.
           </p>
         </div>
