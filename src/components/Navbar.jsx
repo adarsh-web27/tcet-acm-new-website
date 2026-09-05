@@ -111,7 +111,7 @@ export default function Navbar() {
               <span className="font-display font-black text-xs sm:text-[13px] lg:text-[14px] tracking-wide text-[#0B1F33] leading-none group-hover:text-[#1D4ED8] transition-colors uppercase whitespace-nowrap">
                 {logoAssets.chapterName}
               </span>
-              <span className="text-[7.5px] sm:text-[8.5px] lg:text-[9px] font-mono font-bold text-[#1E40AF] tracking-tight mt-0.5 whitespace-nowrap">
+              <span className="text-[10.5px] sm:text-[11.5px] lg:text-[12px] font-mono font-bold text-[#1E40AF] tracking-tight mt-0.5 whitespace-nowrap">
                 {logoAssets.collegeName}
               </span>
             </div>
@@ -132,7 +132,7 @@ export default function Navbar() {
                   >
                     <NavLink
                       to={link.path}
-                      className={`relative px-4 py-1.5 rounded-full text-[13px] font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1 group ${
+                      className={`relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1 group ${
                         isActive
                           ? "text-white bg-[#1D4ED8] shadow-md shadow-blue-600/25"
                           : megaMenuOpen
@@ -163,20 +163,20 @@ export default function Navbar() {
                                   <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] flex items-center justify-center text-[#1E40AF]">
                                     <Compass className="w-3.5 h-3.5" />
                                   </div>
-                                  <span className="font-display font-extrabold text-[13px] tracking-wide text-[#0B1F33] uppercase">
+                                  <span className="font-display font-extrabold text-sm tracking-wide text-[#0B1F33] uppercase">
                                     WHO WE ARE
                                   </span>
                                 </div>
                                 <Link 
                                   to="/who-we-are" 
-                                  className="text-[12px] font-bold text-[#1E40AF] hover:underline inline-flex items-center gap-1 group/link"
+                                  className="text-xs sm:text-sm font-bold text-[#1E40AF] hover:underline inline-flex items-center gap-1 group/link"
                                 >
                                   <span>Full Page</span>
                                   <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
                                 </Link>
                               </div>
 
-                              <p className="text-[11.5px] text-[#1E40AF] leading-relaxed font-normal">
+                              <p className="text-xs text-[#1E40AF] leading-relaxed font-normal">
                                 TCET ACM SIGITE (est. July 2011) connects students to computing research and student leadership.
                               </p>
                             </div>
@@ -225,10 +225,10 @@ export default function Navbar() {
                                   <Users className="w-3.5 h-3.5" />
                                 </div>
                                 <div>
-                                  <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
+                                  <h4 className="font-bold text-xs sm:text-sm text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
                                     Through Their Lens
                                   </h4>
-                                  <p className="text-[10.5px] text-[#1E40AF] leading-tight mt-0.5">
+                                  <p className="text-xs text-[#1E40AF] leading-tight mt-0.5">
                                     Faculty & student perspectives
                                   </p>
                                 </div>
@@ -242,10 +242,10 @@ export default function Navbar() {
                                   <Award className="w-3.5 h-3.5" />
                                 </div>
                                 <div>
-                                  <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
+                                  <h4 className="font-bold text-xs sm:text-sm text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
                                     Journey & Accolades
                                   </h4>
-                                  <p className="text-[10.5px] text-[#1E40AF] leading-tight mt-0.5">
+                                  <p className="text-xs text-[#1E40AF] leading-tight mt-0.5">
                                     ACM India Summit Best Website
                                   </p>
                                 </div>
@@ -290,13 +290,13 @@ export default function Navbar() {
                                   <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] flex items-center justify-center text-[#1E40AF]">
                                     <Zap className="w-3.5 h-3.5" />
                                   </div>
-                                  <span className="font-display font-extrabold text-[13px] tracking-wide text-[#0B1F33] uppercase">
+                                  <span className="font-display font-extrabold text-sm tracking-wide text-[#0B1F33] uppercase">
                                     WHAT WE DO
                                   </span>
                                 </div>
                                 <Link 
                                   to="/events" 
-                                  className="text-[12px] font-bold text-[#1E40AF] hover:underline inline-flex items-center gap-1 group/link"
+                                  className="text-xs sm:text-sm font-bold text-[#1E40AF] hover:underline inline-flex items-center gap-1 group/link"
                                 >
                                   <span>All Activities</span>
                                   <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
@@ -523,7 +523,7 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative px-4 py-1.5 rounded-full text-[13px] font-bold transition-all duration-200 whitespace-nowrap group ${
+                  className={`relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap group ${
                     isActive
                       ? "text-white bg-[#1D4ED8] shadow-md shadow-blue-600/25"
                       : "text-slate-700 hover:text-[#1D4ED8] hover:bg-slate-50"
@@ -540,7 +540,7 @@ export default function Navbar() {
             <Link 
               to="/contact" 
               aria-label="Contact TCET ACM Chapter"
-              className="hidden sm:inline-flex lg:hidden xl:inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full bg-[#FFD43B] text-[#0B1F33] text-xs font-black uppercase tracking-wider shadow-md shadow-[#FFD43B]/25 hover:bg-[#FFC71F] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap"
+              className="hidden sm:inline-flex lg:hidden xl:inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full bg-[#FFD43B] text-[#0B1F33] text-sm font-black uppercase tracking-wider shadow-md shadow-[#FFD43B]/25 hover:bg-[#FFC71F] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap"
             >
               <span>Contact Us</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-1" aria-hidden="true" />
@@ -570,7 +570,7 @@ export default function Navbar() {
             className="lg:hidden fixed inset-0 z-[100] bg-[#0A2540] text-white flex flex-col justify-between p-6 sm:p-10 overflow-y-auto"
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold text-[#93C5FD] uppercase tracking-widest">
+              <span className="font-mono text-sm font-bold text-[#93C5FD] uppercase tracking-widest">
                 Navigation Menu
               </span>
               <button 
@@ -591,7 +591,7 @@ export default function Navbar() {
                   className="flex items-center justify-between min-h-[48px] py-2.5 text-xl font-display font-black uppercase text-white hover:text-[#93C5FD] transition-colors border-b border-white/10"
                 >
                   <span>{link.label}</span>
-                  <span className="font-mono text-xs text-[#93C5FD] font-bold">{link.number}</span>
+                  <span className="font-mono text-sm text-[#93C5FD] font-bold">{link.number}</span>
                 </NavLink>
               ))}
             </div>
@@ -600,7 +600,7 @@ export default function Navbar() {
               <Link 
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full min-h-[48px] py-3.5 rounded-full bg-[#FFD43B] text-[#0B1F33] font-mono text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FFD43B]/25 active:scale-98"
+                className="w-full min-h-[48px] py-3.5 rounded-full bg-[#FFD43B] text-[#0B1F33] font-mono text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FFD43B]/25 active:scale-98"
               >
                 <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" />

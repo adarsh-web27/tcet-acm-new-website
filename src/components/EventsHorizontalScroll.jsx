@@ -63,7 +63,7 @@ export default function EventsHorizontalScroll() {
               Building Experiences.
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed max-w-xl font-medium">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-xl font-medium">
               From technical workshops and hackathons to community initiatives,
               every event is designed to help students learn, collaborate and
               create something meaningful together.
@@ -74,7 +74,7 @@ export default function EventsHorizontalScroll() {
             to="/events"
             className="group inline-flex items-center gap-3 self-start lg:self-end text-[#0F172A] pointer-events-auto px-5 py-2.5 rounded-full bg-white border border-slate-300 shadow-sm hover:shadow-md hover:border-[#1D4ED8] hover:bg-slate-50 transition-all duration-300 cursor-pointer shrink-0 mb-1 lg:mb-2"
           >
-            <span className="text-xs uppercase tracking-wider font-mono font-bold text-[#0F172A] transition-colors">
+            <span className="text-sm uppercase tracking-wider font-mono font-bold text-[#0F172A] transition-colors">
               Explore All Events
             </span>
 
@@ -109,13 +109,13 @@ export default function EventsHorizontalScroll() {
                   />
                   
                   {/* Floating Date Chip */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1F33]/90 text-[11px] font-mono font-bold text-white border border-white/20 shadow-md flex items-center gap-1.5">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1F33]/90 text-xs font-mono font-bold text-white border border-white/20 shadow-md flex items-center gap-1.5">
                     <Calendar className="w-3 h-3 text-[#FFD43B]" />
                     <span>{event.date}</span>
                   </div>
 
                   {/* Floating Category Badge */}
-                  <span className={`absolute top-3 right-3 rounded-full px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider ${event.badgeTheme.bg} ${event.badgeTheme.text} border ${event.badgeTheme.border} shadow-md`}>
+                  <span className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider ${event.badgeTheme.bg} ${event.badgeTheme.text} border ${event.badgeTheme.border} shadow-md`}>
                     {event.badge}
                   </span>
 
@@ -133,12 +133,12 @@ export default function EventsHorizontalScroll() {
                     {event.title}
                   </h3>
 
-                  <p className="text-xs font-mono font-semibold text-[#1E40AF] flex items-center gap-1.5">
+                  <p className="text-sm font-mono font-semibold text-[#1E40AF] flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" />
                     <span>{event.location}</span>
                   </p>
                   
-                  <p className="text-xs text-[#1E40AF] font-medium line-clamp-2 leading-relaxed">
+                  <p className="text-sm text-[#1E40AF] font-medium line-clamp-2 leading-relaxed">
                     {event.desc}
                   </p>
                 </div>
@@ -152,17 +152,17 @@ export default function EventsHorizontalScroll() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Official Event PDF Report for ${event.title}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EFF6FF] border border-[#93C5FD] text-[11px] font-mono font-bold text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white transition-all shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EFF6FF] border border-[#93C5FD] text-xs sm:text-sm font-mono font-bold text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white transition-all shadow-xs"
                   >
                     <FileText className="w-3.5 h-3.5" />
                     <span>View Report</span>
                   </a>
                 ) : (
-                  <span className="text-[11px] font-mono font-bold text-[#1E40AF] uppercase tracking-wider">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF] uppercase tracking-wider">
                     TCET ACM CHAPTER
                   </span>
                 )}
-                <span className="text-[10px] font-mono font-bold text-[#1D4ED8] px-2 py-0.5 rounded bg-[#DBEAFE] border border-[#93C5FD]">
+                <span className="text-xs sm:text-sm font-mono font-bold text-[#1D4ED8] px-2 py-0.5 rounded bg-[#DBEAFE] border border-[#93C5FD]">
                   TCET ACM
                 </span>
               </div>

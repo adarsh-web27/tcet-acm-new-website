@@ -417,7 +417,7 @@ export default function Contact() {
           >
             {/* Header Badge & Title */}
             <div className="space-y-3">
-              <span className="inline-block font-mono text-[11px] font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
                 Institutional Location
               </span>
               <h2 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] tracking-tight">
@@ -487,10 +487,10 @@ export default function Contact() {
                 <Clock className="w-4 h-4 text-[#0B1F33]" />
                 <span>Office Hours:</span>
               </div>
-              <p className="text-xs font-semibold text-[#0B1F33]">
+              <p className="text-xs sm:text-sm font-semibold text-[#0B1F33]">
                 Monday – Friday: 9:00 AM – 5:00 PM IST
               </p>
-              <p className="text-[11px] text-[#1E40AF]">
+              <p className="text-xs text-[#1E40AF]">
                 IT Department Faculty Lounge, 4th Floor
               </p>
             </div>
@@ -505,7 +505,7 @@ export default function Contact() {
             className="lg:col-span-7 bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] space-y-6"
           >
             <div className="space-y-2">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#0B1F33] uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider">
                 <MessageSquare className="w-3.5 h-3.5 text-[#0B1F33]" />
                 <span>TRANSMIT OFFICIAL MESSAGE</span>
               </span>
@@ -589,7 +589,7 @@ export default function Contact() {
                     }`}
                   />
                   {errors.fullName && (
-                    <p className="text-[11px] font-semibold text-rose-600 mt-1">{errors.fullName}</p>
+                    <p className="text-xs font-semibold text-rose-600 mt-1">{errors.fullName}</p>
                   )}
                 </div>
 
@@ -611,7 +611,7 @@ export default function Contact() {
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-[11px] font-semibold text-rose-600 mt-1">{errors.email}</p>
+                    <p className="text-xs font-semibold text-rose-600 mt-1">{errors.email}</p>
                   )}
                 </div>
               </div>
@@ -621,7 +621,7 @@ export default function Contact() {
                 <div className="space-y-1.5 text-left">
                   <label htmlFor="contact-phone" className="font-mono text-xs font-bold text-[#0B1F33] flex items-center justify-between">
                     <span>Phone Number</span>
-                    <span className="text-[10px] text-[#1E40AF] font-normal uppercase tracking-wider">(Optional)</span>
+                    <span className="text-xs text-[#1E40AF] font-normal uppercase tracking-wider">(Optional)</span>
                   </label>
                   <input
                     id="contact-phone"
@@ -636,7 +636,7 @@ export default function Contact() {
                     }`}
                   />
                   {errors.phone && (
-                    <p className="text-[11px] font-semibold text-rose-600 mt-1">{errors.phone}</p>
+                    <p className="text-xs font-semibold text-rose-600 mt-1">{errors.phone}</p>
                   )}
                 </div>
 
@@ -698,7 +698,7 @@ export default function Contact() {
                     }`}
                   />
                   {errors.subject && (
-                    <p className="text-[11px] font-semibold text-rose-600 mt-1">{errors.subject}</p>
+                    <p className="text-xs font-semibold text-rose-600 mt-1">{errors.subject}</p>
                   )}
                 </div>
               </div>
@@ -722,7 +722,7 @@ export default function Contact() {
                   }`}
                 />
                 {errors.message && (
-                  <p className="text-[11px] font-semibold text-rose-600 mt-1">{errors.message}</p>
+                  <p className="text-xs font-semibold text-rose-600 mt-1">{errors.message}</p>
                 )}
               </div>
 
@@ -730,7 +730,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 rounded-xl bg-[#FFD43B] text-[#0B1F33] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#FFC71F] active:scale-[0.99] transition-all duration-300 shadow-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3.5 rounded-xl bg-[#FFD43B] text-[#0B1F33] font-mono text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#FFC71F] active:scale-[0.99] transition-all duration-300 shadow-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span>{isSubmitting ? 'Transmitting...' : 'Transmit Inquiry'}</span>
                 <Send className="w-3.5 h-3.5" />
@@ -743,7 +743,7 @@ export default function Contact() {
         {/* ================= FREQUENTLY ASKED QUESTIONS (ACCORDION) ================= */}
         <section className="space-y-10 pt-10">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="inline-block font-mono text-[11px] font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+            <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
               Frequently Asked Questions
             </span>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0B1F33] uppercase tracking-tight">

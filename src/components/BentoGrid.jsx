@@ -173,13 +173,13 @@ export default function BentoGrid() {
         
         {/* ================= SECTION HEADER ================= */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-[0.25em] shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.25em] shadow-xs">
             <span>About The Chapter</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight leading-[1.05] text-[#0F172A] uppercase">
             Institutional Heritage & Objectives
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-slate-600 font-medium max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl mx-auto">
             Chartered in July 2011, connecting students to the world's largest computing society.
           </p>
         </div>
@@ -193,7 +193,7 @@ export default function BentoGrid() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                className={`relative px-5 py-2.5 rounded-full text-sm sm:text-base font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-[#1D4ED8] text-white shadow-md scale-[1.02] border-2 border-[#1D4ED8]'
                     : 'bg-white border-2 border-[#BFDBFE] text-[#0B1F33] hover:border-[#1D4ED8] hover:text-[#1D4ED8] hover:bg-[#EFF6FF]'
@@ -215,22 +215,22 @@ export default function BentoGrid() {
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
               <div className="lg:col-span-7 space-y-4">
-                <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-widest px-3 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD]">
+                <span className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF] uppercase tracking-widest px-3 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD]">
                   {switcherTabs[activeTab].tag}
                 </span>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] leading-tight">
                   {switcherTabs[activeTab].content.headline}
                 </h3>
-                <p className="text-sm sm:text-base text-[#1E40AF] font-medium leading-relaxed">
+                <p className="text-base sm:text-lg text-[#1E40AF] font-medium leading-relaxed">
                   {switcherTabs[activeTab].content.description}
                 </p>
               </div>
 
               <div className="lg:col-span-5 bg-[#93C5FD]/50 rounded-2xl p-6 border border-[#93C5FD] space-y-3">
-                <h4 className="font-mono text-xs font-bold text-[#1E40AF] uppercase tracking-wider">
+                <h4 className="font-mono text-xs sm:text-sm font-bold text-[#1E40AF] uppercase tracking-wider">
                   Key Deliverables & Impact
                 </h4>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-[#0B1F33] font-medium">
+                <ul className="space-y-2.5 text-sm sm:text-base text-[#0B1F33] font-medium">
                   {switcherTabs[activeTab].content.highlights.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-[#34D399] shrink-0 mt-0.5" />
@@ -245,7 +245,7 @@ export default function BentoGrid() {
           <div className="pt-4 border-t border-[#93C5FD]/40 flex justify-end">
             <Link
               to="/who-we-are"
-              className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#1E40AF] hover:underline uppercase tracking-wider"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold text-[#1E40AF] hover:underline uppercase tracking-wider"
             >
               <span>Explore Complete Institutional Profile</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -260,11 +260,11 @@ export default function BentoGrid() {
               <h3 className="font-display font-black text-3xl text-[#0B1F33] uppercase tracking-tight">
                 Our 4 Core Pillars
               </h3>
-              <p className="text-xs sm:text-sm text-[#1E40AF] font-medium">
+              <p className="text-base sm:text-lg text-[#1E40AF] font-medium">
                 Learn • Build • Connect • Lead — Driving complete student engineering growth.
               </p>
             </div>
-            <span className="font-mono text-xs font-bold text-[#1E40AF]">
+            <span className="font-mono text-xs sm:text-sm font-bold text-[#1E40AF]">
               Est. 2011
             </span>
           </div>
@@ -290,7 +290,7 @@ export default function BentoGrid() {
                       <div className="w-12 h-12 rounded-2xl bg-[#DBEAFE] border border-[#93C5FD] flex items-center justify-center text-[#1D4ED8]">
                         <IconComp className="w-6 h-6" />
                       </div>
-                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full ${accentTheme.bg} ${accentTheme.text} shadow-xs`}>
+                      <span className={`text-xs sm:text-sm font-mono font-bold px-2.5 py-1 rounded-full ${accentTheme.bg} ${accentTheme.text} shadow-xs`}>
                         {pillar.badge}
                       </span>
                     </div>
@@ -299,12 +299,12 @@ export default function BentoGrid() {
                       {pillar.title}
                     </h4>
 
-                    <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#1E40AF] font-medium leading-relaxed">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  <ul className="space-y-1.5 pt-4 border-t border-[#93C5FD]/60 text-[11px] font-mono text-[#0B1F33]">
+                  <ul className="space-y-1.5 pt-4 border-t border-[#93C5FD]/60 text-xs sm:text-sm font-mono text-[#0B1F33]">
                     {pillar.details.map((detail, idx) => (
                       <li key={idx} className="flex items-center gap-1.5">
                         <span className="text-[#1D4ED8]">✦</span>
@@ -322,15 +322,15 @@ export default function BentoGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
           <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
             <span ref={membersRef} className="block font-display font-black text-4xl sm:text-5xl text-[#1D4ED8]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Active Scholars</span>
+            <span className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Active Scholars</span>
           </div>
           <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
             <span ref={eventsRef} className="block font-display font-black text-4xl sm:text-5xl text-[#D97706]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Annual Events</span>
+            <span className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Annual Events</span>
           </div>
           <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
             <span ref={projectsRef} className="block font-display font-black text-4xl sm:text-5xl text-[#059669]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Scopus Papers & Prototypes</span>
+            <span className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Scopus Papers & Prototypes</span>
           </div>
         </div>
 

@@ -164,7 +164,7 @@ export function PageLoader({ onComplete }) {
           <div className="text-[#3B6FC5] font-mono font-black text-xs mb-1">
             {'</>'}
           </div>
-          <span className="text-[10px] font-extrabold tracking-wider text-[#0B1F33] uppercase mb-1.5">
+          <span className="text-xs font-extrabold tracking-wider text-[#0B1F33] uppercase mb-1.5">
             CODE
           </span>
           <div className="w-12 h-[2.5px] bg-[#C2DBFC] rounded-full mb-1" />
@@ -237,7 +237,7 @@ export function PageLoader({ onComplete }) {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="absolute bottom-20 left-4 lg:left-10 hidden md:flex flex-col p-3 rounded-2xl bg-white border-2 border-[#A8C6EE] shadow-sm"
         >
-          <span className="text-[10px] font-extrabold text-[#0B1F33] uppercase tracking-wider mb-2">
+          <span className="text-xs font-extrabold text-[#0B1F33] uppercase tracking-wider mb-2">
             COMMUNITY
           </span>
           <div className="flex items-center gap-1.5">
@@ -360,7 +360,7 @@ export function PageLoader({ onComplete }) {
                     initial={{ opacity: 0, y: 3 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="text-xs font-bold text-[#3B6FC5] font-display"
+                    className="text-xs sm:text-sm font-bold text-[#3B6FC5] font-display"
                   >
                     Welcome to TCET ACM SIGITE
                   </motion.span>
@@ -370,7 +370,7 @@ export function PageLoader({ onComplete }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-xs font-semibold text-[#4A607A] font-display"
+                    className="text-xs sm:text-sm font-semibold text-[#4A607A] font-display"
                   >
                     Loading Innovation...
                   </motion.span>
@@ -391,7 +391,7 @@ export function PageLoader({ onComplete }) {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="absolute top-8 right-4 lg:right-10 hidden md:flex flex-col p-3 rounded-2xl bg-white border-2 border-[#A8C6EE] shadow-sm w-24"
         >
-          <span className="text-[10px] font-extrabold text-[#0B1F33] uppercase tracking-wider mb-1.5">
+          <span className="text-xs font-extrabold text-[#0B1F33] uppercase tracking-wider mb-1.5">
             DATA
           </span>
           <div className="flex items-center gap-2">
@@ -469,7 +469,7 @@ export function PageLoader({ onComplete }) {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="absolute bottom-20 right-4 lg:right-10 hidden md:flex flex-col p-3 rounded-2xl bg-white border-2 border-[#A8C6EE] shadow-sm"
         >
-          <span className="text-[10px] font-extrabold text-[#0B1F33] uppercase tracking-wider mb-2">
+          <span className="text-xs font-extrabold text-[#0B1F33] uppercase tracking-wider mb-2">
             CONNECT
           </span>
           <div className="flex items-center gap-1.5">
@@ -525,7 +525,7 @@ export function PageLoader({ onComplete }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="relative z-20 pb-4 flex items-center justify-center gap-1.5 text-[10px] sm:text-xs font-extrabold tracking-[0.2em] text-[#2C5A9A] uppercase font-display"
+        className="relative z-20 pb-4 flex items-center justify-center gap-1.5 text-xs sm:text-sm font-extrabold tracking-[0.2em] text-[#2C5A9A] uppercase font-display"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 text-[#3B6FC5]">
           <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />

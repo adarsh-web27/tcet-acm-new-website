@@ -43,7 +43,7 @@ export default function Hero() {
         <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-6 order-1 pl-0">
 
           {/* Chapter Kicker Micro-Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.18em] shadow-xs">
             <span>TCET ACM SIGITE CHAPTER</span>
           </div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
             Empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, and peer-to-peer mentorship at TCET Mumbai.
           </p>
 
@@ -65,7 +65,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 w-full sm:w-auto">
             <Link
               to="/team"
-              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2.5 px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-md shadow-slate-900/10 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2.5 px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-mono text-sm font-bold uppercase tracking-wider shadow-md shadow-slate-900/10 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
             >
               <span>Explore Chapter Crew</span>
               <ArrowUpRight className="w-4 h-4 text-[#38BDF8]" aria-hidden="true" />
@@ -73,7 +73,7 @@ export default function Hero() {
 
             <Link
               to="/events"
-              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-700 font-mono text-xs font-bold uppercase tracking-wider shadow-xs hover:border-slate-300 hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-700 font-mono text-sm font-bold uppercase tracking-wider shadow-xs hover:border-slate-300 hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
             >
               <span>View Flagship Events</span>
               <ArrowDown className="w-3.5 h-3.5 text-[#1D4ED8]" aria-hidden="true" />
