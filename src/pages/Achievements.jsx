@@ -84,17 +84,17 @@ export default function Achievements() {
                     />
 
                     {/* Floating Milestone Number & Year Badge */}
-                    <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-sm border border-white/20 text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                    <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-sm border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
                       <IconComp className={`w-3.5 h-3.5 ${item.badgeColor}`} />
                       <span>{item.year}</span>
                     </div>
 
-                    <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-sm border border-white/15 text-white/90 font-mono text-[10px] font-extrabold tracking-widest uppercase shadow-md">
+                    <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-sm border border-white/15 text-white/90 font-mono text-xs font-extrabold tracking-widest uppercase shadow-md">
                       NO. {item.id}
                     </div>
 
                     {/* Bottom Image Caption */}
-                    <div className="absolute bottom-3 left-3.5 right-3.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-sm border border-white/20 flex items-center justify-between text-white text-[11px] font-mono font-semibold shadow-md">
+                    <div className="absolute bottom-3 left-3.5 right-3.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-sm border border-white/20 flex items-center justify-between text-white text-xs sm:text-sm font-mono font-semibold shadow-md">
                       <span className="truncate opacity-90">{item.organization}</span>
                       <span className="text-emerald-400 font-bold flex items-center gap-1 shrink-0">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -115,11 +115,11 @@ export default function Achievements() {
                   <div className="space-y-4">
                     {/* Top Row: Category Tag + Year Badge */}
                     <div className="flex flex-wrap items-center justify-between gap-3">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD] text-[#0B1F33] text-xs sm:text-sm font-mono font-bold uppercase tracking-wider">
                         <span>{item.category}</span>
                       </span>
 
-                      <span className="font-mono text-xs font-bold text-[#0B1F33] px-3.5 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD]">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33] px-3.5 py-1 rounded-full bg-[#DBEAFE] border border-[#93C5FD]">
                         {item.year} EDITION
                       </span>
                     </div>
@@ -129,7 +129,7 @@ export default function Achievements() {
                       <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0">
                         <IconComp className="w-3.5 h-3.5" />
                       </div>
-                      <span className="font-mono text-xs font-bold text-[#1E40AF] uppercase tracking-wider">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-[#1E40AF] uppercase tracking-wider">
                         {item.organization}
                       </span>
                     </div>
@@ -146,7 +146,7 @@ export default function Achievements() {
 
                     {/* Highlight Spec Badge */}
                     <div className="pt-2">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#DBEAFE]/80 border border-[#93C5FD] text-xs font-mono font-bold text-[#0B1F33]">
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#DBEAFE]/80 border border-[#93C5FD] text-xs sm:text-sm font-mono font-bold text-[#0B1F33]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0" />
                         <span>{item.highlight}</span>
                       </div>
@@ -154,7 +154,7 @@ export default function Achievements() {
                   </div>
 
                   {/* Verification & Institutional Footer */}
-                  <div className="pt-5 border-t border-[#93C5FD]/60 flex items-center justify-between text-xs text-[#1E40AF] font-mono">
+                  <div className="pt-5 border-t border-[#93C5FD]/60 flex items-center justify-between text-xs sm:text-sm text-[#1E40AF] font-mono">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#059669]" />
                       <span className="font-bold">VERIFIED BY TCET IT DEPT</span>
@@ -162,7 +162,7 @@ export default function Achievements() {
 
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[11px] font-bold text-emerald-700 uppercase hidden sm:inline">
+                      <span className="text-xs font-bold text-emerald-700 uppercase hidden sm:inline">
                         Institutional Record
                       </span>
                     </div>

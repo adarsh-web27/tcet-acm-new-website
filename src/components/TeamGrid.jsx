@@ -269,7 +269,7 @@ export default function TeamGrid() {
           
           {/* Top Badge */}
           <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10">
-            <span className="font-mono text-[9px] sm:text-[10px] font-bold text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#0B1F33]/90 border border-white/10 shadow-sm flex items-center gap-1">
+            <span className="font-mono text-xs font-bold text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#0B1F33]/90 border border-white/10 shadow-sm flex items-center gap-1">
               {member.badge.includes('FACULTY') ? <Award className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FFD43B]" /> : <ShieldCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#60B6FF]" />}
               <span className="truncate max-w-[120px] sm:max-w-none">{member.badge}</span>
             </span>
@@ -337,7 +337,7 @@ export default function TeamGrid() {
       {/* ================= SECTION 1: GSAP FAN-OUT HERO ================= */}
       {/* MOBILE HERO INTRO (< md): Compact, Rich & Zero Blank Space */}
       <section className="block md:hidden pt-20 pb-8 px-4 text-center select-none">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-3 shadow-xs">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-3 shadow-xs">
           <Users className="w-3 h-3 text-[#1E40AF]" />
           <span>TCET ACM • LEADERSHIP 2025–26</span>
         </div>
@@ -347,7 +347,7 @@ export default function TeamGrid() {
           <span className="text-[#1D4ED8]">BIG IMPACT.</span>
         </h1>
 
-        <p className="text-xs text-[#1E40AF] max-w-xs mx-auto leading-relaxed mb-6 font-medium">
+        <p className="text-sm text-[#1E40AF] max-w-xs mx-auto leading-relaxed mb-6 font-medium">
           Empowering student innovation and research excellence through experienced faculty mentorship and student leadership.
         </p>
 
@@ -361,7 +361,7 @@ export default function TeamGrid() {
           {branchCounsellor && (
             <div className="w-24 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shadow-2xl bg-white relative z-10 scale-105 -translate-y-1">
               <img src={branchCounsellor.image} alt={branchCounsellor.name} className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 inset-x-0 bg-[#0B1F33]/90 text-white text-[8px] font-mono font-bold py-0.5 px-1 truncate">
+              <div className="absolute bottom-0 inset-x-0 bg-[#0B1F33]/90 text-white text-[10px] font-mono font-bold py-0.5 px-1 truncate text-center">
                 Dr. Rajesh Bansode
               </div>
             </div>
@@ -370,7 +370,7 @@ export default function TeamGrid() {
 
         <button
           onClick={scrollToGrid}
-          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#0B1F33] text-white text-xs font-mono font-bold uppercase tracking-wider shadow-md active:scale-95 transition-all"
+          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#0B1F33] text-white text-sm font-mono font-bold uppercase tracking-wider shadow-md active:scale-95 transition-all"
         >
           <span>Explore All 16 Members</span>
           <span className="text-[#38BDF8]">↓</span>
@@ -448,7 +448,7 @@ export default function TeamGrid() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <span className="absolute bottom-2 left-2 right-2 text-[9px] font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
+                  <span className="absolute bottom-2 left-2 right-2 text-xs font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
                     {member.name}
                   </span>
                 </div>
@@ -464,7 +464,7 @@ export default function TeamGrid() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-4 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-4 shadow-sm">
               <Users className="w-3.5 h-3.5 text-[#1E40AF]" />
               THE CREW • TCET ACM LEADERSHIP
             </div>
@@ -477,7 +477,7 @@ export default function TeamGrid() {
           </div>
 
           <div className="flex flex-col items-start md:items-end gap-4">
-            <p className="text-sm sm:text-base text-[#1E40AF] max-w-sm font-medium">
+            <p className="text-base sm:text-lg text-[#1E40AF] max-w-sm font-medium">
               Every person here steers technical workshops, hackathons, and community development with direct hands-on execution.
             </p>
 
@@ -485,7 +485,7 @@ export default function TeamGrid() {
             <div className="flex items-center gap-2 bg-[#DBEAFE] p-1.5 rounded-full border border-[#93C5FD]">
               <button
                 onClick={() => setActiveFilter('all')}
-                className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-sm font-mono font-bold transition-all cursor-pointer ${
                   activeFilter === 'all'
                     ? 'bg-[#1D4ED8] text-[#EFF6FF] shadow-sm'
                     : 'text-[#1E40AF] hover:text-[#1E40AF]'
@@ -495,7 +495,7 @@ export default function TeamGrid() {
               </button>
               <button
                 onClick={() => setActiveFilter('faculty')}
-                className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-sm font-mono font-bold transition-all cursor-pointer ${
                   activeFilter === 'faculty'
                     ? 'bg-[#1D4ED8] text-[#EFF6FF] shadow-sm'
                     : 'text-[#1E40AF] hover:text-[#1E40AF]'
@@ -505,7 +505,7 @@ export default function TeamGrid() {
               </button>
               <button
                 onClick={() => setActiveFilter('student')}
-                className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-sm font-mono font-bold transition-all cursor-pointer ${
                   activeFilter === 'student'
                     ? 'bg-[#1D4ED8] text-[#EFF6FF] shadow-sm'
                     : 'text-[#1E40AF] hover:text-[#1E40AF]'
@@ -544,7 +544,7 @@ export default function TeamGrid() {
             {branchCounsellor && (
               <div>
                 <div className="text-center mb-6">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD]">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-mono font-bold tracking-wider uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD]">
                     🏛️ BRANCH COUNSELLOR & HOD
                   </span>
                 </div>
@@ -557,7 +557,7 @@ export default function TeamGrid() {
             {/* Tier 2: Faculty Mentors (3 Mams) */}
             <div>
               <div className="text-center mb-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD]">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-mono font-bold tracking-wider uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD]">
                   🎓 FACULTY MENTORS & IN-CHARGE
                 </span>
               </div>
@@ -569,7 +569,7 @@ export default function TeamGrid() {
             {/* Tier 3: Student Core Committee 2025–26 */}
             <div>
               <div className="text-center mb-8">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] shadow-xs">
                   🚀 STUDENT CORE COMMITTEE 2025–26
                 </span>
                 <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-[#0B1F33] tracking-tight mt-2">
@@ -591,7 +591,7 @@ export default function TeamGrid() {
           
           {/* Left Title */}
           <div className="md:col-span-1 relative z-10">
-            <span className="text-xs font-mono font-bold text-[#DBEAFE] uppercase tracking-widest block mb-2">
+            <span className="text-sm font-mono font-bold text-[#DBEAFE] uppercase tracking-widest block mb-2">
               EXCELLENCE AT SCALE
             </span>
             <h3 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-[1.25] pb-1">
@@ -608,7 +608,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="10">
               <span>0</span><span className="text-[#FFD43B] text-3xl sm:text-4xl">+</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
+            <div className="text-sm font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Annual Tech Events
             </div>
           </div>
@@ -618,7 +618,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="250">
               <span>0</span><span className="text-[#34D399] text-3xl sm:text-4xl">+</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
+            <div className="text-sm font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Active Chapter Members
             </div>
           </div>
@@ -628,7 +628,7 @@ export default function TeamGrid() {
             <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="100">
               <span>0</span><span className="text-[#60B6FF] text-3xl sm:text-4xl">%</span>
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
+            <div className="text-sm font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">
               Student-Driven Impact
             </div>
           </div>
