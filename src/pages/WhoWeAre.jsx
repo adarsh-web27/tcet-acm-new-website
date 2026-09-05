@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Award, 
-  BookOpen, 
-  Globe, 
   Users, 
-  Cpu, 
-  ShieldCheck, 
   CheckCircle2, 
   Linkedin, 
   Mail, 
@@ -40,22 +36,16 @@ export default function WhoWeAre() {
       badge: 'Chartered'
     },
     {
-      year: '2015',
+      year: '2016',
       title: 'ACM India Chapter Excellence',
       desc: 'Established annual flagship hackathons, Scopus research mentoring, and community technical empowerment across Maharashtra.',
       badge: 'Excellence'
     },
     {
-      year: '2019',
-      title: 'Cloud & GenAI Innovation Hub',
+      year: '2021',
+      title: 'Cloud & Advanced Computing Hub',
       desc: 'Formed technical domains in cloud computing, modern full-stack architectures, and competitive algorithmic problem solving.',
       badge: 'Innovation'
-    },
-    {
-      year: '2023',
-      title: 'XR & Spatial Computing Immersion Lab',
-      desc: 'Pioneered spatial computing workshops featuring Apple Vision Pro, Meta Quest, and IoT smart cities prototypes.',
-      badge: 'Spatial Tech'
     },
     {
       year: '2025',
@@ -71,39 +61,11 @@ export default function WhoWeAre() {
     }
   ];
 
-  const sigiteGrid = [
-    {
-      icon: BookOpen,
-      title: "ACM Digital Library Access",
-      desc: "Direct access to over 500,000+ peer-reviewed computer science journals, conference proceedings, and SIGITE curriculum repositories."
-    },
-    {
-      icon: Globe,
-      title: "Distinguished Lecture Series",
-      desc: "Keynotes and technical masterclasses delivered by international ACM Fellow professors and Silicon Valley chief architects."
-    },
-    {
-      icon: ShieldCheck,
-      title: "Verified Global Credentials",
-      desc: "Internationally recognized ACM student membership badges, paper publication credentials, and verified certifications."
-    },
-    {
-      icon: Cpu,
-      title: "SIGITE Applied Curriculum",
-      desc: "Industry-aligned IT education frameworks covering cloud infrastructure, DevOps, cybersecurity, and artificial intelligence."
-    }
-  ];
-
   const allPerspectives = [
     branchCounsellor,
     ...facultyMentorsList,
     ...studentPerspectivesList
   ];
-
-  const filteredPerspectives = allPerspectives.filter(item => {
-    if (perspectiveFilter === 'all') return true;
-    return item.perspectiveType === perspectiveFilter;
-  });
 
   return (
     <div className="relative min-h-screen text-[#0B1F33] pt-28 pb-24 overflow-x-hidden font-sans">
@@ -117,7 +79,7 @@ export default function WhoWeAre() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-widest shadow-sm"
           >
-            <span>Chartered July 2011 • ACM SIGITE New York, USA</span>
+            <span>EST. 2011 • 15+ YEARS OF IMPACT • TCET ACM SIGITE</span>
           </motion.div>
 
           <motion.h1 
@@ -126,9 +88,9 @@ export default function WhoWeAre() {
             transition={{ delay: 0.1 }}
             className="font-display font-black text-4xl sm:text-6xl md:text-7xl text-[#0B1F33] uppercase tracking-tight leading-[1.12] py-1"
           >
-            Architecting <br className="hidden sm:inline" />
+            A Chapter Defined <br className="hidden sm:inline" />
             <span className="inline-block italic pr-3 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">
-              Computing Leadership
+              by Purpose & Progress
             </span>
           </motion.h1>
 
@@ -138,54 +100,11 @@ export default function WhoWeAre() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-[#1E40AF] font-medium leading-relaxed max-w-3xl mx-auto"
           >
-            TCET ACM SIGITE is the student chapter of the Special Interest Group on Information Technology Education under the Department of IT at Thakur College of Engineering & Technology. We nurture student engineers into globally competitive tech leaders.
+            TCET ACM SIGITE, the official ACM SIGITE student chapter under the Department of Information Technology at TCET, has spent over 15 years fostering innovation, research, technical excellence, and leadership through a thriving community of students and mentors.
           </motion.p>
         </section>
 
-        {/* ================= 2. ACM SIGITE GLOBAL HERITAGE GRID ================= */}
-        <section id="heritage" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-widest px-3 py-1 rounded-full bg-[#93C5FD]">
-              GLOBAL AFFILIATION
-            </span>
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0B1F33] uppercase tracking-tight">
-              ACM SIGITE International Heritage
-            </h2>
-            <p className="text-sm sm:text-base text-[#1E40AF]">
-              Affiliated directly with ACM Headquarters in New York, USA, bridging classroom learning with world-class computing research and industry standards.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sigiteGrid.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-6 shadow-md hover:shadow-xl hover:border-[#1D4ED8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#DBEAFE] border border-[#93C5FD] flex items-center justify-center text-[#0B1F33]">
-                      <IconComp className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-display font-black text-xl text-[#0B1F33] leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* ================= 3. VISION & MISSION COMPARATIVE CARDS ================= */}
+        {/* ================= 2. VISION & MISSION COMPARATIVE CARDS ================= */}
         <section id="vision" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Vision Card */}
@@ -198,18 +117,18 @@ export default function WhoWeAre() {
             <div className="space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase">
                 <Bookmark className="w-3.5 h-3.5" />
-                <span>Our Chapter Vision</span>
+                <span>Our IT Department Vision</span>
               </div>
-              <h3 className="font-display font-black text-3xl text-[#0B1F33] uppercase tracking-tight">
-                To Be A Premier Center For IT Education & Research
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] uppercase tracking-tight">
+                Leadership In IT Education
               </h3>
               <blockquote className="border-l-4 border-[#1D4ED8] pl-4 italic text-base text-[#1E40AF] font-medium leading-relaxed">
-                "To empower computing students to evolve into ethical technical innovators, research scholars, and industry-ready leaders who drive societal transformation."
+                "The department of IT will strive to be at the top position among the renowned providers of IT education"
               </blockquote>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs font-mono font-semibold text-[#0B1F33]">
-              <div>✦ ETHICAL INNOVATION</div>
+              <div>✦ QUALITY EDUCATION</div>
               <div>✦ GLOBAL STANDARDS</div>
             </div>
           </motion.div>
@@ -224,31 +143,19 @@ export default function WhoWeAre() {
             <div className="space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Strategic Mission Objectives</span>
+                <span>Our IT Department Mission</span>
               </div>
-              <h3 className="font-display font-black text-3xl text-[#0B1F33] uppercase tracking-tight">
-                Practical Execution Roadmap
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] uppercase tracking-tight">
+                Industry-Ready Excellence
               </h3>
-              
-              <ul className="space-y-3 text-xs sm:text-sm text-[#1E40AF] font-medium">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0B1F33] shrink-0 mt-0.5" />
-                  <span>Host 36-hour national hackathons (ACM ReCode, InnovGenius) to cultivate rapid prototyping.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0B1F33] shrink-0 mt-0.5" />
-                  <span>Provide 1-on-1 faculty mentorship for Scopus-indexed student research paper publications.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0B1F33] shrink-0 mt-0.5" />
-                  <span>Execute sustainability drives ("Ek Ped Maa Ke Naam") planting 300+ saplings for digital & green literacy.</span>
-                </li>
-              </ul>
+              <blockquote className="border-l-4 border-[#1D4ED8] pl-4 italic text-base text-[#1E40AF] font-medium leading-relaxed">
+                "The IT department is committed to enrich students by rigorously implementing quality education with a focus to make them industry ready, while imbibing in them professional ethics and social values to become responsible citizens."
+              </blockquote>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#93C5FD] text-xs font-mono font-semibold text-[#0B1F33]">
-              <div>✦ SCOPUS MENTORSHIP</div>
-              <div>✦ COMMUNITY IMPACT</div>
+              <div>✦ INDUSTRY READINESS</div>
+              <div>✦ PROFESSIONAL ETHICS</div>
             </div>
           </motion.div>
 
@@ -277,8 +184,7 @@ export default function WhoWeAre() {
               {[
                 { id: 'all', label: 'All Perspectives' },
                 { id: 'faculty', label: '🎓 Faculty & Mentors' },
-                { id: 'student', label: '🚀 Student Leaders' },
-                { id: 'alumni', label: '🏆 Alumni & Grads' }
+                { id: 'student', label: '🚀 Students Perspective' }
               ].map(tab => (
                 <button
                   key={tab.id}
@@ -355,18 +261,8 @@ export default function WhoWeAre() {
                     </p>
                   </div>
 
-                  {/* Impact Highlights */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                    {branchCounsellor.impacts.map((imp, i) => (
-                      <div key={i} className="p-3 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20 text-xs font-semibold text-[#0B1F33] flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0B1F33] shrink-0" />
-                        <span>{imp}</span>
-                      </div>
-                    ))}
-                  </div>
-
                   {/* Action triggers */}
-                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <div className="flex flex-wrap items-center gap-4 pt-1">
                     <button
                       onClick={() => setSelectedPerspective(branchCounsellor)}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
@@ -374,16 +270,6 @@ export default function WhoWeAre() {
                       <UserCheck className="w-3.5 h-3.5" />
                       <span>Read Full Perspective</span>
                     </button>
-                    
-                    <a
-                      href={branchCounsellor.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
-                    >
-                      <Linkedin className="w-3.5 h-3.5" />
-                      <span>LinkedIn Profile</span>
-                    </a>
                   </div>
 
                 </div>
@@ -454,68 +340,66 @@ export default function WhoWeAre() {
             </div>
           )}
 
-          {/* ================= C. STUDENT & ALUMNI PERSPECTIVES (CAROUSEL / GRID) ================= */}
-          {(perspectiveFilter === 'all' || perspectiveFilter === 'student' || perspectiveFilter === 'alumni') && (
+          {/* ================= C. STUDENT LEADERSHIP PERSPECTIVES ================= */}
+          {(perspectiveFilter === 'all' || perspectiveFilter === 'student') && (
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-[#93C5FD] pb-4">
                 <div>
                   <h3 className="font-display font-black text-2xl text-[#0B1F33] uppercase tracking-tight">
-                    Student & Alumni Reflections
+                    Student Leadership Perspectives
                   </h3>
                   <p className="text-xs text-[#1E40AF] mt-0.5">
-                    Real reflections from student leaders across SE, TE, BE and alumni leading in tech.
+                    Real reflections and insights from student core committee leaders.
                   </p>
                 </div>
                 <span className="hidden sm:inline-block font-mono text-xs text-[#1E40AF] font-bold">
-                  {studentPerspectivesList.filter(s => perspectiveFilter === 'all' ? true : s.perspectiveType === perspectiveFilter).length} Reflections
+                  {studentPerspectivesList.length} Reflections
                 </span>
               </div>
 
-              {/* Horizontal Scrollable Carousel Container */}
+              {/* Grid Container */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {studentPerspectivesList
-                  .filter(s => perspectiveFilter === 'all' ? true : s.perspectiveType === perspectiveFilter)
-                  .map((student) => (
-                    <motion.div
-                      key={student.id}
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      onClick={() => setSelectedPerspective(student)}
-                      className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-6 shadow-md hover:shadow-xl hover:border-[#1D4ED8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer group"
-                    >
-                      <div className="space-y-3.5">
-                        {/* Top Profile */}
-                        <div className="flex items-center gap-3">
-                          <div className="w-14 h-14 rounded-2xl overflow-hidden border border-[#1D4ED8] shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                            <img src={student.image} alt={student.name} className="w-full h-full object-cover" />
-                          </div>
-                          <div>
-                            <h4 className="font-display font-black text-base text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">
-                              {student.name}
-                            </h4>
-                            <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
-                              {student.role}
-                            </p>
-                            <span className="inline-block text-[9.5px] font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
-                              {student.badge}
-                            </span>
-                          </div>
+                {studentPerspectivesList.map((student) => (
+                  <motion.div
+                    key={student.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    onClick={() => setSelectedPerspective(student)}
+                    className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-6 shadow-md hover:shadow-xl hover:border-[#1D4ED8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer group"
+                  >
+                    <div className="space-y-3.5">
+                      {/* Top Profile */}
+                      <div className="flex items-center gap-3">
+                        <div className="w-14 h-14 rounded-2xl overflow-hidden border border-[#1D4ED8] shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                          <img src={student.image} alt={student.name} className="w-full h-full object-cover" />
                         </div>
-
-                        {/* Quote */}
-                        <p className="italic text-xs text-[#1E40AF] font-medium leading-relaxed line-clamp-4 border-l-2 border-[#1D4ED8] pl-3">
-                          "{student.quote}"
-                        </p>
+                        <div>
+                          <h4 className="font-display font-black text-base text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">
+                            {student.name}
+                          </h4>
+                          <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
+                            {student.role}
+                          </p>
+                          <span className="inline-block text-[9.5px] font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
+                            {student.badge}
+                          </span>
+                        </div>
                       </div>
 
-                      {/* Card Footer */}
-                      <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-[11px] font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
-                        <span>Read Experience</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </motion.div>
-                  ))}
+                      {/* Quote */}
+                      <p className="italic text-xs text-[#1E40AF] font-medium leading-relaxed line-clamp-4 border-l-2 border-[#1D4ED8] pl-3">
+                        "{student.quote}"
+                      </p>
+                    </div>
+
+                    {/* Card Footer */}
+                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-[11px] font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
+                      <span>Read Experience</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           )}
@@ -642,70 +526,6 @@ export default function WhoWeAre() {
                 <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
                   "{selectedPerspective.quote}"
                 </p>
-              </div>
-
-              {/* Full Narrative Experience */}
-              <div className="space-y-2">
-                <h4 className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider">
-                  Chapter Leadership Experience & Philosophy
-                </h4>
-                <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
-                  {selectedPerspective.experience}
-                </p>
-              </div>
-
-              {/* Key Impact Points */}
-              {selectedPerspective.impacts && (
-                <div className="space-y-2">
-                  <h4 className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider">
-                    Key Chapter Contributions
-                  </h4>
-                  <div className="grid grid-cols-1 gap-2">
-                    {selectedPerspective.impacts.map((imp, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#0B1F33] p-2.5 rounded-xl bg-[#93C5FD]/60 border border-[#3B82F6]/20">
-                        <CheckCircle2 className="w-4 h-4 text-[#0B1F33] shrink-0" />
-                        <span>{imp}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Connect Links */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#93C5FD]">
-                {selectedPerspective.linkedin && (
-                  <a
-                    href={selectedPerspective.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1D4ED8] text-white text-xs font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm"
-                  >
-                    <Linkedin className="w-3.5 h-3.5" />
-                    <span>LinkedIn</span>
-                  </a>
-                )}
-
-                {selectedPerspective.github && (
-                  <a
-                    href={selectedPerspective.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    <span>GitHub</span>
-                  </a>
-                )}
-
-                {selectedPerspective.email && (
-                  <a
-                    href={`mailto:${selectedPerspective.email}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] text-[#0B1F33] text-xs font-mono font-bold hover:bg-[#3B82F6] hover:text-white transition-all border border-[#3B82F6]/30"
-                  >
-                    <Mail className="w-3.5 h-3.5" />
-                    <span>{selectedPerspective.email}</span>
-                  </a>
-                )}
               </div>
 
             </motion.div>

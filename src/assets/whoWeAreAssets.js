@@ -1,4 +1,4 @@
-﻿import { whoWeAreImages } from './images/who-we-are';
+import { whoWeAreImages } from './images/who-we-are';
 
 /**
  * Who We Are Section Assets & Perspectives — Official TCET ACM SIGITE Roster

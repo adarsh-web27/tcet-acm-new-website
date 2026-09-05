@@ -21,7 +21,8 @@ import {
   Target,
   Zap,
   Briefcase,
-  Heart
+  Heart,
+  Code
 } from 'lucide-react';
 import { logoAssets } from '../assets';
 
@@ -183,18 +184,18 @@ export default function Navbar() {
                             {/* 5 Nav Items */}
                             <div className="space-y-1">
                               <Link 
-                                to="/who-we-are#heritage" 
+                                to="/who-we-are#vision" 
                                 className="group/item flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#93C5FD]/60 transition-colors"
                               >
                                 <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                  <Globe className="w-3.5 h-3.5" />
+                                  <Target className="w-3.5 h-3.5" />
                                 </div>
                                 <div>
                                   <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
-                                    ACM Global & SIGITE
+                                    Vision
                                   </h4>
                                   <p className="text-[10.5px] text-[#1E40AF] leading-tight mt-0.5">
-                                    Chartered July 2011 (ACM USA)
+                                    Leadership in IT education
                                   </p>
                                 </div>
                               </Link>
@@ -208,27 +209,10 @@ export default function Navbar() {
                                 </div>
                                 <div>
                                   <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
-                                    Vision & Core Values
+                                    Mission
                                   </h4>
                                   <p className="text-[10.5px] text-[#1E40AF] leading-tight mt-0.5">
-                                    Applied computing & leadership
-                                  </p>
-                                </div>
-                              </Link>
-
-                              <Link 
-                                to="/who-we-are#vision" 
-                                className="group/item flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#93C5FD]/60 transition-colors"
-                              >
-                                <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                  <Target className="w-3.5 h-3.5" />
-                                </div>
-                                <div>
-                                  <h4 className="font-bold text-[11.5px] text-[#0B1F33] group-hover/item:text-[#1E40AF] transition-colors leading-tight">
-                                    Strategic Objectives
-                                  </h4>
-                                  <p className="text-[10.5px] text-[#1E40AF] leading-tight mt-0.5">
-                                    Academia & industry integration
+                                    Industry-ready excellence
                                   </p>
                                 </div>
                               </Link>
@@ -268,29 +252,39 @@ export default function Navbar() {
                               </Link>
                             </div>
 
-                            {/* Bottom Card */}
+                            {/* Bottom Card: Highlighted Award Banner */}
                             <Link
                               to="/achievements"
-                              className="block p-3 rounded-2xl bg-[#DBEAFE] border border-[#93C5FD] hover:border-[#3B82F6] transition-all group/award mt-1"
+                              className="relative block p-3 rounded-2xl bg-gradient-to-r from-[#EFF6FF] via-[#DBEAFE] to-blue-50/80 border-2 border-[#3B82F6]/50 hover:border-[#1D4ED8] shadow-[0_4px_16px_-3px_rgba(29,78,216,0.18)] hover:shadow-[0_6px_22px_-2px_rgba(29,78,216,0.28)] hover:-translate-y-0.5 transition-all group/award mt-1 overflow-hidden"
                             >
-                              <div className="flex items-center justify-between">
+                              {/* Ambient soft glow */}
+                              <div className="absolute top-0 right-0 w-20 h-20 bg-amber-400/15 rounded-full blur-xl pointer-events-none -mr-4 -mt-4" />
+
+                              <div className="flex items-center justify-between relative z-10">
                                 <div>
-                                  <h5 className="font-bold text-[11.5px] text-[#0B1F33]">
+                                  <div className="flex items-center gap-1.5 mb-0.5">
+                                    <span className="inline-block px-1.5 py-0.5 rounded-full bg-amber-100 border border-amber-300/80 text-amber-800 font-mono text-[9px] font-extrabold uppercase tracking-wider">
+                                      ★ National Award
+                                    </span>
+                                  </div>
+                                  <h5 className="font-extrabold text-[12px] text-[#0B1F33] group-hover/award:text-[#1D4ED8] transition-colors">
                                     ACM India Summit Award
                                   </h5>
-                                  <p className="text-[10.5px] font-medium text-[#1E40AF] mt-0.5">
+                                  <p className="text-[10.5px] font-semibold text-[#1E40AF]">
                                     Honorable Mention: Best Chapter Website
                                   </p>
                                 </div>
-                                <Award className="w-4 h-4 text-amber-500 shrink-0 group-hover/award:scale-110 transition-transform" />
+                                <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-400/40 flex items-center justify-center text-amber-600 shadow-xs group-hover/award:scale-110 transition-transform shrink-0 ml-2">
+                                  <Award className="w-4 h-4 text-amber-600" />
+                                </div>
                               </div>
                             </Link>
                           </div>
 
                           {/* ================= COLUMN 2: WHAT WE DO ================= */}
-                          <div className="col-span-7 pl-1 flex flex-col justify-between space-y-4">
+                          <div className="col-span-7 pl-2 flex flex-col justify-between space-y-3">
                             {/* Header */}
-                            <div className="space-y-2">
+                            <div className="space-y-1">
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                   <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] flex items-center justify-center text-[#1E40AF]">
@@ -309,91 +303,193 @@ export default function Navbar() {
                                 </Link>
                               </div>
 
-                              <p className="text-[11.5px] text-[#1E40AF] leading-relaxed font-normal">
-                                Competitive hackathons, spatial computing labs, tree plantation drives, and Scopus journals.
+                              <p className="text-[11px] text-[#1E40AF] leading-relaxed font-normal">
+                                Building technical excellence, research culture, and professional growth through hands-on learning and community-driven initiatives.
                               </p>
                             </div>
 
                             {/* 2 Sub-Columns */}
-                            <div className="grid grid-cols-2 gap-4">
-                              {/* Sub-column 1: TECHNICAL & INDUSTRY */}
-                              <div className="space-y-2">
-                                <span className="block font-mono text-[10px] font-bold tracking-wider text-[#1E40AF] uppercase">
-                                  TECHNICAL & INDUSTRY
+                            <div className="grid grid-cols-2 gap-3">
+                              {/* Sub-column 1: TECHNICAL & INNOVATION */}
+                              <div className="space-y-1.5">
+                                <span className="block font-mono text-[9.5px] font-extrabold tracking-wider text-[#1E40AF] uppercase px-1">
+                                  TECHNICAL & INNOVATION
                                 </span>
-                                <div className="space-y-1">
+                                <div className="space-y-0.5">
                                   <Link 
-                                    to="/events" 
-                                    className="group/item flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                    to="/events#e-2026-pixxelhack-2" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
                                   >
-                                    <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                      <Terminal className="w-3.5 h-3.5" />
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Terminal className="w-3 h-3" />
                                     </div>
-                                    <div>
-                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight">
-                                        ACM ReCode
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        PixxelHack Webathon 2.0
                                       </h4>
-                                      <p className="text-[10px] text-[#1E40AF] leading-tight mt-0.5">
-                                        3-round national hackathon
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        48-Hour Web Development Showdown
                                       </p>
                                     </div>
                                   </Link>
 
                                   <Link 
-                                    to="/events" 
-                                    className="group/item flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                    to="/events#e-2025-recode" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
                                   >
-                                    <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                      <Cpu className="w-3.5 h-3.5" />
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Cpu className="w-3 h-3" />
                                     </div>
-                                    <div>
-                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight">
-                                        Tech Workshops
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        ACM ReCode Hackathon
                                       </h4>
-                                      <p className="text-[10px] text-[#1E40AF] leading-tight mt-0.5">
-                                        GenAI, Cloud & DSA bootcamps
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        UI/UX & Microservices Hackathon
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2025-innovgenius" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Zap className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        INNOVGENIUS 2026 Ideathon
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        National Ideathon with TCS
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2025-dsa" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Code className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Pre-Conference DSA Workshop
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        3-Day Intensive DSA Masterclass
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2024-devops" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Cpu className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Platform Engineering in DevOps
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Container Orchestration & CI/CD Pipelines
                                       </p>
                                     </div>
                                   </Link>
                                 </div>
                               </div>
 
-                              {/* Sub-column 2: COMMUNITY & RESEARCH */}
-                              <div className="space-y-2">
-                                <span className="block font-mono text-[10px] font-bold tracking-wider text-[#1E40AF] uppercase">
-                                  COMMUNITY & RESEARCH
+                              {/* Sub-column 2: COMMUNITY & GROWTH */}
+                              <div className="space-y-1.5">
+                                <span className="block font-mono text-[9.5px] font-extrabold tracking-wider text-[#1E40AF] uppercase px-1">
+                                  COMMUNITY & GROWTH
                                 </span>
-                                <div className="space-y-1">
+                                <div className="space-y-0.5">
                                   <Link 
-                                    to="/events" 
-                                    className="group/item flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                    to="/events#e-2026-alumni" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
                                   >
-                                    <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                      <Trees className="w-3.5 h-3.5" />
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Users className="w-3 h-3" />
                                     </div>
-                                    <div>
-                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight">
-                                        Tree Plantation
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Alumni Interaction 2026
                                       </h4>
-                                      <p className="text-[10px] text-[#1E40AF] leading-tight mt-0.5">
-                                        Ek Ped Maa Ke Naam drives
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Mentorship & Placement Guidance
                                       </p>
                                     </div>
                                   </Link>
 
                                   <Link 
-                                    to="/achievements" 
-                                    className="group/item flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                    to="/events#e-2026-tree-plantation" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
                                   >
-                                    <div className="w-7 h-7 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
-                                      <BookOpen className="w-3.5 h-3.5" />
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Trees className="w-3 h-3" />
                                     </div>
-                                    <div>
-                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight">
-                                        ACM Ezine Journals
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Tree Plantation Drive
                                       </h4>
-                                      <p className="text-[10px] text-[#1E40AF] leading-tight mt-0.5">
-                                        Scopus research & papers
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Ek Ped Maa Ke Naam Campaign
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2026-local-iv" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Compass className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Local Industrial Visit
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Automation Expo 2026 at NESCO
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2025-cyber-safety" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <ShieldCheck className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        Cyber Safety Awareness
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Community Digital Safety Drive
+                                      </p>
+                                    </div>
+                                  </Link>
+
+                                  <Link 
+                                    to="/events#e-2024-ngo" 
+                                    className="group/item flex items-center gap-2 p-1 rounded-xl hover:bg-[#EFF6FF] transition-colors"
+                                  >
+                                    <div className="w-6 h-6 rounded-lg bg-[#DBEAFE] border border-[#93C5FD]/60 flex items-center justify-center text-[#1E40AF] shrink-0 group-hover/item:scale-105 transition-transform">
+                                      <Heart className="w-3 h-3" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-[11px] text-[#0B1F33] group-hover/item:text-[#1D4ED8] transition-colors leading-tight truncate">
+                                        NGO Drive — Community Outreach
+                                      </h4>
+                                      <p className="text-[9.5px] text-[#1E40AF] leading-tight truncate">
+                                        Student Mentorship & Humanitarian Care
                                       </p>
                                     </div>
                                   </Link>
@@ -402,12 +498,12 @@ export default function Navbar() {
                             </div>
 
                             {/* Bottom Footer Bar */}
-                            <div className="border-t border-[#93C5FD]/60 pt-3 flex items-center justify-between text-xs mt-1">
+                            <div className="border-t border-[#93C5FD]/60 pt-2.5 flex items-center justify-between text-xs mt-0.5">
                               <span className="text-[11px] text-[#1E40AF] font-medium">
                                 Department of Information Technology, TCET
                               </span>
                               <Link 
-                                to="/who-we-are#lens" 
+                                to="/contact" 
                                 className="font-bold text-[11.5px] text-[#1E40AF] hover:underline inline-flex items-center gap-1 group/collab"
                               >
                                 <span>Collaborate</span>
