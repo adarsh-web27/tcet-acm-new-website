@@ -229,7 +229,7 @@ export default function WhoWeAre() {
                     </span>
                   </div>
 
-                  <span className="inline-block font-mono text-[11px] font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+                  <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
                     {branchCounsellor.badge}
                   </span>
                 </div>
@@ -246,7 +246,7 @@ export default function WhoWeAre() {
                     <p className="font-mono text-sm font-bold text-[#0B1F33] mt-0.5">
                       {branchCounsellor.role}
                     </p>
-                    <p className="text-xs text-[#1E40AF]">
+                    <p className="text-xs sm:text-sm text-[#1E40AF]">
                       {branchCounsellor.department}
                     </p>
                   </div>
@@ -256,7 +256,7 @@ export default function WhoWeAre() {
                     <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
                       "{branchCounsellor.quote}"
                     </p>
-                    <p className="text-xs font-mono font-bold text-[#1E40AF]">
+                    <p className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF]">
                       — On transforming student engineers into ethical computing scholars.
                     </p>
                   </div>
@@ -265,7 +265,7 @@ export default function WhoWeAre() {
                   <div className="flex flex-wrap items-center gap-4 pt-1">
                     <button
                       onClick={() => setSelectedPerspective(branchCounsellor)}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
                     >
                       <UserCheck className="w-3.5 h-3.5" />
                       <span>Read Full Perspective</span>
@@ -286,11 +286,11 @@ export default function WhoWeAre() {
                   <h3 className="font-display font-black text-2xl text-[#0B1F33] uppercase tracking-tight">
                     Faculty Mentorship Perspectives
                   </h3>
-                  <p className="text-xs text-[#1E40AF] mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#1E40AF] mt-0.5">
                     Insights from faculty chairs overseeing research, project development, and academic excellence.
                   </p>
                 </div>
-                <span className="hidden sm:inline-block font-mono text-xs text-[#1E40AF] font-bold">
+                <span className="hidden sm:inline-block font-mono text-xs sm:text-sm text-[#1E40AF] font-bold">
                   {facultyMentorsList.length} Mentors
                 </span>
               </div>
@@ -318,7 +318,7 @@ export default function WhoWeAre() {
                           <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
                             {mentor.role}
                           </p>
-                          <span className="inline-block text-[10px] font-mono font-bold text-[#0B1F33] px-2 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
+                          <span className="inline-block text-xs font-mono font-bold text-[#0B1F33] px-2.5 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
                             {mentor.badge}
                           </span>
                         </div>
@@ -330,7 +330,7 @@ export default function WhoWeAre() {
                       </blockquote>
                     </div>
 
-                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
+                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
                       <span>Explore Perspective</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -444,7 +444,7 @@ export default function WhoWeAre() {
                     <span className="sm:hidden font-mono font-black text-lg text-[#1E40AF]">
                       {item.year}
                     </span>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33]">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33]">
                       {item.badge}
                     </span>
                   </div>
@@ -505,16 +505,16 @@ export default function WhoWeAre() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <span className="inline-block text-[11px] font-mono font-bold text-[#0B1F33] px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+                  <span className="inline-block text-xs sm:text-sm font-mono font-bold text-[#0B1F33] px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
                     {selectedPerspective.badge}
                   </span>
                   <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33]">
                     {selectedPerspective.name}
                   </h3>
-                  <p className="font-mono text-xs font-bold text-[#0B1F33]">
+                  <p className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33]">
                     {selectedPerspective.role}
                   </p>
-                  <p className="text-xs text-[#1E40AF]">
+                  <p className="text-xs sm:text-sm text-[#1E40AF]">
                     {selectedPerspective.department}
                   </p>
                 </div>

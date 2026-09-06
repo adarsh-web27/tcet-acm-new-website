@@ -79,7 +79,7 @@ export default function PureCss3DCarousel() {
         
         {/* Mobile Header */}
         <div className="text-center flex flex-col items-center justify-center max-w-sm mx-auto mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-[10px] font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-xs font-bold uppercase tracking-wider mb-2">
             <span>TCET ACM • 2025 — 2026</span>
           </div>
 
@@ -87,7 +87,7 @@ export default function PureCss3DCarousel() {
             GLIMPSE OF <span className="text-[#1D4ED8]">MEMORIES</span>
           </h2>
 
-          <p className="text-xs text-slate-500 font-medium mt-1.5 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1.5 leading-relaxed">
             A visual archive of the moments that shaped our chapter.
           </p>
         </div>
@@ -125,14 +125,14 @@ export default function PureCss3DCarousel() {
                 
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="font-mono text-[9px] font-bold text-white px-2.5 py-0.5 rounded-full bg-[#1D4ED8] shadow-xs">
+                  <span className="font-mono text-xs font-bold text-white px-2.5 py-0.5 rounded-full bg-[#1D4ED8] shadow-xs">
                     {mobileCards[mobileIdx].tag}
                   </span>
                 </div>
 
                 {/* Caption */}
                 <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <h3 className="font-display font-bold text-sm tracking-tight leading-snug">
+                  <h3 className="font-display font-bold text-base tracking-tight leading-snug">
                     {mobileCards[mobileIdx].title}
                   </h3>
                 </div>
@@ -179,7 +179,7 @@ export default function PureCss3DCarousel() {
             </button>
           </div>
 
-          <p className="text-center text-[10px] font-mono text-slate-400 mt-2.5">
+          <p className="text-center text-xs font-mono text-slate-400 mt-2.5">
             ← Swipe left or right →
           </p>
         </div>
@@ -264,7 +264,7 @@ export default function PureCss3DCarousel() {
 
         {/* Editorial Header Section */}
         <div className="relative z-20 text-center flex flex-col items-center justify-center px-4 translate-y-[30px] pointer-events-none select-none max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-slate-200/90 text-[#2563EB] font-mono text-xs font-bold uppercase tracking-[0.2em] shadow-2xs mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-slate-200/90 text-[#2563EB] font-mono text-sm font-bold uppercase tracking-[0.2em] shadow-2xs mb-2">
             <span>TCET ACM • 2025 — 2026</span>
           </div>
 
@@ -277,7 +277,7 @@ export default function PureCss3DCarousel() {
             </span>
           </h2>
 
-          <p className="text-sm text-slate-500 font-medium tracking-normal mt-2 max-w-md mx-auto leading-relaxed">
+          <p className="text-base text-slate-500 font-medium tracking-normal mt-2 max-w-md mx-auto leading-relaxed">
             A visual archive of the moments that shaped TCET ACM.
           </p>
         </div>

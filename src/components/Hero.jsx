@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-6 order-1 pl-0">
 
           {/* Chapter Kicker Micro-Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.18em] shadow-xs">
             <span>TCET ACM SIGITE CHAPTER</span>
           </div>
 
@@ -58,7 +58,7 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
             Empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, and peer-to-peer mentorship at TCET Mumbai.
           </p>
 

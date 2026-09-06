@@ -101,7 +101,7 @@ export default function AnimatedCube() {
       {/* Non-rerender Speech Bubble Ref Container */}
       <div 
         ref={refs.speechBubble}
-        className="absolute -top-7 px-3 py-1 rounded-xl bg-[#181818] border border-[#4F7BFF]/40 text-white text-xs font-mono shadow-xl backdrop-blur-md z-40 whitespace-nowrap opacity-0"
+        className="absolute -top-7 px-3 py-1 rounded-xl bg-[#181818] border border-[#4F7BFF]/40 text-white text-sm font-mono shadow-xl backdrop-blur-md z-40 whitespace-nowrap opacity-0"
       />
 
       {/* Robot Mascot Container */}

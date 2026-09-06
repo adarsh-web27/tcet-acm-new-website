@@ -83,7 +83,7 @@ export default function TechTypographyStack() {
           ref={centerLineRef}
           className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 my-1 sm:my-2 z-10 will-change-transform w-full"
         >
-          <span className="font-mono text-[9px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg font-bold lowercase text-[#204896] shrink-0">
+          <span className="font-mono text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold lowercase text-[#204896] shrink-0">
             from
           </span>
           <span 
@@ -91,7 +91,7 @@ export default function TechTypographyStack() {
           >
             CLASSROOM
           </span>
-          <span className="font-mono text-[7.5px] xs:text-[9px] sm:text-xs md:text-sm font-bold lowercase text-[#204896] text-left leading-tight shrink-0">
+          <span className="font-mono text-xs xs:text-sm sm:text-base md:text-lg font-bold lowercase text-[#204896] text-left leading-tight shrink-0">
             to<br />production
           </span>
         </div>
