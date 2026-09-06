@@ -312,8 +312,10 @@ export default function TeamGrid() {
                 )}
                 {member.badge.includes('FACULTY') && member.email && (
                   <a
-                    href={`mailto:${member.email}`}
-                    aria-label={`Email ${member.name}`}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(member.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Email ${member.name} via Gmail`}
                     className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#DBEAFE] flex items-center justify-center text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

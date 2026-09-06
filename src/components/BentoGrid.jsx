@@ -15,54 +15,9 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Custom CountUp hook for smooth zero-rerender number animation
-function useCountUp(end, suffix = "+", duration = 2000) {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    let animationFrame;
-    let hasStarted = false;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          hasStarted = true;
-          let startTime = null;
-          const animate = (currentTime) => {
-            if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const currentCount = Math.floor(progress === 1 ? end : end * (1 - Math.pow(2, -10 * progress)));
-            if (ref.current) {
-              ref.current.innerText = `${currentCount}${suffix}`;
-            }
-            if (progress < 1) {
-              animationFrame = requestAnimationFrame(animate);
-            }
-          };
-          animationFrame = requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      observer.disconnect();
-      if (animationFrame) cancelAnimationFrame(animationFrame);
-    };
-  }, [end, suffix, duration]);
-
-  return ref;
-}
-
 export default function BentoGrid() {
   const sectionRef = useRef(null);
   const [activeTab, setActiveTab] = useState(0);
-
-  const membersRef = useCountUp(165, "+");
-  const eventsRef = useCountUp(50, "+");
-  const projectsRef = useCountUp(30, "+");
 
   const switcherTabs = [
     {
@@ -71,9 +26,9 @@ export default function BentoGrid() {
       tag: "Local Heritage",
       content: {
         headline: "Chartered July 2011 • Department of IT, TCET",
-        description: "TCET ACM SIGITE nurtures 165+ active computing scholars, pairing academic excellence with peer-to-peer engineering workshops, Scopus research paper writing, and national hackathons.",
+        description: "TCET ACM SIGITE nurtures 140+ active computing scholars, pairing academic excellence with peer-to-peer engineering workshops, Scopus research paper writing, and national hackathons.",
         highlights: [
-          "165+ Active Computing Student Scholars",
+          "140+ Active Computing Student Scholars",
           "Annual Research Ezine & Scopus Mentorship",
           "Global Alumni Network across Oracle, Capgemini & US Tier-1 Universities"
         ]
@@ -98,12 +53,12 @@ export default function BentoGrid() {
       title: "Vision & Mission",
       tag: "Institutional Mandate",
       content: {
-        headline: "To Be A Premier Center For Information Technology Education",
-        description: "Empowering students to evolve into ethical technical leaders and industry champions through rigorous practical execution, research excellence, and community sustainability initiatives.",
+        headline: "Leadership in IT Education & Industry-Ready Excellence",
+        description: "Vision: \"The department of IT will strive to be at the top position among the renowned providers of IT education.\" • Mission: \"The IT department is committed to enrich students by rigorously implementing quality education with a focus to make them industry ready, while imbibing in them professional ethics and social values to become responsible citizens.\"",
         highlights: [
-          "Host 36-Hour National Hackathons (ACM ReCode & InnovGenius)",
-          "1-on-1 Faculty Scopus Research Paper Publication Guidance",
-          "Ek Ped Maa Ke Naam Sustainability Drives (300+ Saplings Planted)"
+          "Rigorous Quality Education & Global Computing Standards",
+          "Comprehensive Industry Readiness & Technical Hands-on Mastery",
+          "Professional Ethics & Responsible Engineering Values"
         ]
       }
     }
@@ -315,22 +270,6 @@ export default function BentoGrid() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* ================= METRICS COUNTERS ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-          <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
-            <span ref={membersRef} className="block font-display font-black text-4xl sm:text-5xl text-[#1D4ED8]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Active Scholars</span>
-          </div>
-          <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
-            <span ref={eventsRef} className="block font-display font-black text-4xl sm:text-5xl text-[#D97706]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Annual Events</span>
-          </div>
-          <div className="p-8 rounded-3xl bg-white/95 border-2 border-[#93C5FD] shadow-md text-center flex flex-col justify-center">
-            <span ref={projectsRef} className="block font-display font-black text-4xl sm:text-5xl text-[#059669]">0+</span>
-            <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider mt-2">Scopus Papers & Prototypes</span>
           </div>
         </div>
 
