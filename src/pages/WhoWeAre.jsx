@@ -56,7 +56,7 @@ export default function WhoWeAre() {
     {
       year: '2026',
       title: '15 Years of Engineering Leadership',
-      desc: '165+ active student scholars, 300+ trees planted, and 50+ annual events scaling global alumni mentorship across Tier-1 US universities.',
+      desc: '140+ active student scholars, 300+ trees planted, and 50+ annual events scaling global alumni mentorship across Tier-1 US universities.',
       badge: 'Milestone'
     }
   ];

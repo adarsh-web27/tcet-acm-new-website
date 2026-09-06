@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import { ArrowDown, Users, Monitor, ArrowRight } from 'lucide-react';
 import { homeAssets } from '../assets';
 import { LoadingContext } from '../App';
 import InfiniteTextMarquee from './InfiniteTextMarquee';
+import { getLenis } from '../hooks/useLenis';
 
 export default function Hero() {
   return (
@@ -63,21 +64,49 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 w-full sm:w-auto">
-            <Link
-              to="/team"
-              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2.5 px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-mono text-sm font-bold uppercase tracking-wider shadow-md shadow-slate-900/10 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
+            <button
+              type="button"
+              onClick={() => {
+                const targetEl = document.getElementById('second-page');
+                if (targetEl) {
+                  const lenis = getLenis();
+                  if (lenis) {
+                    lenis.scrollTo(targetEl, { offset: -70 });
+                  } else {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
+              aria-label="Explore Our Chapter"
+              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2.5 px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-md shadow-slate-900/10 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
             >
-              <span>Explore Chapter Crew</span>
-              <ArrowUpRight className="w-4 h-4 text-[#38BDF8]" aria-hidden="true" />
-            </Link>
+              <span>Explore Our Chapter</span>
+              <ArrowDown className="w-4 h-4 text-[#38BDF8]" aria-hidden="true" />
+            </button>
 
             <Link
               to="/events"
-              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-700 font-mono text-sm font-bold uppercase tracking-wider shadow-xs hover:border-slate-300 hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full sm:w-auto max-w-[340px] inline-flex items-center justify-center min-h-[46px] gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:via-indigo-500 hover:to-blue-600 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-[0.98] transition-all border border-blue-400/40 cursor-pointer group/events"
             >
               <span>View Flagship Events</span>
-              <ArrowDown className="w-3.5 h-3.5 text-[#1D4ED8]" aria-hidden="true" />
+              <ArrowRight className="w-4 h-4 text-cyan-300 font-extrabold stroke-[2.5] group-hover/events:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
+          </div>
+
+          {/* Quick Metrics Bar */}
+          <div className="flex flex-wrap items-center gap-x-5 sm:gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm font-medium text-slate-700">
+            <div className="inline-flex items-center gap-2">
+              <Users className="w-4 h-4 text-[#0284C7] shrink-0" />
+              <span><strong className="text-slate-900 font-bold">140+</strong> Active members</span>
+            </div>
+            <div className="inline-flex items-center gap-2">
+              <Users className="w-4 h-4 text-[#0284C7] shrink-0" />
+              <span><strong className="text-slate-900 font-bold">1155+</strong> members</span>
+            </div>
+            <div className="inline-flex items-center gap-2">
+              <Monitor className="w-4 h-4 text-[#0284C7] shrink-0" />
+              <span><strong className="text-slate-900 font-bold">120+</strong> events</span>
+            </div>
           </div>
 
         </div>
