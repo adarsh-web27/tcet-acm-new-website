@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedCube from './AnimatedCube/AnimatedCube';
-import { ArrowUpRight, Check, Heart } from 'lucide-react';
+import { Heart, Linkedin, Instagram } from 'lucide-react';
 
 export default function FooterBento() {
   const [copied, setCopied] = useState(false);
@@ -94,7 +94,7 @@ export default function FooterBento() {
 
             <div className="relative z-10">
               {/* Live Terminal Window */}
-              <div className="w-full rounded-2xl bg-[#0B1F33] border-2 border-slate-700/80 p-5 sm:p-6 mb-6 sm:mb-8 text-left shadow-2xl backdrop-blur-xl">
+              <div className="w-full rounded-2xl bg-[#0B1F33] border-2 border-slate-700/80 p-5 sm:p-6 text-left shadow-2xl backdrop-blur-xl">
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500/90 block" />
@@ -123,19 +123,14 @@ export default function FooterBento() {
                 </div>
               </div>
 
-              {/* Developer Journey Roadmap */}
-              <div>
-                <span className="text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.25em] text-[#1E40AF] mb-3 block">
-                  Your Developer Journey
-                </span>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-3">
-                  {['Join', 'Learn', 'Build', 'Lead', 'Mentor'].map((stage, idx) => (
-                    <div key={idx} className="p-3 rounded-2xl bg-[#EFF6FF] border-2 border-[#BFDBFE] text-center relative group/stage hover:border-[#1D4ED8] hover:bg-[#DBEAFE] transition-all shadow-xs">
-                      <span className="block font-mono font-black text-xs sm:text-sm text-[#1D4ED8] mb-0.5">0{idx + 1}</span>
-                      <span className="font-bold text-xs sm:text-sm text-[#0B1F33]">{stage}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Stages: Join, Learn, Build, Lead */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-6">
+                {['Join', 'Learn', 'Build', 'Lead'].map((stage, idx) => (
+                  <div key={idx} className="p-3 rounded-2xl bg-[#EFF6FF] border-2 border-[#BFDBFE] text-center relative group/stage hover:border-[#1D4ED8] hover:bg-[#DBEAFE] transition-all shadow-xs">
+                    <span className="block font-mono font-black text-xs text-[#1D4ED8] mb-0.5">0{idx + 1}</span>
+                    <span className="font-bold text-xs text-[#0B1F33]">{stage}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -146,43 +141,34 @@ export default function FooterBento() {
         {/* Divider */}
         <div className="w-full h-px bg-[#BFDBFE] mb-8" />
 
-        {/* Bottom Bar: Socials & Copyright */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm md:text-base font-bold text-[#1E40AF]">
-            <a href="https://github.com/tcet-acm" target="_blank" rel="noreferrer" className="hover:text-[#1D4ED8] transition-colors flex items-center gap-1">
-              <span>GitHub</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-            <a href="https://linkedin.com/company/tcet-acm" target="_blank" rel="noreferrer" className="hover:text-[#1D4ED8] transition-colors flex items-center gap-1">
-              <span>LinkedIn</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-            <a href="https://instagram.com/tcet_acm" target="_blank" rel="noreferrer" className="hover:text-[#1D4ED8] transition-colors flex items-center gap-1">
-              <span>Instagram</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-            <button 
-              onClick={handleCopyEmail} 
-              aria-label="Copy chapter email address"
-              className="hover:text-[#1D4ED8] transition-colors cursor-pointer flex items-center gap-1"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-[#10B981]" />
-                  <span className="text-[#10B981]">Copied Email!</span>
-                </>
-              ) : (
-                <>
-                  <span>Email</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </>
-              )}
-            </button>
-          </div>
-
-          <p className="text-xs sm:text-sm text-[#1E40AF] font-medium tracking-wide text-center">
+        {/* Bottom Bar: Copyright on Left, Socials on Right */}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6">
+          <p className="text-[11px] text-[#1E40AF] font-medium tracking-wide text-center md:text-left">
             © 2026 TCET ACM SIGITE Chapter • Made with <Heart className="w-3.5 h-3.5 inline text-rose-500 fill-rose-500 mx-0.5" /> for engineering excellence.
           </p>
+
+          <div className="flex items-center justify-center gap-3 sm:gap-4 text-[#1E40AF]">
+            <a 
+              href="https://www.instagram.com/tcet_acm_sigite" 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="TCET ACM Instagram"
+              title="Instagram"
+              className="w-9 h-9 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center hover:bg-[#1D4ED8] hover:text-white hover:border-[#1D4ED8] transition-all hover:scale-110 shadow-xs"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/acmtcet/" 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="TCET ACM LinkedIn"
+              title="LinkedIn"
+              className="w-9 h-9 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center hover:bg-[#1D4ED8] hover:text-white hover:border-[#1D4ED8] transition-all hover:scale-110 shadow-xs"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
       </div>

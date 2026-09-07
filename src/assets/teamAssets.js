@@ -28,7 +28,7 @@ export const teamAssets = [
     badge: "FACULTY CHAIR",
     github: null,
     linkedin: null,
-    email: "mary.margarat@tcetmumbai.in"
+    email: "mary.margarat@thakureducation.org"
   },
   {
     id: "apeksha-waghmare",
@@ -39,7 +39,7 @@ export const teamAssets = [
     badge: "FACULTY IN-CHARGE",
     github: null,
     linkedin: null,
-    email: "apeksha.waghmare@tcetmumbai.in"
+    email: "apeksha.waghmare@thakureducation.org"
   },
   {
     id: "archita-agar",
@@ -50,7 +50,7 @@ export const teamAssets = [
     badge: "FACULTY IN-CHARGE",
     github: null,
     linkedin: null,
-    email: "archita.agar@tcetmumbai.in"
+    email: "archita.agar@thakureducation.org"
   },
 
   // ================= 2. STUDENT CORE COMMITTEE =================
@@ -94,8 +94,8 @@ export const teamAssets = [
     department: "IT Dept • TCET ACM",
     image: teamImages.prahamTiwari,
     badge: "EVENT MANAGER",
-    github: null,
-    linkedin: null,
+    github: "https://github.com/Code-with-Prasham",
+    linkedin: "https://www.linkedin.com/in/prasham-tiwari11",
     email: null
   },
   {
@@ -105,7 +105,7 @@ export const teamAssets = [
     department: "IT Dept • TCET ACM",
     image: teamImages.vedantDusane,
     badge: "TREASURER",
-    github: null,
+    github: "https://github.com/vedant-dusane",
     linkedin: "https://www.linkedin.com/in/vedant-dusane-/",
     email: null
   },
@@ -127,7 +127,7 @@ export const teamAssets = [
     department: "IT Dept • TCET ACM",
     image: teamImages.kaushalPawar,
     badge: "PUBLICITY HEAD",
-    github: null,
+    github: "https://github.com/kpawar07",
     linkedin: "https://www.linkedin.com/in/kaushal-pawar0210/",
     email: null
   },
@@ -171,8 +171,8 @@ export const teamAssets = [
     department: "IT Dept • TCET ACM",
     image: teamImages.aadityaGupta,
     badge: "DESIGN DIRECTOR",
-    github: null,
-    linkedin: null,
+    github: "https://github.com/aadiash69-dotcom",
+    linkedin: "https://www.linkedin.com/in/aaditya-gupta-abaa8136b",
     email: null
   },
   {

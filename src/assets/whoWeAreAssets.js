@@ -1,4 +1,4 @@
-﻿import { whoWeAreImages } from './images/who-we-are';
+import { whoWeAreImages } from './images/who-we-are';
 
 /**
  * Who We Are Section Assets & Perspectives — Official TCET ACM SIGITE Roster
@@ -159,8 +159,8 @@ export const studentPerspectivesList = [
       "Organized industrial visits and guest sessions",
       "Coordinated event logistics for 1,000+ attendees"
     ],
-    github: null,
-    linkedin: null,
+    github: "https://github.com/Code-with-Prasham",
+    linkedin: "https://www.linkedin.com/in/prasham-tiwari11",
     email: "praham.acm@tcetmumbai.in"
   },
   {
@@ -178,7 +178,7 @@ export const studentPerspectivesList = [
       "Maintained 100% transparent audit records",
       "Secured event funding and equipment"
     ],
-    github: null,
+    github: "https://github.com/vedant-dusane",
     linkedin: "https://www.linkedin.com/in/vedant-dusane-/",
     email: "vedant.d.acm@tcetmumbai.in"
   },
