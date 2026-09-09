@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, ChevronDown, FileText, Instagram, ArrowRight } from 'lucide-react';
 import { EVENTS } from '../data/eventsTimelineData';
 
 export default function Events() {
+  const [searchParams] = useSearchParams();
+
   // Active state management
   const [expandedYear, setExpandedYear] = useState(String(EVENTS[0].year));
   const [activeEventId, setActiveEventId] = useState(EVENTS[0].events[0].id);
+
+  // Auto-expand & select event when navigated with ?event=id
+  useEffect(() => {
+    const eventParam = searchParams.get('event');
+    if (eventParam) {
+      for (const group of EVENTS) {
+        const match = group.events.find((e) => e.id === eventParam);
+        if (match) {
+          setExpandedYear(String(group.year));
+          setActiveEventId(match.id);
+          const timer = setTimeout(() => {
+            const showcaseEl = document.getElementById('events-showcase-section');
+            if (showcaseEl) {
+              showcaseEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 120);
+          return () => clearTimeout(timer);
+        }
+      }
+    }
+  }, [searchParams]);
 
   // Find currently active event record
   const allEvents = EVENTS.flatMap((group) => group.events);
@@ -24,6 +48,7 @@ export default function Events() {
 
   const getCategoryTheme = (cat) => {
     const c = (cat || '').toLowerCase();
+    if (c.includes('upcoming')) return { bg: 'bg-[#FFD43B]', text: 'text-[#0B1F33]', border: 'border-amber-400' };
     if (c.includes('workshop')) return { bg: 'bg-[#FFD43B]', text: 'text-[#0B1F33]', border: 'border-amber-300' };
     if (c.includes('hackathon') || c.includes('code')) return { bg: 'bg-[#1D4ED8]', text: 'text-white', border: 'border-blue-300' };
     if (c.includes('social') || c.includes('tree') || c.includes('drive')) return { bg: 'bg-[#10B981]', text: 'text-white', border: 'border-emerald-300' };
@@ -180,7 +205,7 @@ export default function Events() {
           </div>
 
           {/* RIGHT COLUMN (7 Cols): Active Event Showcase Dynamic Card */}
-          <div className="lg:col-span-7 w-full max-w-lg lg:max-w-none mx-auto">
+          <div id="events-showcase-section" className="lg:col-span-7 w-full max-w-lg lg:max-w-none mx-auto scroll-mt-28">
             <div className="bg-white/95 backdrop-blur-2xl border-2 border-[#BFDBFE] rounded-3xl p-4 sm:p-7 shadow-[0_12px_40px_-8px_rgba(29,78,216,0.14)] relative overflow-hidden">
               
               <AnimatePresence mode="wait">
@@ -251,8 +276,25 @@ export default function Events() {
                     })}
                   </div>
 
-                  {/* Dual Action Cards: EVENT REPORT & INSTAGRAM REEL */}
+                  {/* Dual Action Cards: EVENT REPORT & INSTAGRAM REEL or UPCOMING STATUS */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {/* Status banner ONLY for Zephyr 2026 upcoming flagship fest */}
+                    {activeEvent.id === 'e-2026-zephyr' && (
+                      <div className="sm:col-span-2 p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-300 text-amber-950 flex items-center justify-between shadow-xs">
+                        <div className="flex items-center gap-3">
+                          <div className="w-3 h-3 rounded-full bg-amber-500 animate-ping shrink-0" />
+                          <div className="flex flex-col text-left">
+                            <span className="font-mono text-xs font-black uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+                              <span>UPCOMING CHAPTER EVENT</span>
+                              <span className="px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 text-[10px] font-bold">STAY TUNED</span>
+                            </span>
+                            <span className="text-xs text-amber-800 font-medium mt-0.5">
+                              Registration links, schedules, and competition rulebooks will be published soon.
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     {/* 1. EVENT REPORT BUTTON */}
                     {activeEvent.reportUrl && (
                       <a

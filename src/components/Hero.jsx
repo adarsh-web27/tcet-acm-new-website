@@ -10,7 +10,7 @@ import { getLenis } from '../hooks/useLenis';
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-0 lg:min-h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-20 pb-0 w-full overflow-x-hidden select-none"
+      className="relative min-h-0 lg:min-h-screen flex flex-col justify-between pt-24 sm:pt-28 lg:pt-28 pb-0 w-full overflow-x-hidden select-none"
     >
       {/* ================= HERO BACKGROUND GRAPHIC ASSET ================= */}
       <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 overflow-hidden bg-white">
@@ -45,7 +45,7 @@ export default function Hero() {
 
           {/* Chapter Kicker Micro-Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.18em] shadow-xs">
-            <span>TCET ACM SIGITE CHAPTER</span>
+            <span>TCET ACM SIGITE STUDENT CHAPTER</span>
           </div>
 
           {/* BIG BOLD STATEMENT HEADLINE (Direct semantic paint for 0ms LCP) */}
@@ -59,7 +59,7 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
-            Empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, and peer-to-peer mentorship at TCET Mumbai.
+            Empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, social causes, educational drives, and peer-to-peer mentorship at TCET Mumbai.
           </p>
 
           {/* CTA Buttons */}
@@ -67,7 +67,10 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => {
-                const targetEl = document.getElementById('second-page');
+                const isMobile = window.innerWidth < 768;
+                const targetEl = isMobile 
+                  ? document.getElementById('memories-section') 
+                  : document.getElementById('second-page');
                 if (targetEl) {
                   const lenis = getLenis();
                   if (lenis) {
@@ -112,49 +115,35 @@ export default function Hero() {
         </div>
 
         {/* ================= RIGHT COLUMN: CORE TEAM SHOWCASE (Expanded Width & Crisp Large Frame) ================= */}
-        <div className="lg:col-span-6 w-full flex-1 min-w-0 flex justify-center lg:justify-end [perspective:1400px] order-2 mt-4 lg:mt-0">
+        <div className="lg:col-span-6 w-full flex-1 min-w-0 flex justify-center lg:justify-end order-2 mt-4 lg:mt-0">
           <div className="relative w-full max-w-xl xl:max-w-2xl translate-y-0 lg:-translate-y-[25px]">
             
-            {/* Layer A: Core Frame */}
-            <div className="w-full">
-              {/* Layer B: Subtle Vertical Hover Float */}
-              <motion.div
-                animate={{ 
-                  y: [0, -6, 0] 
-                }}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: 0.6
-                }}
-                className="w-full"
-              >
-                {/* Layer C: Stable Clean Hero Frame */}
-                <div className="relative p-2.5 sm:p-3 rounded-[28px] sm:rounded-[36px] bg-white/95 border-2 border-slate-200/90 shadow-[0_30px_70px_rgba(15,23,42,0.25)] hover:shadow-[0_35px_80px_rgba(37,99,235,0.2)] transition-shadow duration-500">
-                  
-                  {/* Inner Image Container */}
-                  <div className="relative aspect-[16/11] w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-slate-100 shadow-inner">
-                    {/* Faculty & Core Photo */}
-                    <picture className="w-full h-full block">
-                      <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp" type="image/webp" />
-                      <img 
-                        src="/images/hero-team.webp" 
-                        srcSet="/images/hero-team-sm.webp 1000w, /images/hero-team.webp 1400w"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 700px"
-                        alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
-                        className="w-full h-full object-cover object-center transform-gpu [backface-visibility:hidden]"
-                        loading="eager"
-                        decoding="async"
-                        fetchpriority="high"
-                        width={1400}
-                        height={933}
-                      />
-                    </picture>
-                  </div>
-
+            {/* Crisp Frame with Clean Hover Lift */}
+            <div className="w-full hover:-translate-y-1.5 transition-transform duration-300 ease-out">
+              {/* Stable Clean Hero Card Frame */}
+              <div className="relative p-2.5 sm:p-3 rounded-[28px] sm:rounded-[36px] bg-white/95 border-2 border-slate-200/90 shadow-[0_30px_70px_rgba(15,23,42,0.25)] hover:shadow-[0_35px_80px_rgba(37,99,235,0.2)] transition-shadow duration-500">
+                
+                {/* Inner Image Container (exact aspect matching cropped 1900x1400 master photo) */}
+                <div className="relative aspect-[19/14] w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-slate-100 shadow-inner">
+                  {/* Faculty & Core Photo (Rendered directly at native display density) */}
+                  <picture className="w-full h-full block">
+                    <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp" type="image/webp" />
+                    <img 
+                      src="/images/hero-team.webp" 
+                      srcSet="/images/hero-team-sm.webp 1000w, /images/hero-team.webp 1900w"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
+                      alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
+                      className="w-full h-full object-cover object-center"
+                      loading="eager"
+                      decoding="async"
+                      fetchpriority="high"
+                      width={1900}
+                      height={1400}
+                    />
+                  </picture>
                 </div>
-              </motion.div>
+
+              </div>
             </div>
 
           </div>

@@ -8,6 +8,17 @@ import { eventImages } from './images/events';
 
 export const clubEvents = [
   {
+    id: "e-2026-zephyr",
+    title: "Zephyr 2026 — Flagship Fest",
+    date: "Upcoming • 2026-27",
+    location: "TCET Campus",
+    desc: "TCET ACM SIGITE's flagship annual techno-cultural fest featuring hackathons, coding showdowns, and workshops.",
+    badge: "Upcoming Event",
+    badgeTheme: { bg: "bg-[#FFD43B]", text: "text-[#0B1F33]", border: "border-amber-400" },
+    hasReport: false,
+    image: eventImages.zephyrFest
+  },
+  {
     id: "e-2026-pixxelhack-2",
     title: "PixxelHack Webathon 2.0",
     date: "2 Aug • 7 Aug 2026",

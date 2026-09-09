@@ -6,9 +6,10 @@ import { galleryImages } from './images/gallery';
  */
 
 export const MEMORY_CARDS = [
-  // 1. PixxelHack Webathon 2.0 Live Moments
+  // 1. PixxelHack Webathon 2.0 Live Moments (2026-27)
   {
     id: 0,
+    year: "2026-27",
     title: "PixxelHack 2.0 • Live Coding Showdown",
     date: "AUG 07, 2026",
     location: "Online & TCET Campus",
@@ -18,6 +19,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 1,
+    year: "2026-27",
     title: "PixxelHack 2.0 • Participant Teams",
     date: "AUG 07, 2026",
     location: "TCET Computing Labs",
@@ -26,9 +28,10 @@ export const MEMORY_CARDS = [
     imageUrl: galleryImages[1]
   },
 
-  // 2. Alumni Interaction 2026
+  // 2. Alumni Interaction 2026 (2026-27)
   {
     id: 2,
+    year: "2026-27",
     title: "Alumni Mentorship & Q&A Circle",
     date: "JUL 31, 2026",
     location: "Study Skill Center TIMSR",
@@ -37,9 +40,10 @@ export const MEMORY_CARDS = [
     imageUrl: galleryImages[2]
   },
 
-  // 3. Local Industrial Visit (Automation Expo 2026)
+  // 3. Local Industrial Visit (Automation Expo 2026) (2026-27)
   {
     id: 3,
+    year: "2026-27",
     title: "Automation Expo 2026 • Live Robotics Demo",
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
@@ -49,6 +53,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 4,
+    year: "2026-27",
     title: "Industry 4.0 & Smart Manufacturing Tour",
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
@@ -57,9 +62,10 @@ export const MEMORY_CARDS = [
     imageUrl: galleryImages[4]
   },
 
-  // 4. Tree Plantation Drive 2026
+  // 4. Tree Plantation Drive 2026 (2026-27)
   {
     id: 5,
+    year: "2026-27",
     title: "Tree Plantation • Greening Thakur Junction",
     date: "JUL 24, 2026",
     location: "Thakur Shyam Narayan Marg Junction",
@@ -69,6 +75,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 6,
+    year: "2026-27",
     title: "Ek Ped Maa Ke Naam • Volunteer Action",
     date: "JUL 24, 2026",
     location: "Thakur Road Dividers, Mumbai",
@@ -78,6 +85,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 7,
+    year: "2026-27",
     title: "Community Sustainability Campaign",
     date: "JUL 24, 2026",
     location: "Kandivali East, Mumbai",
@@ -86,9 +94,10 @@ export const MEMORY_CARDS = [
     imageUrl: galleryImages[7]
   },
 
-  // 5. Membership Drive 2026-27
+  // 5. Membership Drive 2026-27 (2026-27)
   {
     id: 8,
+    year: "2026-27",
     title: "Student Technical Orientation & Perks",
     date: "JUL 11, 2026",
     location: "TCET Campus",
@@ -98,6 +107,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 9,
+    year: "2026-27",
     title: "New ACM Members Welcome Ceremony",
     date: "JUL 11, 2026",
     location: "TCET Campus",
@@ -106,9 +116,10 @@ export const MEMORY_CARDS = [
     imageUrl: galleryImages[9]
   },
 
-  // 6. Chapter Archive & Historic Memories
+  // 6. Chapter Archive & Historic Memories (2025-26)
   {
     id: 10,
+    year: "2025-26",
     title: "Alumni Interaction 2025",
     date: "JUL 16, 2025",
     location: "TCET Seminar Hall-3",
@@ -118,6 +129,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 11,
+    year: "2025-26",
     title: "PixxelHack 2025 College Winners",
     date: "AUG 08, 2025",
     location: "Online & TCET Campus",
@@ -127,6 +139,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 12,
+    year: "2025-26",
     title: "TCET ACM Core Team 2025-26",
     date: "OCT 01, 2025",
     location: "ACM SIGITE Headquarters",
@@ -136,6 +149,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 13,
+    year: "2025-26",
     title: "TCET ACM Chapter Team Showcase",
     date: "OCT 14, 2025",
     location: "TCET Campus",
@@ -145,6 +159,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 14,
+    year: "2025-26",
     title: "Taiwan Automation Expo 2025",
     date: "AUG 13, 2025",
     location: "Nesco Exhibition Center, Goregaon",
@@ -154,6 +169,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 15,
+    year: "2025-26",
     title: "Social Cause Awareness Drive",
     date: "OCT 29, 2025",
     location: "Navayan Buddha Vihar",
@@ -163,6 +179,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 16,
+    year: "2025-26",
     title: "Seminar: Idea to Impact",
     date: "NOV 15, 2025",
     location: "TCET Auditorium",
@@ -172,6 +189,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 17,
+    year: "2025-26",
     title: "ACM SIGITE Committee Meet",
     date: "DEC 02, 2025",
     location: "IT Department Labs",
@@ -181,6 +199,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 18,
+    year: "2025-26",
     title: "Escape Room Challenge • Zephyr",
     date: "SEP 25, 2025",
     location: "TCET Campus Arena",
@@ -190,6 +209,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 19,
+    year: "2025-26",
     title: "Neon Arena Game Zone • Zephyr",
     date: "SEP 25, 2025",
     location: "Main Quadrangle, TCET",
@@ -199,6 +219,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 20,
+    year: "2025-26",
     title: "Dance & Cultural Workshop • Zephyr",
     date: "SEP 26, 2025",
     location: "Open Air Amphitheatre",
@@ -208,6 +229,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 21,
+    year: "2025-26",
     title: "Powershow Live Stage • Zephyr",
     date: "SEP 27, 2025",
     location: "Central Stage, TCET",
@@ -217,6 +239,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 22,
+    year: "2025-26",
     title: "Tree Plantation at Dream Park",
     date: "APR 18, 2026",
     location: "Dream Park, Kandivali East",
@@ -226,6 +249,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 23,
+    year: "2025-26",
     title: "Taiwan Automation Expo Delegation",
     date: "AUG 14, 2025",
     location: "Nesco Exhibition Center",
@@ -235,6 +259,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 24,
+    year: "2025-26",
     title: "Seminar on Generative AI & LLMs",
     date: "JUL 17, 2025",
     location: "Seminar Hall-3, TCET",
@@ -244,6 +269,7 @@ export const MEMORY_CARDS = [
   },
   {
     id: 25,
+    year: "2025-26",
     title: "Smart Manufacturing & Automation",
     date: "AUG 14, 2025",
     location: "Nesco Exhibition Complex",
@@ -253,6 +279,12 @@ export const MEMORY_CARDS = [
   }
 ];
 
+export const GALLERY_YEAR_OPTIONS = [
+  { value: '2026-27', label: '2026-27' },
+  { value: '2025-26', label: '2025-26' }
+];
+
 export const galleryAssets = {
-  MEMORY_CARDS
+  MEMORY_CARDS,
+  GALLERY_YEAR_OPTIONS
 };

@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Award, 
   Users, 
   CheckCircle2, 
-  Linkedin, 
-  Mail, 
-  Github,
   Bookmark, 
   Quote, 
-  X, 
   ArrowRight,
   GraduationCap,
   HeartHandshake,
@@ -23,43 +19,12 @@ import {
   facultyMentorsList, 
   studentPerspectivesList 
 } from '../assets/whoWeAreAssets';
+import { TIMELINE_DATA } from '../data/whoWeAreData';
+import PerspectiveModal from '../components/PerspectiveModal';
 
 export default function WhoWeAre() {
   const [selectedPerspective, setSelectedPerspective] = useState(null);
   const [perspectiveFilter, setPerspectiveFilter] = useState('all');
-
-  const timelineData = [
-    {
-      year: '2011',
-      title: 'Foundation & ACM SIGITE Charter',
-      desc: 'Officially chartered by ACM New York, USA under the Department of IT, TCET Mumbai to empower student computing education.',
-      badge: 'Chartered'
-    },
-    {
-      year: '2016',
-      title: 'ACM India Chapter Excellence',
-      desc: 'Established annual flagship hackathons, Scopus research mentoring, and community technical empowerment across Maharashtra.',
-      badge: 'Excellence'
-    },
-    {
-      year: '2021',
-      title: 'Cloud & Advanced Computing Hub',
-      desc: 'Formed technical domains in cloud computing, modern full-stack architectures, and competitive algorithmic problem solving.',
-      badge: 'Innovation'
-    },
-    {
-      year: '2025',
-      title: 'ACM India Summit Honorable Mention',
-      desc: 'Recognized nationwide by the ACM India Council for outstanding chapter portal engineering, student impact, and community drives.',
-      badge: 'National Award'
-    },
-    {
-      year: '2026',
-      title: '15 Years of Engineering Leadership',
-      desc: '140+ active student scholars, 300+ trees planted, and 50+ annual events scaling global alumni mentorship across Tier-1 US universities.',
-      badge: 'Milestone'
-    }
-  ];
 
   const allPerspectives = [
     branchCounsellor,
@@ -224,9 +189,6 @@ export default function WhoWeAre() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <span className="absolute bottom-3 right-3 p-2 rounded-xl bg-[#1D4ED8] text-white shadow-md group-hover:scale-110 transition-transform">
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
 
                   <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
@@ -307,18 +269,22 @@ export default function WhoWeAre() {
                   >
                     <div className="space-y-4">
                       {/* Header row */}
-                      <div className="flex items-center gap-3.5">
-                        <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                          <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
+                      <div className="flex items-center gap-4 sm:gap-5">
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-lg group-hover:scale-105 transition-transform bg-[#DBEAFE]">
+                          <img 
+                            src={mentor.image} 
+                            alt={mentor.name} 
+                            className="w-full h-full object-cover object-[center_18%]" 
+                          />
                         </div>
-                        <div>
-                          <h4 className="font-display font-black text-lg text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <h4 className="font-display font-black text-lg sm:text-xl text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">
                             {mentor.name}
                           </h4>
-                          <p className="font-mono text-xs font-bold text-[#0B1F33] mt-0.5">
+                          <p className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33] mt-1">
                             {mentor.role}
                           </p>
-                          <span className="inline-block text-xs font-mono font-bold text-[#0B1F33] px-2.5 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1">
+                          <span className="inline-block text-xs font-mono font-bold text-[#0B1F33] px-2.5 py-0.5 rounded-full bg-[#93C5FD] border border-[#3B82F6]/20 mt-1.5">
                             {mentor.badge}
                           </span>
                         </div>
@@ -370,11 +336,11 @@ export default function WhoWeAre() {
                   >
                     <div className="space-y-3.5">
                       {/* Top Profile */}
-                      <div className="flex items-center gap-3">
-                        <div className="w-14 h-14 rounded-2xl overflow-hidden border border-[#1D4ED8] shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                          <img src={student.image} alt={student.name} className="w-full h-full object-cover" />
+                      <div className="flex items-center gap-4">
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-md group-hover:scale-105 transition-transform bg-[#DBEAFE]">
+                          <img src={student.image} alt={student.name} className="w-full h-full object-cover object-[center_18%]" />
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <h4 className="font-display font-black text-base text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">
                             {student.name}
                           </h4>
@@ -421,7 +387,7 @@ export default function WhoWeAre() {
           </div>
 
           <div className="relative border-l-2 border-[#3B82F6]/30 ml-4 sm:ml-32 space-y-10">
-            {timelineData.map((item, idx) => (
+            {TIMELINE_DATA.map((item, idx) => (
               <motion.div 
                 key={item.year}
                 initial={{ opacity: 0, x: -20 }}
@@ -465,73 +431,10 @@ export default function WhoWeAre() {
       </div>
 
       {/* ================= PERSPECTIVE DETAIL MODAL (EDITORIAL EXPANDED VIEW) ================= */}
-      <AnimatePresence>
-        {selectedPerspective && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-            
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedPerspective(null)}
-              className="fixed inset-0 bg-[#1D4ED8]/40 backdrop-blur-sm"
-            />
-
-            {/* Modal Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.4 }}
-              className="relative w-full max-w-2xl bg-[#DBEAFE] border-2 border-[#93C5FD] rounded-3xl p-6 sm:p-10 shadow-2xl z-10 space-y-6 my-8 max-h-[90vh] overflow-y-auto"
-            >
-              {/* Close Button */}
-              <button
-                aria-label="Close perspective details"
-                onClick={() => setSelectedPerspective(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-[#93C5FD] text-[#0B1F33] hover:bg-[#1D4ED8] hover:text-white transition-all cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Profile Header */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-md">
-                  <img 
-                    src={selectedPerspective.image} 
-                    alt={selectedPerspective.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <span className="inline-block text-xs sm:text-sm font-mono font-bold text-[#0B1F33] px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
-                    {selectedPerspective.badge}
-                  </span>
-                  <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33]">
-                    {selectedPerspective.name}
-                  </h3>
-                  <p className="font-mono text-xs sm:text-sm font-bold text-[#0B1F33]">
-                    {selectedPerspective.role}
-                  </p>
-                  <p className="text-xs sm:text-sm text-[#1E40AF]">
-                    {selectedPerspective.department}
-                  </p>
-                </div>
-              </div>
-
-              {/* Editorial Pull Quote Box */}
-              <div className="bg-[#EFF6FF] border border-[#93C5FD] rounded-2xl p-6 shadow-sm space-y-2">
-                <Quote className="w-6 h-6 text-[#0B1F33]" />
-                <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
-                  "{selectedPerspective.quote}"
-                </p>
-              </div>
-
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <PerspectiveModal 
+        selectedPerspective={selectedPerspective} 
+        onClose={() => setSelectedPerspective(null)} 
+      />
 
     </div>
   );

@@ -19,6 +19,7 @@ export const achievementsData = [
     image: achievementImages.ezineWinners,
     icon: Trophy,
     badgeColor: 'text-amber-500',
+    recordType: 'Institutional Record',
   },
   {
     id: '02',
@@ -32,6 +33,7 @@ export const achievementsData = [
     image: achievementImages.bestWebsiteAward,
     icon: Trophy,
     badgeColor: 'text-amber-500',
+    recordType: 'ACM India Record',
   },
   {
     id: '03',
@@ -45,6 +47,7 @@ export const achievementsData = [
     image: achievementImages.innovgenius2nd,
     icon: Star,
     badgeColor: 'text-purple-500',
+    recordType: 'Institutional Record',
   },
   {
     id: '04',
@@ -58,6 +61,7 @@ export const achievementsData = [
     image: achievementImages.innovgenius3rd,
     icon: Star,
     badgeColor: 'text-purple-500',
+    recordType: 'Institutional Record',
   },
   {
     id: '05',
@@ -71,6 +75,7 @@ export const achievementsData = [
     image: achievementImages.blockchainWinner,
     icon: Zap,
     badgeColor: 'text-[#1E40AF]',
+    recordType: 'National Record',
   },
   {
     id: '06',
@@ -84,6 +89,7 @@ export const achievementsData = [
     image: achievementImages.healthguardAi,
     icon: Flame,
     badgeColor: 'text-rose-500',
+    recordType: 'Chapter Record',
   },
   {
     id: '07',
@@ -97,6 +103,7 @@ export const achievementsData = [
     image: achievementImages.mathsOlympiad,
     icon: Medal,
     badgeColor: 'text-blue-500',
+    recordType: 'National Record',
   },
   {
     id: '08',
@@ -110,6 +117,7 @@ export const achievementsData = [
     image: achievementImages.pixxelhackWinner,
     icon: Zap,
     badgeColor: 'text-emerald-500',
+    recordType: 'Chapter Record',
   }
 ];
 

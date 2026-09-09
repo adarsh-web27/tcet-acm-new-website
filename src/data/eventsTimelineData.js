@@ -11,6 +11,25 @@ export const EVENTS = [
     year: '2026-27',
     events: [
       {
+        id: 'e-2026-zephyr',
+        title: 'Zephyr 2026 — Annual Flagship Fest',
+        subtitle: 'Upcoming Chapter Extravaganza • Technical & Cultural Fest',
+        date: 'Upcoming • 2026-27 Academic Year',
+        location: 'TCET Campus & Auditoriums',
+        category: 'Upcoming Event',
+        speaker: 'TCET ACM SIGITE Core Team',
+        layout: 'full-hero',
+        image: eventImages.zephyrFest,
+        stats: [
+          { label: 'Status', value: 'Upcoming' },
+          { label: 'Edition', value: '2026-27' },
+          { label: 'Fest', value: 'Flagship' }
+        ],
+        desc: 'Zephyr is the premier annual flagship techno-cultural fest organized by TCET ACM SIGITE. Bringing together cutting-edge coding showdowns, hackathons, workshops, gaming tournaments, and technical project exhibitions for an electrifying campus-wide experience.',
+        reportUrl: '',
+        instagramUrl: ''
+      },
+      {
         id: 'e-2026-pixxelhack-2',
         title: 'PixxelHack Webathon 2.0',
         subtitle: 'National-Level 48-Hour Web Development Showdown',

@@ -11,10 +11,10 @@ export const teamAssets = [
   {
     id: "rajesh-bansode",
     name: "Dr. Rajesh Bansode",
-    role: "Branch Counsellor IT & Head of Department",
+    role: "IT HOD & ACM Branch Counsellor",
     department: "IT Department • TCET",
     image: teamImages.drRajeshBansode,
-    badge: "BRANCH COUNSELLOR & HOD",
+    badge: "IT HOD & ACM BRANCH COUNSELLOR",
     github: null,
     linkedin: null,
     email: "hod.it@tcetmumbai.in"

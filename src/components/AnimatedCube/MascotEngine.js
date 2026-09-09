@@ -12,6 +12,7 @@ export class MascotEngine {
     this.isHovered = false;
     this.mouseMoving = false;
     this.isSpeaking = false;
+    this.isSpinning = false;
 
     // Call / Delay Tracking
     this.calls = {
@@ -166,7 +167,7 @@ export class MascotEngine {
   }
 
   updateLookAt(clientX, clientY) {
-    if (this.isSleeping || !this.refs.robot.current || !this.refs.cube.current) return;
+    if (this.isSleeping || this.isSpinning || !this.refs.robot.current || !this.refs.cube.current) return;
 
     this.mouseMoving = true;
     this.clearCall("eyeTimeout");
@@ -283,37 +284,47 @@ export class MascotEngine {
   handleMouseLeave() {
     this.isHovered = false;
     gsap.to(this.refs.robot.current, { scale: 1, duration: 0.3 });
-    gsap.to(this.refs.cube.current, { rotationY: 0, rotationX: -5, duration: 0.4, ease: "power2.out", overwrite: "auto" });
+    if (!this.isSpinning && this.refs.cube.current) {
+      gsap.to(this.refs.cube.current, { rotationY: 0, rotationX: -5, duration: 0.4, ease: "power2.out", overwrite: "auto" });
+    }
   }
 
   handleClick() {
     if (!this.refs.cube.current) return;
 
-    // Wake up if sleeping and set happy face
+    // Set active spin lock & happy emotion
+    this.isSpinning = true;
     this.isSleeping = false;
     this.setEmotion("happy");
+
+    // Fun little hop/jump bounce when spinning
     if (this.refs.robot.current) {
-      gsap.to(this.refs.robot.current, { scale: 1, duration: 0.2 });
+      gsap.timeline()
+        .to(this.refs.robot.current, { y: -22, scale: 1.06, duration: 0.3, ease: "power2.out" })
+        .to(this.refs.robot.current, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" });
     }
 
     this.clearCall("resetFace");
     this.calls.resetFace = gsap.delayedCall(2.5, () => this.setEmotion("neutral"));
     this.resetInactivityTimer();
 
-    // Kill any active rotation animation on the cube to prevent mid-spin interruption
+    // Kill any active rotation animation on the cube to prevent conflicts
     gsap.killTweensOf(this.refs.cube.current);
 
-    // Guaranteed 360-degree spin that always lands cleanly facing forward at rotationY: 0
+    const currentY = gsap.getProperty(this.refs.cube.current, "rotationY") || 0;
+    const startY = currentY % 360;
+
+    // Guaranteed complete 360-degree spin that cannot be interrupted by mouse moves
     gsap.fromTo(this.refs.cube.current, 
-      { rotationY: 0, rotationX: -5 },
+      { rotationY: startY, rotationX: -5 },
       { 
-        rotationY: 360, 
+        rotationY: startY + 360, 
         rotationX: -5, 
-        duration: 0.85, 
+        duration: 0.8, 
         ease: "power2.inOut",
-        overwrite: "auto",
         onComplete: () => {
           gsap.set(this.refs.cube.current, { rotationY: 0, rotationX: -5 });
+          this.isSpinning = false;
         }
       }
     );

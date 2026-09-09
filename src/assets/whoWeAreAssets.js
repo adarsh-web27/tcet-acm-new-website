@@ -9,10 +9,10 @@ import { whoWeAreImages } from './images/who-we-are';
 export const branchCounsellor = {
   id: "rajesh-bansode",
   name: "Dr. Rajesh Bansode",
-  role: "Branch Counsellor IT & Head of Department",
+  role: "IT HOD & ACM Branch Counsellor",
   department: "Department of Information Technology • TCET",
   image: whoWeAreImages.drRajeshBansode,
-  badge: "🏛️ BRANCH COUNSELLOR & HOD",
+  badge: "🏛️ IT HOD & ACM BRANCH COUNSELLOR",
   perspectiveType: "faculty",
   quote: "TCET ACM SIGITE serves as an incubator where engineering students transition from passive code consumers to active architects of scalable, impactful technology solutions.",
   experience: "Ph.D. in Information Technology with 20+ years of academic research, technical leadership, and student chapter mentorship at TCET.",

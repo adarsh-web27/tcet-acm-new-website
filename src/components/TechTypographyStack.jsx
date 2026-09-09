@@ -10,62 +10,75 @@ export default function TechTypographyStack() {
   const bottomOuterRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", (context) => {
+      const isTablet = window.innerWidth < 1024;
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: container,
           start: 'top 85%',
-          end: 'bottom 20%',
-          scrub: 0.6,
+          end: 'bottom 15%',
+          scrub: 0.8,
+          invalidateOnRefresh: true,
         }
       });
 
-      // Kinetic vertical expansion on scroll
+      // Dramatic kinetic vertical spread & horizontal tracking expansion on scroll
       tl.fromTo(topOuterRef.current, 
-        { y: 25, opacity: 0.2, scale: 0.96 },
-        { y: -15, opacity: 0.45, scale: 1, ease: 'power2.out' },
+        { y: 48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
+        { y: isTablet ? -38 : -48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
         0
       );
 
       tl.fromTo(topInnerRef.current, 
-        { y: 15, opacity: 0.4, scale: 0.98 },
-        { y: -8, opacity: 0.75, scale: 1, ease: 'power2.out' },
+        { y: 24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
+        { y: isTablet ? -18 : -24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
         0
       );
 
       tl.fromTo(centerLineRef.current, 
-        { scale: 0.95, opacity: 0.85 },
-        { scale: 1.02, opacity: 1, ease: 'power2.out' },
+        { scale: 0.92, opacity: 0.85 },
+        { scale: 1.05, opacity: 1, ease: 'power2.out' },
         0
       );
 
       tl.fromTo(bottomInnerRef.current, 
-        { y: -15, opacity: 0.4, scale: 0.98 },
-        { y: 8, opacity: 0.75, scale: 1, ease: 'power2.out' },
+        { y: -24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
+        { y: isTablet ? 18 : 24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
         0
       );
 
       tl.fromTo(bottomOuterRef.current, 
-        { y: -25, opacity: 0.2, scale: 0.96 },
-        { y: 15, opacity: 0.45, scale: 1, ease: 'power2.out' },
+        { y: -48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
+        { y: isTablet ? 38 : 48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
         0
       );
-    }, containerRef);
+    });
 
-    return () => ctx.revert();
+    mm.add("(max-width: 767px), (prefers-reduced-motion: reduce)", () => {
+      gsap.set([topOuterRef.current, topInnerRef.current, centerLineRef.current, bottomInnerRef.current, bottomOuterRef.current], {
+        clearProps: "all"
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <div 
       ref={containerRef}
-      className="w-full flex items-center justify-center relative select-none py-6 sm:py-10 md:py-16 px-2 sm:px-4"
+      className="w-full flex items-center justify-center relative select-none py-6 sm:py-10 md:py-14 px-2 sm:px-4"
     >
-      <div className="flex flex-col items-center justify-center text-center font-syne uppercase font-[900] tracking-wide sm:tracking-wider space-y-1.5 sm:space-y-2.5 md:space-y-4 w-full max-w-6xl mx-auto">
+      <div className="flex flex-col items-center justify-center text-center font-syne uppercase font-[900] tracking-wide sm:tracking-wider space-y-1 sm:space-y-1.5 md:space-y-2 w-full max-w-6xl mx-auto">
         
         {/* Top Outer Layer: INNOVATION */}
         <div 
           ref={topOuterRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,4.5vw,4.6rem)] leading-none text-[#CBD5E1] tracking-wider will-change-transform select-none"
         >
           INNOVATION
         </div>
@@ -73,7 +86,7 @@ export default function TechTypographyStack() {
         {/* Top Inner Layer: ENGINEERING */}
         <div 
           ref={topInnerRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,4.5vw,4.6rem)] leading-none text-[#94A3B8] tracking-wider will-change-transform select-none"
         >
           ENGINEERING
         </div>
@@ -81,17 +94,17 @@ export default function TechTypographyStack() {
         {/* Center Hero Line: from CLASSROOM to production */}
         <div 
           ref={centerLineRef}
-          className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 my-1 sm:my-2 z-10 will-change-transform w-full"
+          className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 my-1 sm:my-1.5 z-10 will-change-transform w-full"
         >
-          <span className="font-mono text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold lowercase text-[#204896] shrink-0">
+          <span className="font-mono text-xs sm:text-sm md:text-base lg:text-xl font-bold lowercase text-[#204896] shrink-0">
             from
           </span>
           <span 
-            className="text-[clamp(1.75rem,7.5vw,7.5rem)] leading-none tracking-tight font-black text-[#204896] shrink-0"
+            className="text-[clamp(2.15rem,6.8vw,6.8rem)] leading-none tracking-tight font-black text-[#204896] shrink-0"
           >
             CLASSROOM
           </span>
-          <span className="font-mono text-xs xs:text-sm sm:text-base md:text-lg font-bold lowercase text-[#204896] text-left leading-tight shrink-0">
+          <span className="font-mono text-[10px] sm:text-xs md:text-sm lg:text-base font-bold lowercase text-[#204896] text-left leading-tight shrink-0">
             to<br />production
           </span>
         </div>
@@ -99,7 +112,7 @@ export default function TechTypographyStack() {
         {/* Bottom Inner Layer: LEADERSHIP */}
         <div 
           ref={bottomInnerRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#94A3B8] tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,4.5vw,4.6rem)] leading-none text-[#94A3B8] tracking-wider will-change-transform select-none"
         >
           LEADERSHIP
         </div>
@@ -107,7 +120,7 @@ export default function TechTypographyStack() {
         {/* Bottom Outer Layer: COMMUNITY */}
         <div 
           ref={bottomOuterRef}
-          className="text-[clamp(1.35rem,5.5vw,5.5rem)] leading-none text-[#CBD5E1] tracking-wide sm:tracking-wider will-change-transform select-none"
+          className="text-[clamp(1.35rem,4.5vw,4.6rem)] leading-none text-[#CBD5E1] tracking-wider will-change-transform select-none"
         >
           COMMUNITY
         </div>

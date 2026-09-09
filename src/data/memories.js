@@ -1,1 +1,1 @@
-﻿export { MEMORY_CARDS } from '../assets/galleryAssets';
+export { MEMORY_CARDS, GALLERY_YEAR_OPTIONS } from '../assets/galleryAssets';

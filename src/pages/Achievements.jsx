@@ -163,7 +163,7 @@ export default function Achievements() {
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-xs font-bold text-emerald-700 uppercase hidden sm:inline">
-                        Institutional Record
+                        {item.recordType || 'ACM India Record'}
                       </span>
                     </div>
                   </div>

@@ -66,73 +66,101 @@ export default function TeamGrid() {
       gsap.set('.team-stats-box', { opacity: 0, y: 40 });
 
       const cards = gsap.utils.toArray('.hero-team-card');
+      const dropCards = gsap.utils.toArray('.hero-team-card-drop');
 
-      // Set cards off-screen above with rotation & scale down
+      // 1. Initial setups:
+      // Cards start at natural rest x: 0, y: 0 with their configured tilt (no negative Y!)
       cards.forEach((card, i) => {
         const rot = cardConfig[i]?.rot || 0;
         card.dataset.restRot = rot;
-        gsap.set(card, { y: -900, rotation: rot + 25, opacity: 0, scale: 0.7 });
+        gsap.set(card, { x: 0, y: 0, rotation: rot });
       });
 
-      // 2. INTRO TIMELINE - Cards Falling Down from above
+      // Drop elements handle the entrance animation locally (isolated from scroll transforms)
+      dropCards.forEach((drop) => {
+        gsap.set(drop, { y: -80, opacity: 0, scale: 0.88 });
+      });
+
+      // 2. INTRO TIMELINE - Graceful Entrance Drop into Card Slots
       const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       introTl
         .to('.team-small-title .word > span', {
           y: '0%',
-          duration: 0.9,
+          duration: 0.8,
           stagger: 0.08,
           ease: 'power3.out'
-        }, 0.2)
+        }, 0.1)
         .to('.team-big-title .letter', {
           y: 0,
           opacity: 1,
-          duration: 0.9,
-          stagger: 0.04,
-          ease: 'back.out(1.6)'
-        }, 0.4)
-        .to(cards, {
+          duration: 0.8,
+          stagger: 0.03,
+          ease: 'back.out(1.5)'
+        }, 0.25)
+        .to(dropCards, {
           y: 0,
           opacity: 1,
           scale: 1,
-          rotation: (i) => cardConfig[i]?.rot || 0,
-          duration: 1.2,
-          stagger: { each: 0.08, from: 'center' },
+          duration: 0.9,
+          stagger: { each: 0.06, from: 'center' },
           ease: 'back.out(1.4)'
-        }, 0.6);
+        }, 0.4);
+
+      // Settle intro instantly if user starts already scrolled
+      if (window.scrollY > 40) {
+        introTl.progress(1);
+      }
 
       // 3. Floating sine oscillation on the INNER card element (never conflicts with scroll transforms!)
       const innerCards = gsap.utils.toArray('.hero-team-card-inner');
-      innerCards.forEach((inner, i) => {
-        gsap.to(inner, {
-          y: i % 2 === 0 ? 6 : -6,
-          duration: 2.8 + (i % 3) * 0.4,
-          delay: 1.8 + i * 0.1,
-          ease: 'sine.inOut',
-          yoyo: true,
-          repeat: -1
-        });
-      });
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // 4. Parallax mouse effect
+      if (!prefersReducedMotion) {
+        innerCards.forEach((inner, i) => {
+          gsap.to(inner, {
+            y: i % 2 === 0 ? 6 : -6,
+            duration: 2.8 + (i % 3) * 0.4,
+            delay: 1.8 + i * 0.1,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1
+          });
+        });
+      }
+
+      // 4. Parallax mouse effect (RAF-throttled to avoid layout thrashing and tween pileups)
       const heroElem = heroRef.current;
-      if (heroElem) {
+      if (heroElem && !prefersReducedMotion) {
+        let rafId = null;
+        let targetMx = 0;
+        let targetMy = 0;
+
         const handleMouseMove = (e) => {
           const r = heroElem.getBoundingClientRect();
-          const mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-          const my = ((e.clientY - r.top) / r.height - 0.5) * 2;
+          targetMx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+          targetMy = ((e.clientY - r.top) / r.height - 0.5) * 2;
 
-          innerCards.forEach((inner, i) => {
-            const depth = cardConfig[i]?.depth || 8;
-            gsap.to(inner, {
-              x: mx * depth,
-              duration: 0.6,
-              ease: 'power2.out',
-              overwrite: 'auto'
+          if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+              innerCards.forEach((inner, i) => {
+                const depth = cardConfig[i]?.depth || 8;
+                gsap.to(inner, {
+                  x: targetMx * depth,
+                  duration: 0.5,
+                  ease: 'power2.out',
+                  overwrite: 'auto'
+                });
+              });
+              rafId = null;
             });
-          });
+          }
         };
 
         const handleMouseLeave = () => {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
           gsap.to(innerCards, {
             x: 0,
             duration: 0.8,
@@ -145,13 +173,20 @@ export default function TeamGrid() {
         heroElem.addEventListener('mouseleave', handleMouseLeave, { passive: true });
       }
 
-      // 5. Hero Scroll Fan-out (Scrubbed Timeline — 100% stable, zero vibration/glitch)
+      // 5. Hero Scroll Fan-out (Scrubbed Timeline — container-relative responsive geometry)
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 0.8
+          scrub: 0.8,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            // If user scrolls during the entrance animation, instantly finish the drop
+            if (self.progress > 0.02 && introTl.isActive()) {
+              introTl.progress(1);
+            }
+          }
         }
       });
 
@@ -163,8 +198,16 @@ export default function TeamGrid() {
         const m = fanMoves[i] || { x: 0, y: 0, rot: 0 };
         const baseRot = cardConfig[i]?.rot || 0;
         scrollTl.to(card, {
-          x: m.x,
-          y: m.y,
+          x: () => {
+            const w = heroRef.current?.clientWidth || window.innerWidth;
+            const factor = Math.min(Math.max(w / 1440, 0.45), 1.15);
+            return Math.round(m.x * factor);
+          },
+          y: () => {
+            const w = heroRef.current?.clientWidth || window.innerWidth;
+            const factor = Math.min(Math.max(w / 1440, 0.45), 1.15);
+            return Math.round(m.y * factor);
+          },
           rotation: baseRot + m.rot,
           ease: 'power1.out'
         }, 0);
@@ -268,10 +311,10 @@ export default function TeamGrid() {
           />
           
           {/* Top Badge */}
-          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10">
-            <span className="font-mono text-xs font-bold text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#0B1F33]/90 border border-white/10 shadow-sm flex items-center gap-1">
-              {member.badge.includes('FACULTY') ? <Award className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FFD43B]" /> : <ShieldCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#60B6FF]" />}
-              <span className="truncate max-w-[120px] sm:max-w-none">{member.badge}</span>
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 max-w-[calc(100%-16px)]">
+            <span className="font-mono text-[10px] sm:text-xs font-bold text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#0B1F33]/90 border border-white/10 shadow-sm flex items-center gap-1 w-max max-w-full">
+              {member.badge.includes('FACULTY') ? <Award className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FFD43B] shrink-0" /> : <ShieldCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#60B6FF] shrink-0" />}
+              <span className="whitespace-nowrap">{member.badge}</span>
             </span>
           </div>
 
@@ -310,7 +353,7 @@ export default function TeamGrid() {
                     <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </a>
                 )}
-                {member.badge.includes('FACULTY') && member.email && (
+                {(member.badge.includes('FACULTY') || member.id === 'rajesh-bansode') && member.email && (
                   <a
                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(member.email)}`}
                     target="_blank"
@@ -417,42 +460,44 @@ export default function TeamGrid() {
                 className={`hero-team-card absolute ${cfg.className}`}
                 onClick={scrollToGrid}
               >
-                <div
-                  className="hero-team-card-inner w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer pointer-events-auto border-2 border-[#93C5FD] shadow-[0_20px_45px_-10px_rgba(0,96,185,0.35)] group transition-shadow duration-300 relative"
-                  onMouseMove={(e) => {
-                    const r = e.currentTarget.getBoundingClientRect();
-                    const px = (e.clientX - r.left) / r.width - 0.5;
-                    const py = (e.clientY - r.top) / r.height - 0.5;
-                    gsap.to(e.currentTarget, {
-                      rotateX: -py * 16,
-                      rotateY: px * 16,
-                      scale: 1.08,
-                      duration: 0.3,
-                      ease: 'power2.out',
-                      transformPerspective: 700,
-                      overwrite: 'auto'
-                    });
-                  }}
-                  onMouseLeave={(e) => {
-                    gsap.to(e.currentTarget, {
-                      rotateX: 0,
-                      rotateY: 0,
-                      scale: 1,
-                      duration: 0.6,
-                      ease: 'power2.out',
-                      overwrite: 'auto'
-                    });
-                  }}
-                >
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <span className="absolute bottom-2 left-2 right-2 text-xs font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
-                    {member.name}
-                  </span>
+                <div className="hero-team-card-drop w-full h-full">
+                  <div
+                    className="hero-team-card-inner w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer pointer-events-auto border-2 border-[#93C5FD] shadow-[0_20px_45px_-10px_rgba(0,96,185,0.35)] group transition-shadow duration-300 relative"
+                    onMouseMove={(e) => {
+                      const r = e.currentTarget.getBoundingClientRect();
+                      const px = (e.clientX - r.left) / r.width - 0.5;
+                      const py = (e.clientY - r.top) / r.height - 0.5;
+                      gsap.to(e.currentTarget, {
+                        rotateX: -py * 16,
+                        rotateY: px * 16,
+                        scale: 1.08,
+                        duration: 0.3,
+                        ease: 'power2.out',
+                        transformPerspective: 700,
+                        overwrite: 'auto'
+                      });
+                    }}
+                    onMouseLeave={(e) => {
+                      gsap.to(e.currentTarget, {
+                        rotateX: 0,
+                        rotateY: 0,
+                        scale: 1,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        overwrite: 'auto'
+                      });
+                    }}
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <span className="absolute bottom-2 left-2 right-2 text-xs font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
+                      {member.name}
+                    </span>
+                  </div>
                 </div>
               </div>
             );
@@ -522,7 +567,7 @@ export default function TeamGrid() {
         {/* Hierarchical Team Directory matching tcetacm.org */}
         {activeFilter === 'faculty' ? (
           <div className="space-y-12">
-            {/* Tier 1: Branch Counsellor & HOD */}
+            {/* Tier 1: IT HOD & ACM Branch Counsellor */}
             {branchCounsellor && (
               <div className="max-w-xs sm:max-w-sm mx-auto">
                 {renderCard(branchCounsellor)}
@@ -542,12 +587,12 @@ export default function TeamGrid() {
         ) : (
           /* ALL Members in Authentic TCET ACM Hierarchy */
           <div className="space-y-16">
-            {/* Tier 1: Branch Counsellor & HOD IT (Alone at the top center) */}
+            {/* Tier 1: IT HOD & ACM Branch Counsellor (Alone at the top center) */}
             {branchCounsellor && (
               <div>
                 <div className="text-center mb-6">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-mono font-bold tracking-wider uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD]">
-                    🏛️ BRANCH COUNSELLOR & HOD
+                    🏛️ IT HOD & ACM BRANCH COUNSELLOR
                   </span>
                 </div>
                 <div className="max-w-xs sm:max-w-sm mx-auto">

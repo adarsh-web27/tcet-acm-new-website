@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useLenis, { scrollToTop, getLenis } from './hooks/useLenis';
+import usePageSEO from './hooks/usePageSEO';
 import Navbar from './components/Navbar';
 import FooterBento from './components/FooterBento';
 import PageLoader from './components/PageLoader';
@@ -56,8 +57,11 @@ function AppContent() {
   // Smooth Lenis momentum scrolling enabled within Router context
   useLenis();
 
+  // Dynamic route-specific SEO title, meta descriptions, and Open Graph tags
+  usePageSEO();
+
   return (
-    <div className="relative min-h-screen font-sans antialiased overflow-x-hidden selection:bg-[#2563EB] selection:text-white bg-[#F8FAFC] text-[#0F172A] flex flex-col justify-between">
+    <div className={`relative min-h-screen font-sans antialiased overflow-x-hidden selection:bg-[#2563EB] selection:text-white ${isGalleryPage ? 'bg-white' : 'bg-[#F8FAFC]'} text-[#0F172A] flex flex-col justify-between`}>
       
       {/* Dynamic Scroll & Hash Position Handler */}
       <ScrollFix />
@@ -68,7 +72,7 @@ function AppContent() {
       {/* Dynamic Route Viewport */}
       <main className="relative z-10 flex-grow min-h-[85vh]">
         <ErrorBoundary>
-          <Suspense fallback={<div className="w-full min-h-[85vh] bg-[#F8FAFC]" />}>
+          <Suspense fallback={<div className={`w-full min-h-[85vh] ${isGalleryPage ? 'bg-white' : 'bg-[#F8FAFC]'}`} />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/who-we-are" element={<WhoWeAre />} />

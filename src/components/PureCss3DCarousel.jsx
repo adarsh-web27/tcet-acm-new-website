@@ -39,9 +39,44 @@ const mobileCards = [
 
 export default function PureCss3DCarousel() {
   const containerRef = useRef(null);
+  const canvasRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileIdx, setMobileIdx] = useState(0);
   const total = carouselImages.length;
+
+  // Single-source container geometry state
+  const [geometry, setGeometry] = useState({
+    cardWidth: 440,
+    radius: 820,
+    perspective: 1600
+  });
+
+  // Calculate container-measured geometry via ResizeObserver
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const updateGeometry = (width) => {
+      if (!width) return;
+      // Proportional card width locked to canvas dimensions (clamped between 260px and 460px)
+      const cardW = Math.round(Math.min(Math.max(width * 0.31, 260), 460));
+      // Exact radius calculation: (cardW / 2 + 8px gap) / tan(PI / total)
+      const r = Math.round((cardW / 2 + 8) / Math.tan(Math.PI / total));
+      // Perspective matched to viewport distance
+      const persp = Math.round(Math.max(width * 1.25, 900));
+      setGeometry({ cardWidth: cardW, radius: r, perspective: persp });
+    };
+
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        updateGeometry(entry.contentRect.width);
+      }
+    });
+
+    ro.observe(canvasRef.current);
+    updateGeometry(canvasRef.current.clientWidth);
+
+    return () => ro.disconnect();
+  }, [total]);
 
   // Stop 3D animation when scrolled away from view
   useEffect(() => {
@@ -141,29 +176,29 @@ export default function PureCss3DCarousel() {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-between mt-4 px-1">
+          <div className="flex items-center justify-between mt-4 px-2 w-full">
             <button
               onClick={prevMobile}
               aria-label="Previous slide"
-              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-95 transition-transform"
+              className="w-10 h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-sm active:scale-90 transition-transform shrink-0 cursor-pointer"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 -ml-0.5" />
             </button>
 
             {/* Dots */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center justify-center gap-1">
               {mobileCards.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setMobileIdx(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className="w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full"
+                  className="p-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full flex items-center justify-center shrink-0"
                 >
                   <span 
                     className={`transition-all duration-300 rounded-full block ${
                       i === mobileIdx 
-                        ? 'w-6 h-2.5 bg-[#1D4ED8]' 
-                        : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+                        ? 'w-5 h-2 bg-[#1D4ED8]' 
+                        : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
                 </button>
@@ -173,9 +208,9 @@ export default function PureCss3DCarousel() {
             <button
               onClick={nextMobile}
               aria-label="Next slide"
-              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white text-slate-800 border border-slate-200 flex items-center justify-center shadow-sm active:scale-95 transition-transform"
+              className="w-10 h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-sm active:scale-90 transition-transform shrink-0 cursor-pointer"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 -mr-0.5" />
             </button>
           </div>
 
@@ -199,129 +234,156 @@ export default function PureCss3DCarousel() {
       {/* ========================================================= */}
       {/* ================= DESKTOP MODE (hidden md:block) ======== */}
       {/* ========================================================= */}
-      <div className="hidden md:flex w-screen min-h-screen flex-col items-center justify-start relative overflow-hidden select-none pt-12 sm:pt-16 pb-8">
-        {/* Panoramic Background — Soft Refined ACM Blue (#244B8E) Atmosphere & Pearl White Dome */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 bg-[#244B8E]">
-          <svg 
-            className="w-full h-full" 
-            viewBox="0 0 1440 960" 
-            preserveAspectRatio="none" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <path 
-                id="curvedBottomTextTrack" 
-                d="M -2880 807.5 Q -2160 657.5 -1440 807.5 Q -720 657.5 0 807.5 Q 720 657.5 1440 807.5 Q 2160 657.5 2880 807.5 Q 3600 657.5 4320 807.5" 
-                fill="none" 
-              />
-            </defs>
+      <div className="hidden md:block w-full overflow-hidden bg-[#244B8E] select-none">
+        <div 
+          ref={canvasRef}
+          className="memory-desktop-canvas"
+          style={{
+            '--card-w': `${geometry.cardWidth}px`,
+            '--radius': `${geometry.radius}px`,
+            '--perspective': `${geometry.perspective}px`,
+            '--n': total
+          }}
+        >
 
-            {/* Outer Soft ACM Blue Atmosphere */}
-            <rect width="1440" height="960" fill="#244B8E" />
-
-            {/* Center Stage — Upward arched top dome and matching bottom curve in Pearl White */}
-            <path 
-              d="M 0 220 Q 720 70 1440 220 L 1440 830 Q 720 680 0 830 Z" 
-              fill="#F8FAFC" 
-            />
-
-            {/* Expanded Bold White Ribbon along Bottom Curve */}
-            <path 
-              d="M 0 770 Q 720 620 1440 770 L 1440 845 Q 720 695 0 845 Z" 
-              fill="#FFFFFF" 
-              opacity="0.99"
-              stroke="#CBD5E1"
-              strokeWidth="1.5"
-            />
-
-            {/* Infinite Curved Moving Text running inside the Expanded White Ribbon */}
-            <text 
-              fontFamily="'JetBrains Mono', monospace"
-              fontWeight="800"
-              fontSize="14.5"
-              letterSpacing="4"
-              style={{ textTransform: 'uppercase' }}
-              fill="#0F172A"
-              dominantBaseline="central"
+          {/* Background curves */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <svg
+              className="w-full h-full"
+              viewBox="0 0 1440 960"
+              preserveAspectRatio="none"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <textPath 
-                href="#curvedBottomTextTrack" 
-                startOffset="0%"
-              >
-                {fullTickerText}
-                <animate 
-                  attributeName="startOffset" 
-                  from="0%" 
-                  to="-50%" 
-                  dur="32s" 
-                  repeatCount="indefinite" 
+              <defs>
+                <path
+                  id="curvedBottomTextTrack"
+                  d="M -2880 752.5 Q -2160 602.5 -1440 752.5 Q -720 602.5 0 752.5 Q 720 602.5 1440 752.5 Q 2160 602.5 2880 752.5 Q 3600 602.5 4320 752.5"
+                  fill="none"
                 />
-              </textPath>
-            </text>
-          </svg>
-        </div>
+              </defs>
 
-        {/* Editorial Header Section */}
-        <div className="relative z-20 text-center flex flex-col items-center justify-center px-4 translate-y-[30px] pointer-events-none select-none max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-slate-200/90 text-[#2563EB] font-mono text-sm font-bold uppercase tracking-[0.2em] shadow-2xs mb-2">
-            <span>TCET ACM • 2025 — 2026</span>
-          </div>
+              <rect width="1440" height="960" fill="#244B8E" />
 
-          <h2 className="font-display flex flex-col items-center text-center text-[#0F172A] uppercase leading-[0.96]">
-            <span className="text-3xl md:text-4xl font-extrabold text-[#0F172A]/75 tracking-tight">
-              GLIMPSE OF
-            </span>
-            <span className="text-5xl md:text-6xl lg:text-[4.5rem] font-[900] text-[#0F172A] tracking-[-0.04em] mt-0.5">
-              MEMORIES.
-            </span>
-          </h2>
-
-          <p className="text-base text-slate-500 font-medium tracking-normal mt-2 max-w-md mx-auto leading-relaxed">
-            A visual archive of the moments that shaped TCET ACM.
-          </p>
-        </div>
-
-        {/* 3D Scene Viewport */}
-        <div className="carousel-scene w-full h-[62vh] min-h-[460px] max-h-[660px] relative z-10 -mt-4 sm:-mt-8 md:-mt-10">
-          <div 
-            className="carousel-a3d" 
-            style={{ 
-              '--n': total,
-              animationPlayState: isVisible ? 'running' : 'paused'
-            }}
-          >
-            {carouselImages.map((src, index) => (
-              <img
-                key={index}
-                src={src}
-                alt={`TCET ACM Archive Memory ${index + 1}`}
-                className="carousel-card"
-                style={{ '--i': index }}
-                loading="lazy"
-                decoding="async"
-                width={640}
-                height={400}
+              <path
+                d="M 0 255 Q 720 105 1440 255 L 1440 775 Q 720 625 0 775 Z"
+                fill="#F8FAFC"
               />
-            ))}
+
+              <path
+                d="M 0 715 Q 720 565 1440 715 L 1440 790 Q 720 640 0 790 Z"
+                fill="#FFFFFF"
+                opacity="0.99"
+                stroke="#CBD5E1"
+                strokeWidth="1.5"
+              />
+
+              <text
+                fontFamily="'JetBrains Mono', monospace"
+                fontWeight="800"
+                fontSize="14.5"
+                letterSpacing="4"
+                fill="#0F172A"
+                dominantBaseline="central"
+              >
+                <textPath
+                  href="#curvedBottomTextTrack"
+                  startOffset="0%"
+                >
+                  {fullTickerText}
+                  <animate
+                    attributeName="startOffset"
+                    from="0%"
+                    to="-50%"
+                    dur="32s"
+                    repeatCount="indefinite"
+                  />
+                </textPath>
+              </text>
+            </svg>
           </div>
+
+          {/* Header */}
+          <div className="memory-editorial-header relative z-20 text-center flex flex-col items-center justify-center px-4 pointer-events-none select-none max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-slate-200/90 text-[#2563EB] font-mono text-sm font-bold uppercase tracking-[0.2em] shadow-2xs mb-2">
+              <span>TCET ACM • 2025 — 2026</span>
+            </div>
+
+            <h2 className="font-display flex flex-col items-center text-center text-[#0F172A] uppercase leading-[0.96]">
+              <span className="text-3xl md:text-4xl font-extrabold text-[#0F172A]/75 tracking-tight">
+                GLIMPSE OF
+              </span>
+
+              <span className="text-5xl md:text-6xl lg:text-[4.5rem] font-[900] text-[#0F172A] tracking-[-0.04em] mt-0.5">
+                MEMORIES.
+              </span>
+            </h2>
+
+            <p className="text-base text-slate-500 font-medium tracking-normal mt-2 max-w-md mx-auto leading-relaxed">
+              A visual archive of the moments that shaped TCET ACM.
+            </p>
+          </div>
+
+          {/* Carousel */}
+          <div className="carousel-scene absolute z-10">
+            <div
+              className="carousel-a3d"
+              style={{
+                '--n': total,
+                animationPlayState: isVisible ? 'running' : 'paused'
+              }}
+            >
+              {carouselImages.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`TCET ACM Archive Memory ${index + 1}`}
+                  className="carousel-card"
+                  style={{ '--i': index }}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
+                  width={640}
+                  height={400}
+                />
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* 1:1 Scoped Optimized CSS Engine */}
       <style>{`
-        .carousel-scene, .carousel-a3d {
-          display: grid;
+        .memory-desktop-canvas {
+          position: relative;
+          width: min(100%, 1440px);
+          aspect-ratio: 3 / 2;
+          margin-inline: auto;
+          overflow: hidden;
+          isolation: isolate;
+        }
+
+        .memory-editorial-header {
+          position: absolute;
+          inset-inline: 0;
+          top: 14.5%;
         }
 
         .carousel-scene {
+          left: 0;
+          right: 0;
+          top: 28.5%;
+          height: 45%;
           overflow: hidden;
-          perspective: 56em;
+          display: grid;
+          perspective: var(--perspective, 1600px);
           contain: paint;
           isolation: isolate;
         }
 
         .carousel-a3d {
+          display: grid;
           place-self: center;
           transform-style: preserve-3d;
           animation: carouselRy 32s linear infinite;
@@ -336,23 +398,24 @@ export default function PureCss3DCarousel() {
         }
 
         .carousel-card {
-          --w: clamp(26em, 38vw, 40em);
           --ba: calc(1turn / var(--n));
-          grid-area: 1/1;
-          width: var(--w);
-          aspect-ratio: 16/10;
+
+          grid-area: 1 / 1;
+          width: var(--card-w, 420px);
+          aspect-ratio: 16 / 10;
           object-fit: cover;
-          border-radius: 1.6em;
+          border-radius: 1.4rem;
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
-          transform: rotateY(calc(var(--i) * var(--ba))) translateZ(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
-          box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-          will-change: transform;
+          transform:
+            rotateY(calc(var(--i) * var(--ba)))
+            translateZ(calc(-1 * var(--radius, 800px)));
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
         }
 
         @media (prefers-reduced-motion: reduce) {
           .carousel-a3d {
-            animation-duration: 128s;
+            animation: none;
           }
         }
       `}</style>
