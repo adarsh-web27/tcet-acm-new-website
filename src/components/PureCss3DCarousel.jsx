@@ -195,7 +195,10 @@ export default function PureCss3DCarousel() {
       {/* ========================================================= */}
       {/* ================= DESKTOP MODE (hidden md:block) ======== */}
       {/* ========================================================= */}
-      <div className="hidden md:flex w-full min-h-screen flex-col items-center justify-start relative overflow-hidden select-none pt-[clamp(5.5rem,15.5vh,8rem)] pb-8">
+      <div 
+        className="hidden md:flex w-full min-h-screen flex-col items-center justify-start relative overflow-hidden select-none pb-8"
+        style={{ paddingTop: 'clamp(5.5rem, 15.5vh, 8rem)' }}
+      >
         {/* Panoramic Background — Soft Refined ACM Blue (#244B8E) Atmosphere & Pearl White Dome */}
         <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 bg-[#244B8E]">
           <svg 
