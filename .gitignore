@@ -4,6 +4,7 @@ dist-ssr
 *.local
 .DS_Store
 src.zip
+*.zip
 
 # Playwright
 /test-results/

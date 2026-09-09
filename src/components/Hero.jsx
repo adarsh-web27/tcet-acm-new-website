@@ -43,10 +43,6 @@ export default function Hero() {
         {/* ================= LEFT COLUMN: BIG BOLD STATEMENT TYPOGRAPHY (On Left White Canvas) ================= */}
         <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-6 order-1 pl-0">
 
-          {/* Chapter Kicker Micro-Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1D4ED8] font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.18em] shadow-xs">
-            <span>TCET ACM SIGITE STUDENT CHAPTER</span>
-          </div>
 
           {/* BIG BOLD STATEMENT HEADLINE (Direct semantic paint for 0ms LCP) */}
           <h1 className="font-display font-[900] text-[clamp(2.25rem,10vw,4.5rem)] text-[#0F172A] tracking-[-0.035em] leading-[0.96] uppercase">
