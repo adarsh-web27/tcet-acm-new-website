@@ -42,6 +42,7 @@ const mobileCards = [
   { image: localiv26_3, title: "Autonomous Quadruped AI & Robotics", tag: "AI & ROBOTICS" },
   { image: localiv26_2, title: "Industry 4.0 & Smart Manufacturing", tag: "INDUSTRIAL VISIT" },
   { image: treeplantation26_1, title: "Tree Plantation • Greening Thakur Junction", tag: "SOCIAL CAUSE" },
+  { image: treeplantation26_3, title: "Community Sustainability Campaign", tag: "SOCIAL CAUSE" },
   { image: treeplantation26_4, title: "Faculty Greening Drive • Divider Plantation", tag: "SOCIAL CAUSE" },
   { image: membershipdrive26_2, title: "Student Technical Orientation & Perks", tag: "ORIENTATION" },
   { image: membershipdrive26_3, title: "New ACM Members Welcome Ceremony", tag: "ORIENTATION" },
@@ -86,10 +87,10 @@ export default function PureCss3DCarousel() {
       {/* ========================================================= */}
       {/* ================= MOBILE MODE (block md:hidden) ========= */}
       {/* ========================================================= */}
-      <div className="block md:hidden w-full bg-gradient-to-b from-[#EFF6FF] via-white to-[#EFF6FF] py-10 px-4">
+      <div className="block md:hidden w-full bg-gradient-to-b from-[#EFF6FF] via-white to-[#EFF6FF] py-10 px-3 sm:px-4 overflow-hidden">
         
         {/* Mobile Header */}
-        <div className="text-center flex flex-col items-center justify-center max-w-sm mx-auto mb-6">
+        <div className="text-center flex flex-col items-center justify-center max-w-sm mx-auto mb-6 px-2">
           <h2 className="font-display font-[900] text-2xl sm:text-3xl text-[#0F172A] uppercase tracking-tight leading-tight">
             GLIMPSE OF <span className="text-[#1D4ED8]">MEMORIES</span>
           </h2>
@@ -100,28 +101,29 @@ export default function PureCss3DCarousel() {
         </div>
 
         {/* Swipeable Card Container */}
-        <div className="w-full max-w-sm mx-auto">
+        <div className="w-full max-w-[360px] sm:max-w-sm mx-auto px-1 sm:px-0">
           <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-slate-900">
             <AnimatePresence mode="wait">
               <motion.div
                 key={mobileIdx}
-                initial={{ opacity: 0, x: 40 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
                 className="w-full h-full relative"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
-                onDragEnd={(e, { offset }) => {
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
                   const swipe = offset.x;
-                  if (swipe < -35) nextMobile();
-                  else if (swipe > 35) prevMobile();
+                  if (swipe < -35 || velocity.x < -300) nextMobile();
+                  else if (swipe > 35 || velocity.x > 300) prevMobile();
                 }}
               >
                 <img
                   src={mobileCards[mobileIdx].image}
                   alt={mobileCards[mobileIdx].title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover select-none pointer-events-none"
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 90vw, 360px"
@@ -137,9 +139,16 @@ export default function PureCss3DCarousel() {
                   </span>
                 </div>
 
+                {/* Slide Counter Badge */}
+                <div className="absolute top-3 right-3">
+                  <span className="font-mono text-[11px] font-bold text-white/95 px-2.5 py-0.5 rounded-full bg-slate-950/60 backdrop-blur-xs border border-white/20 shadow-xs">
+                    {mobileIdx + 1} / {mobileCards.length}
+                  </span>
+                </div>
+
                 {/* Caption */}
                 <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <h3 className="font-display font-bold text-base tracking-tight leading-snug">
+                  <h3 className="font-display font-bold text-sm sm:text-base tracking-tight leading-snug line-clamp-2">
                     {mobileCards[mobileIdx].title}
                   </h3>
                 </div>
@@ -147,30 +156,30 @@ export default function PureCss3DCarousel() {
             </AnimatePresence>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-between mt-4 px-2 w-full">
+          {/* Navigation Controls — Fully responsive across all mobile device screen ratios */}
+          <div className="flex items-center justify-between mt-4 px-1 w-full gap-1 sm:gap-2">
             <button
               onClick={prevMobile}
               aria-label="Previous slide"
-              className="w-10 h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-sm active:scale-90 transition-transform shrink-0 cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-xs active:scale-90 transition-transform shrink-0 cursor-pointer hover:bg-slate-50"
             >
-              <ChevronLeft className="w-5 h-5 -ml-0.5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 -ml-0.5" />
             </button>
 
             {/* Dots */}
-            <div className="flex items-center justify-center gap-1">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 min-w-0 overflow-hidden py-1">
               {mobileCards.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setMobileIdx(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className="p-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full flex items-center justify-center shrink-0"
+                  className="py-2 px-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D4ED8] rounded-full flex items-center justify-center shrink-0"
                 >
                   <span 
                     className={`transition-all duration-300 rounded-full block ${
                       i === mobileIdx 
-                        ? 'w-5 h-2 bg-[#1D4ED8]' 
-                        : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                        ? 'w-4 sm:w-5 h-1.5 sm:h-2 bg-[#1D4ED8]' 
+                        : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
                 </button>
@@ -180,9 +189,9 @@ export default function PureCss3DCarousel() {
             <button
               onClick={nextMobile}
               aria-label="Next slide"
-              className="w-10 h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-sm active:scale-90 transition-transform shrink-0 cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-slate-800 border border-slate-200/90 flex items-center justify-center shadow-xs active:scale-90 transition-transform shrink-0 cursor-pointer hover:bg-slate-50"
             >
-              <ChevronRight className="w-5 h-5 -mr-0.5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 -mr-0.5" />
             </button>
           </div>
 
