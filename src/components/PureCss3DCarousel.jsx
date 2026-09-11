@@ -2,49 +2,50 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// 2026-27 Official Event & Gallery Highlights (Optimized & Lightweight WebP)
-import pixxelhack2026 from '../assets/images/events/pixxelhack-2026.webp';
-import zephyr2026 from '../assets/images/events/zephyr-2026.webp';
-import alumniinteraction26_1 from '../assets/images/gallery/alumniinteraction26_1.webp';
-import localIv2026 from '../assets/images/events/local-iv-2026.webp';
-import innovgeniusIdeathon from '../assets/images/events/innovgenius-ideathon.webp';
-import treePlantation2026 from '../assets/images/events/tree-plantation-2026.webp';
-import acmRecodeHackathon from '../assets/images/events/acm-recode-hackathon.webp';
-import iicWorkshop2026 from '../assets/images/events/iic-workshop-2026.webp';
-import preconferenceDsaWorkshop from '../assets/images/events/preconference-dsa-workshop.webp';
-import membershipDrive2026 from '../assets/images/events/membership-drive-2026.webp';
+// 2026-27 Gallery Section Moments (100% Sourced from Gallery 2026-27)
 import pixxelhack26_1 from '../assets/images/gallery/pixxelhack26_1.webp';
+import pixxelhack26_2 from '../assets/images/gallery/pixxelhack26_2.webp';
+import alumniinteraction26_1 from '../assets/images/gallery/alumniinteraction26_1.webp';
+import localiv26_2 from '../assets/images/gallery/localiv26_2.webp';
+import localiv26_3 from '../assets/images/gallery/localiv26_3.webp';
+import localiv26_4 from '../assets/images/gallery/localiv26_4.webp';
+import treeplantation26_1 from '../assets/images/gallery/treeplantation26_1.webp';
+import treeplantation26_3 from '../assets/images/gallery/treeplantation26_3.webp';
+import treeplantation26_4 from '../assets/images/gallery/treeplantation26_4.webp';
+import membershipdrive26_2 from '../assets/images/gallery/membershipdrive26_2.webp';
+import membershipdrive26_3 from '../assets/images/gallery/membershipdrive26_3.webp';
 import core26 from '../assets/images/gallery/core26.webp';
 
-const eventText = "PIXXELHACK 2.0  ★  ZEPHYR FEST  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  INNOVGENIUS  ★  TREE PLANTATION  ★  ACM RECODE  ★  IIC WORKSHOP  ★  DSA MASTERCLASS  ★  MEMBERSHIP DRIVE  ★  ";
+const eventText = "PIXXELHACK 2.0  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  TREE PLANTATION DRIVE  ★  MEMBERSHIP DRIVE  ★  CORE COMMITTEE 2026-27  ★  ";
 const fullTickerText = eventText.repeat(5);
 
 const carouselImages = [
-  pixxelhack2026,
-  zephyr2026,
-  alumniinteraction26_1,
-  localIv2026,
-  innovgeniusIdeathon,
-  treePlantation2026,
-  acmRecodeHackathon,
-  iicWorkshop2026,
-  preconferenceDsaWorkshop,
-  membershipDrive2026,
   pixxelhack26_1,
+  pixxelhack26_2,
+  alumniinteraction26_1,
+  localiv26_2,
+  localiv26_3,
+  localiv26_4,
+  treeplantation26_1,
+  treeplantation26_3,
+  treeplantation26_4,
+  membershipdrive26_2,
+  membershipdrive26_3,
   core26
 ];
 
 const mobileCards = [
-  { image: pixxelhack2026, title: "PixxelHack 2.0 Webathon", tag: "HACKATHON" },
-  { image: zephyr2026, title: "Zephyr 2026 Flagship Fest", tag: "TECH FEST" },
-  { image: alumniinteraction26_1, title: "Alumni Interaction 2026", tag: "MENTORSHIP" },
-  { image: localIv2026, title: "Automation Expo 2026 IV", tag: "INDUSTRIAL VISIT" },
-  { image: innovgeniusIdeathon, title: "INNOVGENIUS 2026 (with TCS)", tag: "IDEATHON" },
-  { image: treePlantation2026, title: "Tree Plantation Drive 2026", tag: "SOCIAL CAUSE" },
-  { image: acmRecodeHackathon, title: "ACM ReCode Hackathon", tag: "MICROSERVICES" },
-  { image: iicWorkshop2026, title: "IIC Innovation Prototyping", tag: "WORKSHOP" },
-  { image: preconferenceDsaWorkshop, title: "Pre-Conference DSA Masterclass", tag: "DSA WORKSHOP" },
-  { image: core26, title: "TCET ACM SIGITE Core Committee", tag: "LEADERSHIP" }
+  { image: pixxelhack26_1, title: "PixxelHack 2.0 • Live Coding Showdown", tag: "HACKATHON" },
+  { image: pixxelhack26_2, title: "PixxelHack 2.0 • Participant Teams", tag: "HACKATHON" },
+  { image: alumniinteraction26_1, title: "Alumni Interaction 2026 • Felicitation", tag: "MENTORSHIP" },
+  { image: localiv26_4, title: "Automation Expo 2026 • Delegation Cohort", tag: "INDUSTRIAL VISIT" },
+  { image: localiv26_3, title: "Autonomous Quadruped AI & Robotics", tag: "AI & ROBOTICS" },
+  { image: localiv26_2, title: "Industry 4.0 & Smart Manufacturing", tag: "INDUSTRIAL VISIT" },
+  { image: treeplantation26_1, title: "Tree Plantation • Greening Thakur Junction", tag: "SOCIAL CAUSE" },
+  { image: treeplantation26_4, title: "Faculty Greening Drive • Divider Plantation", tag: "SOCIAL CAUSE" },
+  { image: membershipdrive26_2, title: "Student Technical Orientation & Perks", tag: "ORIENTATION" },
+  { image: membershipdrive26_3, title: "New ACM Members Welcome Ceremony", tag: "ORIENTATION" },
+  { image: core26, title: "TCET ACM SIGITE Core Committee 2026-27", tag: "LEADERSHIP" }
 ];
 
 export default function PureCss3DCarousel() {
