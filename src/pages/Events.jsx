@@ -218,17 +218,24 @@ export default function Events() {
                   className="space-y-5 sm:space-y-6"
                 >
                   {/* Event Showcase Image */}
-                  <div className="relative group overflow-hidden rounded-2xl border-2 border-[#BFDBFE] shadow-md aspect-[16/9] bg-[#DBEAFE]">
+                  <div className="relative group overflow-hidden rounded-2xl border-2 border-[#BFDBFE] shadow-md aspect-[16/9] bg-slate-950">
+                    {/* Ambient blurred backdrop for vertical/square posters */}
+                    <img
+                      src={activeEvent.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
+                    />
                     <img
                       src={activeEvent.image}
                       alt={activeEvent.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="relative z-[1] w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                       width={640}
                       height={360}
                     />
-                    <span className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 font-mono text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${activeCategoryTheme.bg} ${activeCategoryTheme.text} border ${activeCategoryTheme.border} shadow-md uppercase tracking-wider`}>
+                    <span className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 font-mono text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${activeCategoryTheme.bg} ${activeCategoryTheme.text} border ${activeCategoryTheme.border} shadow-md uppercase tracking-wider z-10`}>
                       {activeEvent.category}
                     </span>
                   </div>

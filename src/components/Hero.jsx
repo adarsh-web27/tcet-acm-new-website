@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowDown, Users, Monitor, ArrowRight } from 'lucide-react';
-import { homeAssets } from '../assets';
 import { LoadingContext } from '../App';
 import InfiniteTextMarquee from './InfiniteTextMarquee';
 import { getLenis } from '../hooks/useLenis';
@@ -41,11 +40,11 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center w-full relative z-10 py-4 my-auto">
         
         {/* ================= LEFT COLUMN: BIG BOLD STATEMENT TYPOGRAPHY (On Left White Canvas) ================= */}
-        <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-6 order-1 pl-0">
+        <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 sm:space-y-6 order-1 pl-0">
 
 
           {/* BIG BOLD STATEMENT HEADLINE (Direct semantic paint for 0ms LCP) */}
-          <h1 className="font-display font-[900] text-[clamp(2.25rem,10vw,4.5rem)] text-[#0F172A] tracking-[-0.035em] leading-[0.96] uppercase">
+          <h1 className="font-display font-[900] text-[clamp(2.25rem,10vw,4.5rem)] text-[#0F172A] tracking-[-0.035em] leading-[0.96] uppercase text-center lg:text-left">
             ENGINEERING <br />
             THE FUTURE <br />
             <span className="text-[#1D4ED8]">
@@ -54,23 +53,20 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-[1.6] sm:leading-[1.65] max-w-xl text-center lg:text-left mx-auto lg:mx-0">
             Empowering IT engineering students through hands-on technical workshops, national hackathons, research innovation, social causes, educational drives, and peer-to-peer mentorship at TCET Mumbai.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => {
-                const isMobile = window.innerWidth < 768;
-                const targetEl = isMobile 
-                  ? document.getElementById('memories-section') 
-                  : document.getElementById('second-page');
+                const targetEl = document.getElementById('about-section');
                 if (targetEl) {
                   const lenis = getLenis();
                   if (lenis) {
-                    lenis.scrollTo(targetEl, { offset: -70 });
+                    lenis.scrollTo(targetEl, { offset: 0 });
                   } else {
                     targetEl.scrollIntoView({ behavior: 'smooth' });
                   }
@@ -93,7 +89,7 @@ export default function Hero() {
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="flex flex-wrap items-center gap-x-5 sm:gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm font-medium text-slate-700">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 sm:gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm font-medium text-slate-700 w-full">
             <div className="inline-flex items-center gap-2">
               <Users className="w-4 h-4 text-[#0284C7] shrink-0" />
               <span><strong className="text-slate-900 font-bold">140+</strong> Active members</span>
@@ -123,16 +119,16 @@ export default function Hero() {
                 <div className="relative aspect-[19/14] w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-slate-100 shadow-inner">
                   {/* Faculty & Core Photo (Rendered directly at native display density) */}
                   <picture className="w-full h-full block">
-                    <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp" type="image/webp" />
+                    <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp?v=1.1" type="image/webp" />
                     <img 
-                      src="/images/hero-team.webp" 
-                      srcSet="/images/hero-team-sm.webp 1000w, /images/hero-team.webp 1900w"
+                      src="/images/hero-team.webp?v=1.1" 
+                      srcSet="/images/hero-team-sm.webp?v=1.1 1000w, /images/hero-team.webp?v=1.1 1900w"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                       alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
                       className="w-full h-full object-cover object-center"
                       loading="eager"
                       decoding="async"
-                      fetchpriority="high"
+                      fetchPriority="high"
                       width={1900}
                       height={1400}
                     />

@@ -13,6 +13,7 @@ import acmSummitIndore from './acm-summit-indore.webp';
 import cyberSafetyDrive from './cyber-safety-drive.webp';
 import eMagazine from './e-magazine.webp';
 import zephyrFest from './zephyr-fest.webp';
+import zephyr2026 from './zephyr-2026.webp';
 import ideaToImpact from './idea-to-impact.webp';
 import automationExpoNesco from './automation-expo-nesco.webp';
 import pixxelhackWebathon2025 from './pixxelhack-webathon-2025.webp';
@@ -56,6 +57,7 @@ export const eventImages = {
   cyberSafetyDrive,
   eMagazine,
   zephyrFest,
+  zephyr2026,
   ideaToImpact,
   automationExpoNesco,
   pixxelhackWebathon2025,

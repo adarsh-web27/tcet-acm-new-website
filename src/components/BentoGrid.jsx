@@ -22,10 +22,10 @@ export default function BentoGrid() {
   const switcherTabs = [
     {
       id: 0,
-      title: "TCET ACM Chapter",
+      title: "TCET ACM SIGITE Chapter",
       tag: "Local Heritage",
       content: {
-        headline: "Chartered July 2011 • Department of IT, TCET",
+        headline: "Chartered September 2011 • Department of IT, TCET",
         description: "TCET ACM SIGITE nurtures 140+ active computing scholars, pairing academic excellence with peer-to-peer engineering workshops, Scopus research paper writing, and national hackathons.",
         highlights: [
           "140+ Active Computing Student Scholars",
@@ -97,7 +97,7 @@ export default function BentoGrid() {
 
   return (
     <section 
-      id="mission" 
+      id="about-section" 
       ref={sectionRef}
       className="relative isolate overflow-hidden w-full pt-32 pb-28 px-6 md:px-16 lg:px-24 bg-[#F8FAFC]"
     >
@@ -135,7 +135,7 @@ export default function BentoGrid() {
             Institutional Heritage & Objectives
           </h2>
           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl mx-auto">
-            Chartered in July 2011, connecting students to the world's largest computing society.
+            Chartered in September 2011, connecting students to the world's largest computing society.
           </p>
         </div>
 

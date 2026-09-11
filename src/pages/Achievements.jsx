@@ -70,31 +70,40 @@ export default function Achievements() {
                       : 'order-1 md:order-2'
                   }`}
                 >
-                  <div className="relative w-full h-64 md:h-full min-h-[250px] sm:min-h-[290px] rounded-2xl lg:rounded-[26px] overflow-hidden bg-slate-100 shadow-inner">
+                  <div className="relative w-full h-64 md:h-full min-h-[250px] sm:min-h-[290px] rounded-2xl lg:rounded-[26px] overflow-hidden bg-slate-950 shadow-inner">
                     
-                    {/* Edge-to-Edge Achievement Photograph */}
+                    {/* Ambient blurred backdrop for vertical certificates & odd ratios */}
+                    <img 
+                      src={item.image} 
+                      alt="" 
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
+                    />
+
+                    {/* Achievement Photograph */}
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-                      loading="eager"
+                      className="relative z-[1] w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                      fetchPriority={idx === 0 ? "high" : "auto"}
                       decoding="async"
                       width={800}
                       height={533}
                     />
 
                     {/* Floating Milestone Number & Year Badge */}
-                    <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-sm border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                    <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-sm border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg z-10">
                       <IconComp className={`w-3.5 h-3.5 ${item.badgeColor}`} />
                       <span>{item.year}</span>
                     </div>
 
-                    <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-sm border border-white/15 text-white/90 font-mono text-xs font-extrabold tracking-widest uppercase shadow-md">
+                    <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-sm border border-white/15 text-white/90 font-mono text-xs font-extrabold tracking-widest uppercase shadow-md z-10">
                       NO. {item.id}
                     </div>
 
                     {/* Bottom Image Caption */}
-                    <div className="absolute bottom-3 left-3.5 right-3.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-sm border border-white/20 flex items-center justify-between text-white text-xs sm:text-sm font-mono font-semibold shadow-md">
+                    <div className="absolute bottom-3 left-3.5 right-3.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-sm border border-white/20 flex items-center justify-between text-white text-xs sm:text-sm font-mono font-semibold shadow-md z-10">
                       <span className="truncate opacity-90">{item.organization}</span>
                       <span className="text-emerald-400 font-bold flex items-center gap-1 shrink-0">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

@@ -8,7 +8,7 @@ const ROUTE_META = {
   },
   '/who-we-are': {
     title: 'About Us — TCET ACM SIGITE Chapter',
-    description: 'Discover TCET ACM SIGITE history, charter since July 2011, mission, vision, and faculty mentorship in computing education.'
+    description: 'Discover TCET ACM SIGITE history, charter since September 2011, mission, vision, and faculty mentorship in computing education.'
   },
   '/events': {
     title: 'Flagship Events & Hackathons — TCET ACM SIGITE',
@@ -24,11 +24,11 @@ const ROUTE_META = {
   },
   '/gallery': {
     title: 'Visual Archive & Memories — TCET ACM SIGITE',
-    description: 'A curated gallery of moments, hackathons, seminars, and tech fest celebrations from TCET ACM chapter history.'
+    description: 'A curated gallery of moments, hackathons, seminars, and tech fest celebrations from TCET ACM SIGITE chapter history.'
   },
   '/contact': {
     title: 'Contact & Feedback — TCET ACM SIGITE',
-    description: 'Get in touch with the TCET ACM chapter committee for collaborations, student memberships, event sponsorships, and inquiries.'
+    description: 'Get in touch with the TCET ACM SIGITE chapter committee for collaborations, student memberships, event sponsorships, and inquiries.'
   }
 };
 

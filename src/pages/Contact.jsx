@@ -175,6 +175,10 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const trimmedEmail = formData.email.trim();
+    const formattedPhone = formData.phone.trim();
+    const formattedDept = formData.department.trim();
+
     const payload = {
       fullName: trimmedName,
       email: trimmedEmail,
@@ -187,8 +191,32 @@ export default function Contact() {
     };
 
     try {
-      // Primary: Serverless API endpoint
-      let response = await fetch('/api/contact', {
+      // 1. LOCAL DEVELOPMENT ENVIRONMENT:
+      // Vite dev server does not run Vercel serverless functions locally.
+      // Safely simulate success and log to console without triggering fallbacks or spamming inboxes.
+      if (import.meta.env.DEV) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        console.info('🧪 [DEV MODE] Contact form submitted locally:', payload);
+        recordSubmission();
+        setSubmitStatus('success');
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          department: '',
+          category: 'General Inquiry',
+          subject: '',
+          message: ''
+        });
+        setHoneypot('');
+        setErrors({});
+        setTimeout(() => setSubmitStatus(null), 7000);
+        return;
+      }
+
+      // 2. DEPLOYED PRODUCTION ENVIRONMENT (Vercel):
+      // Clean boundary: Browser -> /api/contact -> api/contact.js -> FormSubmit
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -196,29 +224,6 @@ export default function Contact() {
         },
         body: JSON.stringify(payload)
       });
-
-      // Fallback for local Vite preview / static environments where serverless functions are not live
-      if (!response.ok && (response.status === 404 || response.status === 405)) {
-        response = await fetch('https://formsubmit.co/ajax/acmtcet26@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: `[TCET ACM Inquiry] ${formData.category} — ${trimmedSubject}`,
-            _replyto: trimmedEmail,
-            _template: 'table',
-            'Full Name': trimmedName,
-            'Email Address': trimmedEmail,
-            'Phone Number': formattedPhone,
-            'Department': formattedDept,
-            'Category': formData.category,
-            'Subject': trimmedSubject,
-            'Message': trimmedMessage
-          })
-        });
-      }
 
       if (response.ok) {
         // Record successful submission timestamp for rate limiting
@@ -242,7 +247,7 @@ export default function Contact() {
       }
     } catch (_err) {
       // Construct mailto link as graceful client fallback preserving user data
-      const subjectEncoded = encodeURIComponent(`[TCET ACM Inquiry] ${formData.category} — ${trimmedSubject}`);
+      const subjectEncoded = encodeURIComponent(`[TCET ACM SIGITE Inquiry] ${formData.category} — ${trimmedSubject}`);
       const bodyContent = [
         `Full Name: ${trimmedName}`,
         `Email: ${trimmedEmail}`,
@@ -252,7 +257,7 @@ export default function Contact() {
         `\nMessage Details:\n${trimmedMessage}`
       ].join('\n');
       
-      window.location.href = `mailto:acmtcet26@gmail.com?subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
+      window.location.href = `mailto:tcetacm@thakureducation.org?subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
       setSubmitStatus('fallback');
       setTimeout(() => setSubmitStatus(null), 8000);
     } finally {
@@ -281,7 +286,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-[#0B1F33] uppercase tracking-tight leading-[1.08]"
           >
-            Connect with TCET ACM <br />
+            Connect with TCET ACM SIGITE <br />
             <span className="italic text-[#0B1F33]">
               Student Chapter
             </span>
@@ -621,7 +626,7 @@ export default function Contact() {
                   onBlur={handleBlur}
                   placeholder={
                     formData.category === 'Student & Faculty Feedback'
-                      ? "Share your feedback, ideas, or recommendations for TCET ACM activities..."
+                      ? "Share your feedback, ideas, or recommendations for TCET ACM SIGITE activities..."
                       : "Provide detailed description of your request or collaboration proposal..."
                   }
                   className={`w-full px-4 py-2.5 rounded-xl bg-[#EFF6FF] border text-[#0B1F33] placeholder-[#3B82F6]/60 text-base sm:text-sm font-medium focus:outline-none transition-colors resize-y ${

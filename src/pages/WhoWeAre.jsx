@@ -15,6 +15,7 @@ import {
   UserCheck
 } from 'lucide-react';
 import { 
+  deanSSW,
   branchCounsellor, 
   facultyMentorsList, 
   studentPerspectivesList 
@@ -27,6 +28,7 @@ export default function WhoWeAre() {
   const [perspectiveFilter, setPerspectiveFilter] = useState('all');
 
   const allPerspectives = [
+    deanSSW,
     branchCounsellor,
     ...facultyMentorsList,
     ...studentPerspectivesList
@@ -166,7 +168,85 @@ export default function WhoWeAre() {
             </div>
           </div>
 
-          {/* ================= A. BRANCH COUNSELLOR SPOTLIGHT FEATURE ================= */}
+          {/* ================= A1. DEAN (STUDENT & STAFF WELFARE) SPOTLIGHT FEATURE ================= */}
+          {(perspectiveFilter === 'all' || perspectiveFilter === 'faculty') && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/95 border-2 border-[#93C5FD] rounded-[36px] p-8 sm:p-12 md:p-14 shadow-[0_14px_45px_-10px_rgba(3,109,164,0.16)] hover:border-[#1D4ED8]/40 transition-all duration-500 relative overflow-hidden"
+            >
+              {/* Decorative quotation background symbol */}
+              <Quote className="absolute right-6 -bottom-8 w-48 h-48 text-[#93C5FD]/30 -z-0 pointer-events-none select-none" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                
+                {/* Left: Portrait & Badges */}
+                <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
+                  <div className="relative group cursor-pointer" onClick={() => setSelectedPerspective(deanSSW)}>
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-50">
+                      <img 
+                        src={deanSSW.image} 
+                        alt={deanSSW.name}
+                        className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                        decoding="async"
+                        width={224}
+                        height={224}
+                      />
+                    </div>
+                  </div>
+
+                  <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
+                    {deanSSW.badge}
+                  </span>
+                </div>
+
+                {/* Right: Narrative Editorial */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#1E40AF] uppercase tracking-wider block mb-1">
+                      DEAN'S DESK SPOTLIGHT
+                    </span>
+                    <h3 className="font-display font-black text-3xl sm:text-4xl text-[#0B1F33]">
+                      {deanSSW.name}
+                    </h3>
+                    <p className="font-mono text-sm font-bold text-[#0B1F33] mt-0.5">
+                      {deanSSW.role}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#1E40AF]">
+                      {deanSSW.department}
+                    </p>
+                  </div>
+
+                  {/* Pull Quote */}
+                  <div className="relative bg-[#DBEAFE] border border-[#93C5FD] rounded-2xl p-6 shadow-sm space-y-3">
+                    <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
+                      "{deanSSW.quote}"
+                    </p>
+                    <p className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF]">
+                      — On holistic student development, lasting connections, and community impact.
+                    </p>
+                  </div>
+
+                  {/* Action triggers */}
+                  <div className="flex flex-wrap items-center gap-4 pt-1">
+                    <button
+                      onClick={() => setSelectedPerspective(deanSSW)}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D4ED8] text-white text-xs sm:text-sm font-mono font-bold hover:bg-[#3B82F6] transition-all shadow-sm cursor-pointer"
+                    >
+                      <UserCheck className="w-3.5 h-3.5" />
+                      <span>Read Full Perspective</span>
+                    </button>
+                  </div>
+
+                </div>
+
+              </div>
+            </motion.div>
+          )}
+
+          {/* ================= A2. BRANCH COUNSELLOR SPOTLIGHT FEATURE ================= */}
           {(perspectiveFilter === 'all' || perspectiveFilter === 'faculty') && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -382,7 +462,7 @@ export default function WhoWeAre() {
               15-Year Milestone Roadmap
             </h2>
             <p className="text-sm sm:text-base text-[#1E40AF]">
-              Tracing our journey from foundation in July 2011 to receiving national honors at the ACM India Summit.
+              Tracing our journey from foundation in September 2011 to receiving national honors at the ACM India Summit.
             </p>
           </div>
 

@@ -305,7 +305,7 @@ export default function TeamGrid() {
             alt={member.name}
             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             loading={member.id === 'rajesh-bansode' ? 'eager' : 'lazy'}
-            fetchpriority={member.id === 'rajesh-bansode' ? 'high' : 'auto'}
+            fetchPriority={member.id === 'rajesh-bansode' ? 'high' : 'auto'}
             width={400}
             height={540}
           />
@@ -384,7 +384,7 @@ export default function TeamGrid() {
       <section className="block md:hidden pt-20 pb-8 px-4 text-center select-none">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-3 shadow-xs">
           <Users className="w-3 h-3 text-[#1E40AF]" />
-          <span>TCET ACM • LEADERSHIP 2025–26</span>
+          <span>TCET ACM SIGITE • LEADERSHIP 2025–26</span>
         </div>
 
         <h1 className="font-display font-[900] text-3xl text-[#0B1F33] tracking-tight leading-tight uppercase mb-2">
@@ -513,7 +513,7 @@ export default function TeamGrid() {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-mono font-bold tracking-widest uppercase bg-[#DBEAFE] text-[#1E40AF] border border-[#93C5FD] mb-4 shadow-sm">
               <Users className="w-3.5 h-3.5 text-[#1E40AF]" />
-              THE CREW • TCET ACM LEADERSHIP
+              THE CREW • TCET ACM SIGITE LEADERSHIP
             </div>
             <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-[#0B1F33] tracking-tight leading-[1.2] pb-1">
               Architects, mentors & the{' '}
@@ -585,7 +585,7 @@ export default function TeamGrid() {
             {studentOfficers.map((member) => renderCard(member))}
           </div>
         ) : (
-          /* ALL Members in Authentic TCET ACM Hierarchy */
+          /* ALL Members in Authentic TCET ACM SIGITE Hierarchy */
           <div className="space-y-16">
             {/* Tier 1: IT HOD & ACM Branch Counsellor (Alone at the top center) */}
             {branchCounsellor && (

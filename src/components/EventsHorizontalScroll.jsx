@@ -117,8 +117,15 @@ export default function EventsHorizontalScroll() {
             >
 
               <div>
-                {/* Media frame */}
-                <div className="w-full h-[175px] sm:h-[190px] lg:h-[180px] xl:h-[200px] rounded-xl sm:rounded-2xl overflow-hidden mb-3 relative bg-slate-100 border border-slate-100">
+                {/* Media frame with ambient backdrop to prevent poster clipping */}
+                <div className="w-full h-[175px] sm:h-[190px] lg:h-[180px] xl:h-[200px] rounded-xl sm:rounded-2xl overflow-hidden mb-3 relative bg-slate-900 border border-slate-100">
+                  {/* Ambient blurred backdrop for vertical/square posters */}
+                  <img 
+                    src={event.image} 
+                    alt="" 
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
+                  />
                   <img 
                     src={event.image} 
                     alt={event.title} 
@@ -126,24 +133,24 @@ export default function EventsHorizontalScroll() {
                     decoding="async"
                     width={390}
                     height={220}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="relative z-[1] w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   
-                  {/* Floating Date Chip */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1F33]/90 text-xs font-mono font-bold text-white border border-white/20 shadow-md flex items-center gap-1.5">
-                    <Calendar className="w-3 h-3 text-[#FFD43B]" />
-                    <span>{event.date}</span>
+                  {/* Floating Date Chip (Positioned bottom-left to never collide with top category badge) */}
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 max-w-[calc(100%-20px)] sm:max-w-[calc(100%-55px)] px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1F33]/90 backdrop-blur-sm text-[11px] sm:text-xs font-mono font-bold text-white border border-white/20 shadow-md flex items-center gap-1.5 z-10">
+                    <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFD43B] shrink-0" />
+                    <span className="truncate">{event.date}</span>
                   </div>
 
-                  {/* Floating Category Badge */}
-                  <span className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider ${event.badgeTheme.bg} ${event.badgeTheme.text} border ${event.badgeTheme.border} shadow-md`}>
+                  {/* Floating Category Badge (Positioned top-right) */}
+                  <span className={`absolute top-2.5 sm:top-3 right-2.5 sm:right-3 rounded-full px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider ${event.badgeTheme.bg} ${event.badgeTheme.text} border ${event.badgeTheme.border} shadow-md z-10`}>
                     {event.badge}
                   </span>
 
                   {/* Hover Action Circle */}
-                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition duration-300 translate-y-2 group-hover:translate-y-0">
-                    <div className="w-9 h-9 rounded-full bg-[#FFD43B] text-[#0B1F33] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-                      <ArrowUpRight className="w-4 h-4" />
+                  <div className="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 opacity-0 group-hover:opacity-100 transition duration-300 translate-y-2 group-hover:translate-y-0 z-10 pointer-events-none">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FFD43B] text-[#0B1F33] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                 </div>
@@ -180,12 +187,9 @@ export default function EventsHorizontalScroll() {
                   </a>
                 ) : (
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 uppercase tracking-wider">
-                    TCET ACM CHAPTER
+                    TCET ACM SIGITE CHAPTER
                   </span>
                 )}
-                <span className="text-xs sm:text-sm font-mono font-bold text-[#1D4ED8] px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
-                  TCET ACM
-                </span>
               </div>
             </div>
           ))}

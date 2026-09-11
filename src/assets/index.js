@@ -22,7 +22,7 @@ export * from './whoWeAreAssets';
 export const officialProjects = [
   {
     id: "p1",
-    title: "TCET ACM Official Portal & Spatial Hub",
+    title: "TCET ACM SIGITE Official Portal & Spatial Hub",
     category: "Web & Spatial Computing",
     desc: "The next-generation official web application for TCET ACM SIGITE featuring 3D memory clouds, GSAP scroll engines, and real-time event portals.",
     badge: "FLAGSHIP PORTAL",
