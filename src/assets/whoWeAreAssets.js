@@ -6,6 +6,26 @@ import { whoWeAreImages } from './images/who-we-are';
  * Images imported directly from `src/assets/images/who-we-are/*.webp`
  */
 
+export const deanSSW = {
+  id: "lochan-jolly",
+  name: "Dr. Lochan Jolly",
+  role: "Professor & Dean (Student & Staff Welfare)",
+  department: "Department of Electronics & Telecommunication • TCET",
+  image: whoWeAreImages.drLochanJolly,
+  badge: "🏛️ PROFESSOR & DEAN (SSW)",
+  perspectiveType: "faculty",
+  quote: "As Dean SSW, I strongly believe that meaningful student development extends beyond academics. Through hackathons, technical workshops, industrial visits, alumni interactions, community initiatives, and student-led events, TCET ACM SIGITE provides students with opportunities to discover their potential, build lasting connections, and contribute positively to the college community.",
+  experience: "Ph.D. in E&TC (SNDT), M.Tech. in Microelectronics (IIT Bombay) with 23+ years of academic excellence, research mentorship, and student welfare leadership at TCET.",
+  impacts: [
+    "Dean of Student & Staff Welfare leading 15+ student chapters & professional bodies",
+    "Recognized Ph.D. Guide & IEEE STEM Ambassador",
+    "Pioneered holistic student development & innovation ecosystems at TCET"
+  ],
+  github: null,
+  linkedin: null,
+  email: null
+};
+
 export const branchCounsellor = {
   id: "rajesh-bansode",
   name: "Dr. Rajesh Bansode",
@@ -54,7 +74,7 @@ export const facultyMentorsList = [
     image: whoWeAreImages.profApekshaWaghmare,
     badge: "🎓 FACULTY IN-CHARGE",
     perspectiveType: "faculty",
-    quote: "The student-led energy in TCET ACM creates an unmatched environment for peer learning, rapid prototyping, and collaborative open-source sprints.",
+    quote: "The student-led energy in TCET ACM SIGITE creates an unmatched environment for peer learning, rapid prototyping, and collaborative open-source sprints.",
     experience: "Specializes in Data Structures, Algorithms, and competitive hackathon mentorship with 10+ years of academic excellence.",
     impacts: [
       "Mentored PixxelHack & InnovGenius winning squads",
@@ -121,7 +141,7 @@ export const studentPerspectivesList = [
       "Spearheaded student outreach programs",
       "Fostered peer mentorship networks"
     ],
-    github: "http://github.com/anannyasalvi16",
+    github: "https://github.com/anannyasalvi16",
     linkedin: "https://www.linkedin.com/in/anannya-salvi-a317623ab/",
     email: "anannya.acm@tcetmumbai.in"
   },
@@ -133,7 +153,7 @@ export const studentPerspectivesList = [
     image: whoWeAreImages.vedantSingh,
     badge: "🚀 SECRETARY",
     perspectiveType: "student",
-    quote: "Operational rigor and seamless documentation ensure that every innovation and event in TCET ACM achieves its maximum reach.",
+    quote: "Operational rigor and seamless documentation ensure that every innovation and event in TCET ACM SIGITE achieves its maximum reach.",
     experience: "Oversees official records, institutional event submissions, and inter-collegiate technical collaborations.",
     impacts: [
       "Coordinated 100% verified event documentation",
@@ -146,7 +166,7 @@ export const studentPerspectivesList = [
   },
   {
     id: "praham-tiwari",
-    name: "Praham Tiwari",
+    name: "Prasham Tiwari",
     role: "Event Manager",
     department: "Third Year Information Technology",
     image: whoWeAreImages.prahamTiwari,
@@ -190,7 +210,7 @@ export const studentPerspectivesList = [
     image: whoWeAreImages.gesuSingh,
     badge: "🚀 WEBMASTER",
     perspectiveType: "student",
-    quote: "Engineering the official digital face of TCET ACM pushes us to stay at the cutting edge of web performance and spatial computing.",
+    quote: "Engineering the official digital face of TCET ACM SIGITE pushes us to stay at the cutting edge of web performance and spatial computing.",
     experience: "Heads web architecture, digital platforms, and production deployment across chapter web portals.",
     impacts: [
       "Engineered official chapter web portals",

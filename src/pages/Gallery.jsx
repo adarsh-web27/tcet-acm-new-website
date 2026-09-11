@@ -256,7 +256,7 @@ export default function Gallery() {
       {/* ================= TOP HEADER & YEAR FILTER BAR ================= */}
       <div className="relative z-40 flex flex-col items-center pt-2 sm:pt-3 px-4 gap-2.5 pointer-events-auto select-none shrink-0">
         <span className="inline-block px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] font-mono text-xs font-bold uppercase tracking-widest shadow-2xs">
-          TCET ACM • GALLERY ARCHIVES
+          TCET ACM SIGITE • GALLERY ARCHIVES
         </span>
 
         {/* Year Filter Buttons */}

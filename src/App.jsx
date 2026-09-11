@@ -26,17 +26,22 @@ function ScrollFix() {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle anchor hash scrolling if present (e.g. /who-we-are#heritage)
+    // Handle anchor hash scrolling safely (e.g. /who-we-are#heritage)
     if (location.hash) {
-      const targetEl = document.querySelector(location.hash);
-      if (targetEl) {
-        const lenis = getLenis();
-        if (lenis) {
-          lenis.scrollTo(targetEl, { offset: -80 });
-        } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
+      try {
+        const hashId = decodeURIComponent(location.hash.replace(/^#/, ''));
+        const targetEl = hashId ? document.getElementById(hashId) : null;
+        if (targetEl) {
+          const lenis = getLenis();
+          if (lenis) {
+            lenis.scrollTo(targetEl, { offset: -80 });
+          } else {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+          return;
         }
-        return;
+      } catch {
+        // Ignore malformed hash selectors gracefully
       }
     }
     

@@ -1,7 +1,21 @@
-import { galleryImages } from './images/gallery';
+import {
+  pixxelhack26_1,
+  pixxelhack26_2,
+  alumniinteraction26_1,
+  localiv26_2,
+  localiv26_3,
+  localiv26_4,
+  treeplantation26_1,
+  treeplantation26_3,
+  treeplantation26_4,
+  membershipdrive26_2,
+  membershipdrive26_3,
+  core26,
+  archiveImages
+} from './images/gallery';
 
 /**
- * Spatial 3D Gallery Assets & Memories — Official TCET ACM Moments
+ * Spatial 3D Gallery Assets & Memories — Official TCET ACM SIGITE Moments
  * Sourced directly from tcet.acm.org
  */
 
@@ -15,7 +29,7 @@ export const MEMORY_CARDS = [
     location: "Online & TCET Campus",
     category: "Hackathon",
     description: "400+ developers competing in the intense 48-hour continuous full-stack web engineering hackathon.",
-    imageUrl: galleryImages[0]
+    imageUrl: pixxelhack26_1
   },
   {
     id: 1,
@@ -25,32 +39,22 @@ export const MEMORY_CARDS = [
     location: "TCET Computing Labs",
     category: "Hackathon",
     description: "Student developer squads brainstorming, testing APIs, and deploying modern web applications under pressure.",
-    imageUrl: galleryImages[1]
+    imageUrl: pixxelhack26_2
   },
 
   // 2. Alumni Interaction 2026 (2026-27)
   {
-    id: 2,
+    id: 21,
     year: "2026-27",
-    title: "Alumni Mentorship & Q&A Circle",
+    title: "Alumni Interaction 2026 • Felicitation & Core Gathering",
     date: "JUL 31, 2026",
     location: "Study Skill Center TIMSR",
     category: "Mentorship",
-    description: "Interactive breakout sessions connecting students directly with corporate leaders and senior software engineers.",
-    imageUrl: galleryImages[2]
+    description: "Honoring distinguished TCET IT alumni guests with chapter mementos alongside student executive leaders and faculty mentors.",
+    imageUrl: alumniinteraction26_1
   },
 
   // 3. Local Industrial Visit (Automation Expo 2026) (2026-27)
-  {
-    id: 3,
-    year: "2026-27",
-    title: "Automation Expo 2026 • Live Robotics Demo",
-    date: "JUL 25, 2026",
-    location: "NESCO Exhibition Center, Mumbai",
-    category: "Industrial Visit",
-    description: "Exploring industrial robotic arms, automated vision systems, and smart factory floor machinery.",
-    imageUrl: galleryImages[3]
-  },
   {
     id: 4,
     year: "2026-27",
@@ -58,8 +62,28 @@ export const MEMORY_CARDS = [
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
     category: "Industrial Visit",
-    description: "TCET ACM student scholars learning next-gen IoT control systems, PLCs, and automated assembly robotics.",
-    imageUrl: galleryImages[4]
+    description: "TCET ACM SIGITE student scholars learning next-gen IoT control systems, PLCs, and automated assembly robotics.",
+    imageUrl: localiv26_2
+  },
+  {
+    id: 41,
+    year: "2026-27",
+    title: "Autonomous Quadruped AI & Robotics Showcase",
+    date: "JUL 25, 2026",
+    location: "NESCO Exhibition Center, Mumbai",
+    category: "AI & Robotics",
+    description: "TCET ACM SIGITE student cohort observing autonomous quadruped robot navigation, sensor telemetry, and embedded AI demos.",
+    imageUrl: localiv26_3
+  },
+  {
+    id: 42,
+    year: "2026-27",
+    title: "Automation Expo 2026 • Chapter Delegation Cohort",
+    date: "JUL 25, 2026",
+    location: "NESCO Exhibition Center, Mumbai",
+    category: "Industrial Delegation",
+    description: "The official TCET ACM SIGITE student delegation and faculty coordinators assembled at Hall 3 of Automation Expo 2026.",
+    imageUrl: localiv26_4
   },
 
   // 4. Tree Plantation Drive 2026 (2026-27)
@@ -71,17 +95,7 @@ export const MEMORY_CARDS = [
     location: "Thakur Shyam Narayan Marg Junction",
     category: "Social Cause",
     description: "Active volunteer community greening drive planting native trees to promote ecological sustainability.",
-    imageUrl: galleryImages[5]
-  },
-  {
-    id: 6,
-    year: "2026-27",
-    title: "Ek Ped Maa Ke Naam • Volunteer Action",
-    date: "JUL 24, 2026",
-    location: "Thakur Road Dividers, Mumbai",
-    category: "Social Cause",
-    description: "Student leaders and faculty planting saplings in tribute to environmental awareness and community welfare.",
-    imageUrl: galleryImages[6]
+    imageUrl: treeplantation26_1
   },
   {
     id: 7,
@@ -91,7 +105,17 @@ export const MEMORY_CARDS = [
     location: "Kandivali East, Mumbai",
     category: "Social Cause",
     description: "Promoting green awareness, civic responsibility, and environmental stewardship across campus.",
-    imageUrl: galleryImages[7]
+    imageUrl: treeplantation26_3
+  },
+  {
+    id: 71,
+    year: "2026-27",
+    title: "Faculty Greening Drive • Road Divider Plantation",
+    date: "JUL 24, 2026",
+    location: "Thakur Complex, Kandivali East",
+    category: "Social Cause",
+    description: "TCET faculty and student leaders planting saplings along median dividers, fostering urban greening and ecological stewardship.",
+    imageUrl: treeplantation26_4
   },
 
   // 5. Membership Drive 2026-27 (2026-27)
@@ -103,7 +127,7 @@ export const MEMORY_CARDS = [
     location: "TCET Campus",
     category: "Orientation",
     description: "Introducing incoming engineers to ACM digital libraries, research groups, hackathons, and certifications.",
-    imageUrl: galleryImages[8]
+    imageUrl: membershipdrive26_2
   },
   {
     id: 9,
@@ -113,10 +137,22 @@ export const MEMORY_CARDS = [
     location: "TCET Campus",
     category: "Orientation",
     description: "Inducting fresh minds into the chapter's research, competitive programming, and web development wings.",
-    imageUrl: galleryImages[9]
+    imageUrl: membershipdrive26_3
   },
 
-  // 6. Chapter Archive & Historic Memories (2025-26)
+  // 6. TCET ACM SIGITE Core Committee 2026-27 (2026-27)
+  {
+    id: 100,
+    year: "2026-27",
+    title: "TCET ACM SIGITE Core Committee 2026-27",
+    date: "AUG 01, 2026",
+    location: "TCET Campus Foyer",
+    category: "Core Leadership",
+    description: "The executive student core committee and domain heads steering TCET ACM SIGITE throughout the 2026-27 tenure.",
+    imageUrl: core26
+  },
+
+  // 7. Chapter Archive & Historic Memories (2025-26)
   {
     id: 10,
     year: "2025-26",
@@ -125,7 +161,7 @@ export const MEMORY_CARDS = [
     location: "TCET Seminar Hall-3",
     category: "Alumni Network",
     description: "Distinguished TCET IT alumni shared career roadmaps, placement preparation strategies, and industry expectations.",
-    imageUrl: galleryImages[10]
+    imageUrl: archiveImages[0]
   },
   {
     id: 11,
@@ -134,148 +170,168 @@ export const MEMORY_CARDS = [
     date: "AUG 08, 2025",
     location: "Online & TCET Campus",
     category: "Hackathon",
-    description: "Celebrating the winning teams of the 48-hour continuous web development showdown engineered by TCET ACM.",
-    imageUrl: galleryImages[11]
+    description: "Celebrating the winning teams of the 48-hour continuous web development showdown engineered by TCET ACM SIGITE.",
+    imageUrl: archiveImages[1]
   },
   {
     id: 12,
     year: "2025-26",
-    title: "TCET ACM Core Team 2025-26",
-    date: "OCT 01, 2025",
-    location: "ACM SIGITE Headquarters",
-    category: "Core Leadership",
-    description: "The executive leadership body and domain heads steering TCET ACM SIGITE throughout the academic year.",
-    imageUrl: galleryImages[12]
+    title: "Seminar on Latest Trends & Technology",
+    date: "AUG 22, 2025",
+    location: "TCET Auditorium",
+    category: "Technology",
+    description: "Tech symposium exploring emerging paradigms in computing, distributed architectures, and modern cloud ecosystems.",
+    imageUrl: archiveImages[2]
   },
   {
     id: 13,
     year: "2025-26",
-    title: "TCET ACM Chapter Team Showcase",
+    title: "TCET ACM SIGITE Core Team 2025-26",
+    date: "OCT 01, 2025",
+    location: "ACM SIGITE Headquarters",
+    category: "Core Leadership",
+    description: "The executive leadership body and domain heads steering TCET ACM SIGITE throughout the academic year.",
+    imageUrl: archiveImages[3]
+  },
+  {
+    id: 14,
+    year: "2025-26",
+    title: "TCET ACM SIGITE Chapter Team Showcase",
     date: "OCT 14, 2025",
     location: "TCET Campus",
     category: "Chapter Life",
     description: "Annual chapter convention uniting committee members, student developers, and faculty mentors.",
-    imageUrl: galleryImages[13]
+    imageUrl: archiveImages[4]
   },
   {
-    id: 14,
+    id: 15,
     year: "2025-26",
     title: "Taiwan Automation Expo 2025",
     date: "AUG 13, 2025",
     location: "Nesco Exhibition Center, Goregaon",
     category: "Industrial Visit",
     description: "Hands-on industrial exploration of industrial robotics, IoT-based automated assembly lines, and smart manufacturing.",
-    imageUrl: galleryImages[14]
+    imageUrl: archiveImages[5]
   },
   {
-    id: 15,
+    id: 16,
     year: "2025-26",
     title: "Social Cause Awareness Drive",
     date: "OCT 29, 2025",
     location: "Navayan Buddha Vihar",
     category: "Social Initiative",
     description: "Community outreach campaign empowering citizens with digital safety literacy and cyber awareness.",
-    imageUrl: galleryImages[15]
+    imageUrl: archiveImages[6]
   },
   {
-    id: 16,
+    id: 17,
     year: "2025-26",
     title: "Seminar: Idea to Impact",
     date: "NOV 15, 2025",
     location: "TCET Auditorium",
     category: "Ideation",
     description: "Interactive session guiding engineering innovators on transitioning technical hackathon prototypes into scalable products.",
-    imageUrl: galleryImages[16]
+    imageUrl: archiveImages[7]
   },
   {
-    id: 17,
+    id: 18,
     year: "2025-26",
     title: "ACM SIGITE Committee Meet",
     date: "DEC 02, 2025",
     location: "IT Department Labs",
     category: "Team Committee",
     description: "Working committee review analyzing annual event roadmaps, hackathon telemetry, and student mentorship.",
-    imageUrl: galleryImages[17]
+    imageUrl: archiveImages[8]
   },
   {
-    id: 18,
+    id: 19,
     year: "2025-26",
     title: "Escape Room Challenge • Zephyr",
     date: "SEP 25, 2025",
     location: "TCET Campus Arena",
     category: "Techno-Cultural",
     description: "Immersive puzzle-solving and algorithmic logic challenge organized during the annual Zephyr fest.",
-    imageUrl: galleryImages[18]
-  },
-  {
-    id: 19,
-    year: "2025-26",
-    title: "Neon Arena Game Zone • Zephyr",
-    date: "SEP 25, 2025",
-    location: "Main Quadrangle, TCET",
-    category: "Fest Excitement",
-    description: "Competitive gaming esports tournament and high-octane student engagement during Zephyr 2025.",
-    imageUrl: galleryImages[19]
+    imageUrl: archiveImages[9]
   },
   {
     id: 20,
+    year: "2025-26",
+    title: "WWE Console Gaming Arena • Zephyr",
+    date: "SEP 25, 2025",
+    location: "Main Quadrangle, TCET",
+    category: "Esports Arena",
+    description: "Competitive gaming esports tournament and high-octane student engagement during Zephyr 2025.",
+    imageUrl: archiveImages[10]
+  },
+  {
+    id: 21,
+    year: "2025-26",
+    title: "Zephyr 2025 Tech Festival Campus",
+    date: "SEP 25, 2025",
+    location: "TCET Campus Quadrangle",
+    category: "Tech Festival",
+    description: "Vibrant celebrations, cosmic installations, and chapter showcases at the flagship annual tech fest.",
+    imageUrl: archiveImages[11]
+  },
+  {
+    id: 22,
     year: "2025-26",
     title: "Dance & Cultural Workshop • Zephyr",
     date: "SEP 26, 2025",
     location: "Open Air Amphitheatre",
     category: "Cultural",
     description: "High-energy dance workshop and creative performance stage celebrated as part of chapter festivities.",
-    imageUrl: galleryImages[20]
+    imageUrl: archiveImages[12]
   },
   {
-    id: 21,
+    id: 23,
     year: "2025-26",
     title: "Powershow Live Stage • Zephyr",
     date: "SEP 27, 2025",
     location: "Central Stage, TCET",
     category: "Entertainment",
-    description: "The grand finale concert recognizing exceptional student contributors and fest champions.",
-    imageUrl: galleryImages[21]
+    description: "The grand finale concert and strength showcase recognizing exceptional student contributors and fest champions.",
+    imageUrl: archiveImages[13]
   },
   {
-    id: 22,
+    id: 24,
     year: "2025-26",
-    title: "Tree Plantation at Dream Park",
-    date: "APR 18, 2026",
-    location: "Dream Park, Kandivali East",
+    title: "Community Outreach & Social Drive",
+    date: "OCT 30, 2025",
+    location: "Kandivali Community Center",
     category: "Social Cause",
-    description: "Community sustainability mission promoting green energy, tree plantation, and ecological responsibility.",
-    imageUrl: galleryImages[22]
+    description: "Active community outreach mission promoting digital literacy, civic responsibility, and student volunteerism.",
+    imageUrl: archiveImages[14]
   },
   {
-    id: 23,
+    id: 25,
     year: "2025-26",
     title: "Taiwan Automation Expo Delegation",
     date: "AUG 14, 2025",
     location: "Nesco Exhibition Center",
     category: "Industrial Visit",
-    description: "TCET ACM student scholars interacting with global engineers and automated sensor systems leaders.",
-    imageUrl: galleryImages[23]
+    description: "TCET ACM SIGITE student scholars interacting with global engineers and automated sensor systems leaders.",
+    imageUrl: archiveImages[15]
   },
   {
-    id: 24,
+    id: 26,
     year: "2025-26",
     title: "Seminar on Generative AI & LLMs",
     date: "JUL 17, 2025",
     location: "Seminar Hall-3, TCET",
     category: "Workshop",
     description: "Deep dive exploring modern transformer architectures, Large Language Model fine-tuning, and neural networks.",
-    imageUrl: galleryImages[24]
+    imageUrl: archiveImages[16]
   },
   {
-    id: 25,
+    id: 27,
     year: "2025-26",
     title: "Smart Manufacturing & Automation",
     date: "AUG 14, 2025",
     location: "Nesco Exhibition Complex",
     category: "Global Exposure",
     description: "Field study on high-precision CNC automation, embedded microcontrollers, and real-time telemetry systems.",
-    imageUrl: galleryImages[25]
+    imageUrl: archiveImages[17]
   }
 ];
 

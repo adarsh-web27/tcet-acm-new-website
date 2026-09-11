@@ -2,39 +2,49 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import memory02 from '../assets/images/gallery/memory-02.webp'; // PixxelHack Winners (50 KB)
-import memory02Sm from '../assets/images/gallery/memory-02-sm.webp'; // PixxelHack Mobile (12.7 KB)
-import memory08 from '../assets/images/gallery/memory-08.webp'; // InnovGenius / Idea to Impact Seminar (40 KB)
-import memory05 from '../assets/images/gallery/memory-05.webp'; // Chapter Moments & Innovation (63 KB)
-import memory17 from '../assets/images/gallery/memory-17.webp'; // GenAI & Transformers Seminar (33 KB)
-import memory01 from '../assets/images/gallery/memory-01.webp'; // Alumni Interaction (29 KB)
-import memory06 from '../assets/images/gallery/memory-06.webp'; // Automation Expo (70 KB)
+// 2026-27 Official Event & Gallery Highlights (Optimized & Lightweight WebP)
+import pixxelhack2026 from '../assets/images/events/pixxelhack-2026.webp';
+import zephyr2026 from '../assets/images/events/zephyr-2026.webp';
+import alumniinteraction26_1 from '../assets/images/gallery/alumniinteraction26_1.webp';
+import localIv2026 from '../assets/images/events/local-iv-2026.webp';
+import innovgeniusIdeathon from '../assets/images/events/innovgenius-ideathon.webp';
+import treePlantation2026 from '../assets/images/events/tree-plantation-2026.webp';
+import acmRecodeHackathon from '../assets/images/events/acm-recode-hackathon.webp';
+import iicWorkshop2026 from '../assets/images/events/iic-workshop-2026.webp';
+import preconferenceDsaWorkshop from '../assets/images/events/preconference-dsa-workshop.webp';
+import membershipDrive2026 from '../assets/images/events/membership-drive-2026.webp';
+import pixxelhack26_1 from '../assets/images/gallery/pixxelhack26_1.webp';
+import core26 from '../assets/images/gallery/core26.webp';
 
-const eventText = "  ★  PIXXELHACK  ★  INNOVGENIUS  ★  ALUMNI INTERACTION  ★  ICAC3N INTERNATIONAL CONFERENCE  ★  ZEPHYR TECH FEST  ★  IIC PROTOTYPE SPRINT  ★  WEBATHON SHOWDOWN  ★  AI & GENAI SUMMIT  ★  ";
-const fullTickerText = eventText.repeat(6);
+const eventText = "PIXXELHACK 2.0  ★  ZEPHYR FEST  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  INNOVGENIUS  ★  TREE PLANTATION  ★  ACM RECODE  ★  IIC WORKSHOP  ★  DSA MASTERCLASS  ★  MEMBERSHIP DRIVE  ★  ";
+const fullTickerText = eventText.repeat(5);
 
 const carouselImages = [
-  memory02, // PixxelHack
-  memory08, // InnovGenius / Idea to Impact
-  memory05, // Chapter Moments & Innovation
-  memory17, // Seminar - GenAI
-  memory01, // Alumni Interaction
-  memory06, // Automation Expo
-  memory02, // PixxelHack
-  memory08, // InnovGenius / Idea to Impact
-  memory05, // Chapter Moments & Innovation
-  memory17, // Seminar - GenAI
-  memory01, // Alumni Interaction
-  memory06  // Automation Expo
+  pixxelhack2026,
+  zephyr2026,
+  alumniinteraction26_1,
+  localIv2026,
+  innovgeniusIdeathon,
+  treePlantation2026,
+  acmRecodeHackathon,
+  iicWorkshop2026,
+  preconferenceDsaWorkshop,
+  membershipDrive2026,
+  pixxelhack26_1,
+  core26
 ];
 
 const mobileCards = [
-  { image: memory02Sm, title: "PixxelHack 2025 Winners", tag: "HACKATHON" },
-  { image: memory08, title: "InnovGenius / Idea to Impact", tag: "SEMINAR" },
-  { image: memory05, title: "Chapter Moments & Innovation", tag: "CHAPTER" },
-  { image: memory17, title: "GenAI & Transformers Masterclass", tag: "AI WORKSHOP" },
-  { image: memory01, title: "Alumni Interaction 2025", tag: "ALUMNI" },
-  { image: memory06, title: "Automation Expo & Robotics", tag: "EXPO" }
+  { image: pixxelhack2026, title: "PixxelHack 2.0 Webathon", tag: "HACKATHON" },
+  { image: zephyr2026, title: "Zephyr 2026 Flagship Fest", tag: "TECH FEST" },
+  { image: alumniinteraction26_1, title: "Alumni Interaction 2026", tag: "MENTORSHIP" },
+  { image: localIv2026, title: "Automation Expo 2026 IV", tag: "INDUSTRIAL VISIT" },
+  { image: innovgeniusIdeathon, title: "INNOVGENIUS 2026 (with TCS)", tag: "IDEATHON" },
+  { image: treePlantation2026, title: "Tree Plantation Drive 2026", tag: "SOCIAL CAUSE" },
+  { image: acmRecodeHackathon, title: "ACM ReCode Hackathon", tag: "MICROSERVICES" },
+  { image: iicWorkshop2026, title: "IIC Innovation Prototyping", tag: "WORKSHOP" },
+  { image: preconferenceDsaWorkshop, title: "Pre-Conference DSA Masterclass", tag: "DSA WORKSHOP" },
+  { image: core26, title: "TCET ACM SIGITE Core Committee", tag: "LEADERSHIP" }
 ];
 
 export default function PureCss3DCarousel() {
@@ -197,7 +207,7 @@ export default function PureCss3DCarousel() {
       {/* ========================================================= */}
       <div 
         className="hidden md:flex w-full min-h-screen flex-col items-center justify-start relative overflow-hidden select-none pb-8"
-        style={{ paddingTop: 'clamp(5.5rem, 15.5vh, 8rem)' }}
+        style={{ paddingTop: 'clamp(7.5rem, 17vh, 11rem)' }}
       >
         {/* Panoramic Background — Soft Refined ACM Blue (#244B8E) Atmosphere & Pearl White Dome */}
         <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 bg-[#244B8E]">
@@ -221,7 +231,7 @@ export default function PureCss3DCarousel() {
 
             {/* Center Stage — Upward arched top dome and matching bottom curve in Pearl White */}
             <path 
-              d="M 0 220 Q 720 70 1440 220 L 1440 830 Q 720 680 0 830 Z" 
+              d="M 0 200 Q 720 30 1440 200 L 1440 830 Q 720 680 0 830 Z" 
               fill="#F8FAFC" 
             />
 
@@ -273,12 +283,12 @@ export default function PureCss3DCarousel() {
           </h2>
 
           <p className="text-base text-slate-500 font-medium tracking-normal mt-2 max-w-md mx-auto leading-relaxed">
-            A visual archive of the moments that shaped TCET ACM.
+            A visual archive of the moments that shaped TCET ACM SIGITE.
           </p>
         </div>
 
         {/* 3D Scene Viewport */}
-        <div className="carousel-scene w-full h-[48vh] min-h-[340px] max-h-[500px] relative z-10 -mt-2 sm:-mt-4">
+        <div className="carousel-scene w-full h-[42vh] min-h-[290px] max-h-[440px] relative z-10 -mt-2 sm:-mt-4">
           <div 
             className="carousel-a3d" 
             style={{ 
@@ -290,7 +300,7 @@ export default function PureCss3DCarousel() {
               <img
                 key={index}
                 src={src}
-                alt={`TCET ACM Archive Memory ${index + 1}`}
+                alt={`TCET ACM SIGITE 2026-27 Highlight ${index + 1}`}
                 className="carousel-card"
                 style={{ '--i': index }}
                 loading="lazy"

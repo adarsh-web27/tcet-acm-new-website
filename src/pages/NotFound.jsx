@@ -26,7 +26,7 @@ export default function NotFound() {
             Page Not Found
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-            The coordinate or milestone you are looking for does not exist on the TCET ACM chapter portal.
+            The coordinate or milestone you are looking for does not exist on the TCET ACM SIGITE chapter portal.
           </p>
         </div>
 

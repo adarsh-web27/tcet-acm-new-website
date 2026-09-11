@@ -19,7 +19,7 @@ export const EVENTS = [
         category: 'Upcoming Event',
         speaker: 'TCET ACM SIGITE Core Team',
         layout: 'full-hero',
-        image: eventImages.zephyrFest,
+        image: eventImages.zephyr2026,
         stats: [
           { label: 'Status', value: 'Upcoming' },
           { label: 'Edition', value: '2026-27' },
@@ -36,7 +36,7 @@ export const EVENTS = [
         date: '2nd August (Round 1) • 7th August (Round 2) 2026',
         location: 'Online & TCET Campus',
         category: 'Hackathon',
-        speaker: 'TCET ACM Technical Core',
+        speaker: 'TCET ACM SIGITE Technical Core',
         layout: 'full-hero',
         image: eventImages.pixxelhack2026,
         stats: [
@@ -107,7 +107,7 @@ export const EVENTS = [
         date: '11 July 2026',
         location: 'TCET Campus',
         category: 'Orientation',
-        speaker: 'TCET ACM Core Committee',
+        speaker: 'TCET ACM SIGITE Core Committee',
         layout: 'full-hero',
         image: eventImages.membershipDrive2026,
         stats: [
@@ -146,7 +146,7 @@ export const EVENTS = [
         date: '18th April 2026',
         location: 'Dream Park, Kandivali(E)',
         category: 'Social Cause',
-        speaker: 'TCET ACM Outreach Team',
+        speaker: 'TCET ACM SIGITE Outreach Team',
         layout: 'image-left',
         image: eventImages.treePlantationDreamPark,
         stats: [
@@ -179,7 +179,7 @@ export const EVENTS = [
         date: '10 to 12 March 2026',
         location: 'TCET Campus',
         category: 'Workshop',
-        speaker: 'TCET ACM Technical Core',
+        speaker: 'TCET ACM SIGITE Technical Core',
         layout: 'image-left',
         image: eventImages.preconferenceDsaWorkshop,
         stats: [
@@ -260,7 +260,7 @@ export const EVENTS = [
         date: '29 October 2025',
         location: 'Navayan Buddha Vihar',
         category: 'Social Cause',
-        speaker: 'TCET ACM Cyber Cell',
+        speaker: 'TCET ACM SIGITE Cyber Cell',
         layout: 'image-left',
         image: eventImages.cyberSafetyDrive,
         stats: [
@@ -293,7 +293,7 @@ export const EVENTS = [
         date: '25–27 September 2025',
         location: 'TCET Campus',
         category: 'Fest',
-        speaker: 'TCET ACM Organizing Committee',
+        speaker: 'TCET ACM SIGITE Organizing Committee',
         layout: 'full-hero',
         image: eventImages.zephyrFest,
         stats: [
@@ -343,7 +343,7 @@ export const EVENTS = [
         date: '8 August 2025',
         location: 'Online',
         category: 'Hackathon',
-        speaker: 'TCET ACM Web Team',
+        speaker: 'TCET ACM SIGITE Web Team',
         layout: 'full-hero',
         image: eventImages.pixxelhackWebathon2025,
         stats: [
@@ -393,7 +393,7 @@ export const EVENTS = [
         date: '7 September 2025',
         location: 'TCET Campus',
         category: 'Orientation',
-        speaker: 'TCET ACM Core Committee',
+        speaker: 'TCET ACM SIGITE Core Committee',
         layout: 'full-hero',
         image: eventImages.membershipDrive2024,
         stats: [
@@ -462,7 +462,7 @@ export const EVENTS = [
         date: '16 August 2024',
         location: 'STS School',
         category: 'Social Cause',
-        speaker: 'TCET ACM Volunteers',
+        speaker: 'TCET ACM SIGITE Volunteers',
         layout: 'image-left',
         image: eventImages.educationalDrive2024,
         stats: [
@@ -510,7 +510,7 @@ export const EVENTS = [
         date: '26 March 2025',
         location: 'Caring Hands NGO',
         category: 'Social Cause',
-        speaker: 'TCET ACM Social Committee',
+        speaker: 'TCET ACM SIGITE Social Committee',
         layout: 'image-left',
         image: eventImages.ngoDrive2025,
         stats: [

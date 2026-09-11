@@ -201,7 +201,7 @@ export default function Navbar() {
                               </div>
 
                               <p className="text-xs text-[#1E40AF] leading-relaxed font-normal">
-                                TCET ACM SIGITE (est. July 2011) connects students to computing research and student leadership.
+                                TCET ACM SIGITE (est. September 2011) connects students to computing research and student leadership.
                               </p>
                             </div>
 
@@ -567,7 +567,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <Link 
               to="/contact?type=feedback" 
-              aria-label="Submit Feedback for TCET ACM Chapter"
+              aria-label="Submit Feedback for TCET ACM SIGITE Chapter"
               className={`hidden xl:inline-flex items-center justify-center rounded-full border border-blue-200/80 bg-blue-50/70 text-[#1D4ED8] font-bold tracking-tight hover:bg-blue-100 hover:border-blue-300 hover:text-[#1E40AF] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap gap-1.5 ${
                 isHero 
                   ? 'min-h-[38px] xl:min-h-[42px] px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs xl:text-sm' 
@@ -580,7 +580,7 @@ export default function Navbar() {
 
             <Link 
               to="/contact" 
-              aria-label="Contact TCET ACM Chapter"
+              aria-label="Contact TCET ACM SIGITE Chapter"
               className={`hidden sm:inline-flex items-center justify-center rounded-full bg-[#FFD43B] text-[#0B1F33] font-black uppercase tracking-wider shadow-sm shadow-[#FFD43B]/25 hover:bg-[#FFC71F] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all whitespace-nowrap ${
                 isHero 
                   ? 'min-h-[36px] xl:min-h-[42px] px-3.5 lg:px-4 xl:px-5 py-1.5 xl:py-2 text-xs xl:text-sm' 

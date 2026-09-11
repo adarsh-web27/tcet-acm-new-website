@@ -158,7 +158,7 @@ export default function FooterBento() {
               href="https://www.instagram.com/tcet_acm_sigite" 
               target="_blank" 
               rel="noreferrer" 
-              aria-label="TCET ACM Instagram"
+              aria-label="TCET ACM SIGITE Instagram"
               title="Instagram"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 border border-pink-200 text-xs sm:text-sm font-semibold shadow-xs hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#FD1D1D] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(225,48,108,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
@@ -171,7 +171,7 @@ export default function FooterBento() {
               href="https://www.linkedin.com/in/acmtcet/" 
               target="_blank" 
               rel="noreferrer" 
-              aria-label="TCET ACM LinkedIn"
+              aria-label="TCET ACM SIGITE LinkedIn"
               title="LinkedIn"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 border border-[#0A66C2]/30 text-xs sm:text-sm font-semibold shadow-xs hover:bg-[#0A66C2] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(10,102,194,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >

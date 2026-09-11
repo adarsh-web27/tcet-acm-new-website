@@ -16,7 +16,7 @@ export const clubEvents = [
     badge: "Upcoming Event",
     badgeTheme: { bg: "bg-[#FFD43B]", text: "text-[#0B1F33]", border: "border-amber-400" },
     hasReport: false,
-    image: eventImages.zephyrFest
+    image: eventImages.zephyr2026
   },
   {
     id: "e-2026-pixxelhack-2",

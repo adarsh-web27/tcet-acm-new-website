@@ -1,4 +1,4 @@
-﻿import { heroImages } from './images/hero';
+import { heroImages } from './images/hero';
 
 /**
  * Hero Section Assets
@@ -8,7 +8,6 @@
 
 export const heroAssets = {
   heroTeamImage: heroImages.heroTeam,
-  heroBgImage: heroImages.heroBg,
   facultyTeam: heroImages.heroTeam,
 };
 
