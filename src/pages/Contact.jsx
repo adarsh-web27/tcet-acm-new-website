@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   MapPin, 
@@ -21,16 +21,19 @@ import { CONTACT_CATEGORIES, CONTACT_INFO_CARDS } from '../data/contactData';
 import ContactFAQ from '../components/ContactFAQ';
 
 export default function Contact() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   const formSectionRef = useRef(null);
+
+  const typeParam = searchParams.get('type');
 
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
     department: '',
-    category: searchParams.get('type') === 'feedback' ? 'Student & Faculty Feedback' : 'General Inquiry',
-    subject: searchParams.get('type') === 'feedback' ? 'Student & Faculty Feedback' : '',
+    category: typeParam === 'feedback' ? 'Student & Faculty Feedback' : 'General Inquiry',
+    subject: typeParam === 'feedback' ? 'Student & Faculty Feedback' : '',
     message: ''
   });
 
@@ -41,13 +44,26 @@ export default function Contact() {
   const [rateLimitMessage, setRateLimitMessage] = useState('');
   const categories = CONTACT_CATEGORIES;
 
-  // Auto-switch to feedback category & smooth scroll when navigated with ?type=feedback
+  // Auto-switch between Feedback & Inquiry modes when URL parameters or navigation changes
   useEffect(() => {
-    if (searchParams.get('type') === 'feedback') {
+    if (typeParam === 'feedback') {
       setFormData(prev => ({
         ...prev,
         category: 'Student & Faculty Feedback',
-        subject: prev.subject || 'Student & Faculty Feedback'
+        subject: prev.subject && prev.subject !== 'General Inquiry' ? prev.subject : 'Student & Faculty Feedback'
+      }));
+      const timer = setTimeout(() => {
+        if (formSectionRef.current) {
+          formSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 120);
+      return () => clearTimeout(timer);
+    } else {
+      // Switched to Contact Us / Enquiry mode (no type or type=enquiry / type=inquiry)
+      setFormData(prev => ({
+        ...prev,
+        category: prev.category === 'Student & Faculty Feedback' ? 'General Inquiry' : prev.category,
+        subject: prev.subject === 'Student & Faculty Feedback' ? '' : prev.subject
       }));
       const timer = setTimeout(() => {
         if (formSectionRef.current) {
@@ -56,7 +72,7 @@ export default function Contact() {
       }, 120);
       return () => clearTimeout(timer);
     }
-  }, [searchParams]);
+  }, [typeParam, location.key]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -402,20 +418,65 @@ export default function Contact() {
             transition={{ delay: 0.3 }}
             className="lg:col-span-7 bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] space-y-6 scroll-mt-28"
           >
-            <div className="space-y-2">
-              <span className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider">
-                <MessageSquare className="w-3.5 h-3.5 text-[#0B1F33]" />
-                <span>
-                  {formData.category === 'Student & Faculty Feedback' 
-                    ? 'STUDENT & FACULTY FEEDBACK' 
-                    : 'TRANSMIT OFFICIAL MESSAGE'}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-[#93C5FD]/40">
+              <div className="space-y-1.5">
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#0B1F33]" />
+                  <span>
+                    {formData.category === 'Student & Faculty Feedback' 
+                      ? 'STUDENT & FACULTY FEEDBACK' 
+                      : 'TRANSMIT OFFICIAL MESSAGE'}
+                  </span>
                 </span>
-              </span>
-              <h2 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] tracking-tight">
-                {formData.category === 'Student & Faculty Feedback' 
-                  ? 'Share Your Feedback' 
-                  : 'Send Us an Inquiry'}
-              </h2>
+                <h2 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] tracking-tight">
+                  {formData.category === 'Student & Faculty Feedback' 
+                    ? 'Share Your Feedback' 
+                    : 'Send Us an Inquiry'}
+                </h2>
+              </div>
+
+              {/* Mode Switcher Tabs */}
+              <div className="inline-flex p-1 bg-[#EFF6FF] rounded-2xl border border-[#93C5FD] shrink-0 self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchParams({});
+                    setFormData(prev => ({
+                      ...prev,
+                      category: prev.category === 'Student & Faculty Feedback' ? 'General Inquiry' : prev.category,
+                      subject: prev.subject === 'Student & Faculty Feedback' ? '' : prev.subject
+                    }));
+                  }}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    formData.category !== 'Student & Faculty Feedback'
+                      ? 'bg-[#1D4ED8] text-white shadow-xs'
+                      : 'text-[#1E40AF] hover:text-[#1D4ED8] hover:bg-white/60'
+                  }`}
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>Inquiry</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchParams({ type: 'feedback' });
+                    setFormData(prev => ({
+                      ...prev,
+                      category: 'Student & Faculty Feedback',
+                      subject: prev.subject && prev.subject !== 'General Inquiry' ? prev.subject : 'Student & Faculty Feedback'
+                    }));
+                  }}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    formData.category === 'Student & Faculty Feedback'
+                      ? 'bg-[#1D4ED8] text-white shadow-xs'
+                      : 'text-[#1E40AF] hover:text-[#1D4ED8] hover:bg-white/60'
+                  }`}
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Feedback</span>
+                </button>
+              </div>
             </div>
 
             {/* Success Message Banner */}
@@ -571,7 +632,14 @@ export default function Contact() {
                       id="contact-category"
                       name="category"
                       value={formData.category}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        handleChange(e);
+                        if (e.target.value === 'Student & Faculty Feedback') {
+                          setSearchParams({ type: 'feedback' });
+                        } else if (searchParams.get('type') === 'feedback') {
+                          setSearchParams({});
+                        }
+                      }}
                       className="w-full min-h-[46px] sm:min-h-[48px] px-4 py-2.5 rounded-xl bg-[#EFF6FF] border border-[#93C5FD] text-[#0B1F33] text-base sm:text-sm font-medium focus:outline-none focus:border-[#1D4ED8] transition-colors appearance-none cursor-pointer"
                     >
                       {categories.map((cat) => (
