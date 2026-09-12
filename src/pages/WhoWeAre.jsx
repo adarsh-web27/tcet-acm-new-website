@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
-  Award, 
-  Users, 
   CheckCircle2, 
   Bookmark, 
   Quote, 
   ArrowRight,
-  GraduationCap,
-  HeartHandshake,
-  Lightbulb,
-  ChevronLeft,
-  ChevronRight,
   UserCheck
 } from 'lucide-react';
 import { 
@@ -27,13 +19,6 @@ export default function WhoWeAre() {
   const [selectedPerspective, setSelectedPerspective] = useState(null);
   const [perspectiveFilter, setPerspectiveFilter] = useState('all');
 
-  const allPerspectives = [
-    deanSSW,
-    branchCounsellor,
-    ...facultyMentorsList,
-    ...studentPerspectivesList
-  ];
-
   return (
     <div className="relative min-h-screen text-[#0B1F33] pt-28 pb-24 overflow-x-hidden font-sans">
       
@@ -41,46 +26,27 @@ export default function WhoWeAre() {
         
         {/* ================= 1. HERO HEADER ================= */}
         <section className="text-center max-w-4xl mx-auto space-y-6 pt-4">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-widest shadow-sm"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase tracking-widest shadow-sm">
             <span>EST. 2011 • 15+ YEARS OF IMPACT • TCET ACM SIGITE</span>
-          </motion.div>
+          </div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-display font-black text-4xl sm:text-6xl md:text-7xl text-[#0B1F33] uppercase tracking-tight leading-[1.12] py-1"
-          >
+          <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl text-[#0B1F33] uppercase tracking-tight leading-[1.12] py-1">
             A Chapter Defined <br className="hidden sm:inline" />
             <span className="inline-block italic pr-3 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#0284C7]">
               by Purpose & Progress
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-[#1E40AF] font-medium leading-relaxed max-w-3xl mx-auto"
-          >
+          <p className="text-base sm:text-lg text-[#1E40AF] font-medium leading-relaxed max-w-3xl mx-auto">
             TCET ACM SIGITE, the official ACM SIGITE student chapter under the Department of Information Technology at TCET, has spent over 15 years fostering innovation, research, technical excellence, and leadership through a thriving community of students and mentors.
-          </motion.p>
+          </p>
         </section>
 
         {/* ================= 2. VISION & MISSION COMPARATIVE CARDS ================= */}
         <section id="vision" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Vision Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] flex flex-col justify-between space-y-6 relative overflow-hidden"
-          >
+          <div className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] flex flex-col justify-between space-y-6 relative overflow-hidden">
             <div className="space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase">
                 <Bookmark className="w-3.5 h-3.5" />
@@ -98,15 +64,10 @@ export default function WhoWeAre() {
               <div>✦ QUALITY EDUCATION</div>
               <div>✦ GLOBAL STANDARDS</div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Mission Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] flex flex-col justify-between space-y-6 relative overflow-hidden"
-          >
+          <div className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] flex flex-col justify-between space-y-6 relative overflow-hidden">
             <div className="space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30 text-[#0B1F33] text-xs font-mono font-bold uppercase">
                 <CheckCircle2 className="w-3.5 h-3.5" />
@@ -124,7 +85,7 @@ export default function WhoWeAre() {
               <div>✦ INDUSTRY READINESS</div>
               <div>✦ PROFESSIONAL ETHICS</div>
             </div>
-          </motion.div>
+          </div>
 
         </section>
 
@@ -170,12 +131,7 @@ export default function WhoWeAre() {
 
           {/* ================= A1. DEAN (STUDENT & STAFF WELFARE) SPOTLIGHT FEATURE ================= */}
           {(perspectiveFilter === 'all' || perspectiveFilter === 'faculty') && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white/95 border-2 border-[#93C5FD] rounded-[36px] p-8 sm:p-12 md:p-14 shadow-[0_14px_45px_-10px_rgba(3,109,164,0.16)] hover:border-[#1D4ED8]/40 transition-all duration-500 relative overflow-hidden"
-            >
+            <div className="bg-white/95 border-2 border-[#93C5FD] rounded-[36px] p-8 sm:p-12 md:p-14 shadow-[0_14px_45px_-10px_rgba(3,109,164,0.16)] hover:border-[#1D4ED8]/40 transition-all duration-500 relative overflow-hidden">
               {/* Decorative quotation background symbol */}
               <Quote className="absolute right-6 -bottom-8 w-48 h-48 text-[#93C5FD]/30 -z-0 pointer-events-none select-none" />
 
@@ -243,17 +199,12 @@ export default function WhoWeAre() {
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           )}
 
           {/* ================= A2. BRANCH COUNSELLOR SPOTLIGHT FEATURE ================= */}
           {(perspectiveFilter === 'all' || perspectiveFilter === 'faculty') && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white/95 border-2 border-[#93C5FD] rounded-[36px] p-8 sm:p-12 md:p-14 shadow-[0_14px_45px_-10px_rgba(3,109,164,0.16)] hover:border-[#1D4ED8]/40 transition-all duration-500 relative overflow-hidden"
-            >
+            <div className="bg-white/95 border-2 border-[#93C5FD] rounded-[36px] p-8 sm:p-12 md:p-14 shadow-[0_14px_45px_-10px_rgba(3,109,164,0.16)] hover:border-[#1D4ED8]/40 transition-all duration-500 relative overflow-hidden">
               {/* Decorative quotation background symbol */}
               <Quote className="absolute right-6 -bottom-8 w-48 h-48 text-[#93C5FD]/30 -z-0 pointer-events-none select-none" />
 
@@ -318,7 +269,7 @@ export default function WhoWeAre() {
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           )}
 
           {/* ================= B. FACULTY IN-CHARGE PERSPECTIVE CARDS ================= */}
@@ -340,11 +291,8 @@ export default function WhoWeAre() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {facultyMentorsList.map((mentor) => (
-                  <motion.div
+                  <div
                     key={mentor.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     onClick={() => setSelectedPerspective(mentor)}
                     className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-6 sm:p-7 shadow-md hover:shadow-xl hover:border-[#1D4ED8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5 cursor-pointer group"
                   >
@@ -385,7 +333,7 @@ export default function WhoWeAre() {
                       <span>Continue Reading</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -411,11 +359,8 @@ export default function WhoWeAre() {
               {/* Grid Container */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {studentPerspectivesList.map((student) => (
-                  <motion.div
+                  <div
                     key={student.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     onClick={() => setSelectedPerspective(student)}
                     className="bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-6 shadow-md hover:shadow-xl hover:border-[#1D4ED8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer group"
                   >
@@ -457,7 +402,7 @@ export default function WhoWeAre() {
                       <span>Continue Reading</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -480,13 +425,9 @@ export default function WhoWeAre() {
           </div>
 
           <div className="relative border-l-2 border-[#3B82F6]/30 ml-4 sm:ml-32 space-y-10">
-            {TIMELINE_DATA.map((item, idx) => (
-              <motion.div 
+            {TIMELINE_DATA.map((item) => (
+              <div 
                 key={item.year}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
                 className="relative pl-8 sm:pl-10 group"
               >
                 {/* Year Label Node */}
@@ -516,7 +457,7 @@ export default function WhoWeAre() {
                     {item.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
