@@ -17,7 +17,7 @@ export const teamAssets = [
     badge: "IT HOD & ACM BRANCH COUNSELLOR",
     github: null,
     linkedin: null,
-    email: "hod.it@tcetmumbai.in"
+    email: "rajesh.bansode@thakureducation.org"
   },
   {
     id: "mary-margarat",

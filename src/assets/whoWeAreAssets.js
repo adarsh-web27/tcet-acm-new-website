@@ -43,7 +43,7 @@ export const branchCounsellor = {
   ],
   github: null,
   linkedin: null,
-  email: "hod.it@tcetmumbai.in"
+  email: "rajesh.bansode@thakureducation.org"
 };
 
 export const facultyMentorsList = [
