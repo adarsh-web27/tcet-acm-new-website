@@ -222,22 +222,6 @@ export const EVENTS = [
         desc: 'Industrial visit exposing engineering scholars to real-world software development lifecycle, enterprise server infrastructure, and deployment architecture.'
       },
       {
-        id: 'e-2025-ar-vr',
-        title: 'AR/VR Hands-on Workshop 2025-26',
-        subtitle: 'Augmented & Virtual Reality Immersive Systems',
-        date: '6 February 2026',
-        location: 'TCET Campus, Kandivali East',
-        category: 'Workshop',
-        speaker: 'XR Specialization Lab',
-        layout: 'image-left',
-        image: eventImages.arVrWorkshop,
-        stats: [
-          { label: 'Hardware', value: 'Meta Quest & VisionOS' },
-          { label: 'Students', value: '140+' }
-        ],
-        desc: 'Interactive hands-on session exploring spatial computing, 3D modeling pipelines, and immersive virtual reality simulation engines.'
-      },
-      {
         id: 'e-2025-summit',
         title: 'ACM National Summit 2025',
         subtitle: 'National Leadership, Research & Innovation Conference',

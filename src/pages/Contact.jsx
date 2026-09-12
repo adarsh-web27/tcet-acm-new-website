@@ -43,6 +43,7 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'fallback' | null
   const [rateLimitMessage, setRateLimitMessage] = useState('');
   const categories = CONTACT_CATEGORIES;
+  const isFeedback = formData.category === 'Student & Faculty Feedback';
 
   // Auto-switch between Feedback & Inquiry modes when URL parameters or navigation changes
   useEffect(() => {
@@ -302,10 +303,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-[#0B1F33] uppercase tracking-tight leading-[1.08]"
           >
-            Connect with TCET ACM SIGITE <br />
-            <span className="italic text-[#0B1F33]">
-              Student Chapter
-            </span>
+            Connect with TCET ACM SIGITE
           </motion.h1>
 
           <motion.p 
@@ -314,7 +312,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-[#1E40AF] font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            Have questions about membership, hackathon collaborations, sponsorship, or research paper submissions? Reach out directly to our committee.
+            Whether you’re a student, faculty member or external partner — this is the place to reach the TCET ACM team.
           </motion.p>
         </section>
 
@@ -328,16 +326,19 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="lg:col-span-5 bg-white/95 border-2 border-[#93C5FD] rounded-3xl p-8 sm:p-10 shadow-[0_12px_35px_-8px_rgba(3,109,164,0.14)] space-y-8"
           >
-            {/* Header Badge & Title */}
-            <div className="space-y-3">
-              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-[#0B1F33] uppercase tracking-wider px-3 py-1 rounded-full bg-[#93C5FD] border border-[#3B82F6]/30">
-                Institutional Location
-              </span>
+            {/* Header Title */}
+            <div className="space-y-2.5">
               <h2 className="font-display font-black text-2xl sm:text-3xl text-[#0B1F33] tracking-tight">
-                Chapter Secretariat
+                {isFeedback ? 'Share Your Thoughts with TCET ACM SIGITE' : 'Talk to the TCET ACM team'}
               </h2>
               <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
-                Department of Information Technology, Thakur College of Engineering & Technology.
+                {isFeedback ? (
+                  "Your feedback helps us learn, improve, and create better experiences for our community. Whether it's a suggestion, appreciation, or idea for future initiatives, we'd love to hear from you."
+                ) : (
+                  <>
+                    Drop us a mail, ping us on socials or catch us in the IT department. We’re always up for <strong className="font-bold text-[#0B1F33]">ideas, events and collaborations.</strong>
+                  </>
+                )}
               </p>
             </div>
 
@@ -351,10 +352,10 @@ export default function Contact() {
                 </div>
                 <div className="text-left space-y-0.5">
                   <span className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider block">
-                    Campus Address:
+                    On campus:
                   </span>
                   <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
-                    A-Block, Thakur Educational Campus, Shyamnarayan Thakur Marg, Thakur Village, Kandivali East, Mumbai, Maharashtra 400101
+                    TCET • 2nd Floor • IT Staffroom
                   </p>
                 </div>
               </div>
@@ -369,43 +370,40 @@ export default function Contact() {
                     Official Email:
                   </span>
                   <a 
-                    href="mailto:tcetacm@thakureducation.org" 
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=tcetacm@thakureducation.org" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs sm:text-sm text-[#0B1F33] font-bold hover:underline"
+                    title="Send email via Gmail"
                   >
                     tcetacm@thakureducation.org
                   </a>
                 </div>
               </div>
 
-              {/* Department Desk */}
+              {/* Call or text us */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-2xl bg-[#DBEAFE] border border-[#93C5FD] text-[#0B1F33] flex items-center justify-center shrink-0 shadow-xs">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="text-left space-y-0.5">
                   <span className="font-mono text-xs font-bold text-[#0B1F33] uppercase tracking-wider block">
-                    Department Desk:
+                    Call or text us on:
                   </span>
-                  <p className="text-xs sm:text-sm text-[#1E40AF] font-medium">
-                    +91 22 6730 8000 / 8106 / 8107
+                  <p className="text-xs sm:text-sm text-[#0B1F33] font-bold">
+                    <a href="tel:+919619903582" className="hover:underline">+91 96199 03582</a> / <a href="tel:+917304361777" className="hover:underline">+91 73043 61777</a>
                   </p>
                 </div>
               </div>
 
             </div>
 
-            {/* Office Hours Box */}
-            <div className="p-5 rounded-2xl bg-[#DBEAFE] border border-[#93C5FD] text-left space-y-1.5 shadow-xs">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#0B1F33] uppercase tracking-wider">
-                <Clock className="w-4 h-4 text-[#0B1F33]" />
-                <span>Office Hours:</span>
+            {/* Active Hours Badge */}
+            <div className="pt-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F33] border border-slate-700 text-slate-300 text-xs sm:text-sm font-medium shadow-xs">
+                <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+                <span>Active on weekdays • 10 AM – 5 PM</span>
               </div>
-              <p className="text-xs sm:text-sm font-semibold text-[#0B1F33]">
-                Monday – Friday: 9:00 AM – 5:00 PM IST
-              </p>
-              <p className="text-xs text-[#1E40AF]">
-                IT Department Faculty Lounge, 4th Floor
-              </p>
             </div>
 
           </motion.div>

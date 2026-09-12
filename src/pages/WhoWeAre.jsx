@@ -294,12 +294,9 @@ export default function WhoWeAre() {
                   </div>
 
                   {/* Pull Quote */}
-                  <div className="relative bg-[#DBEAFE] border border-[#93C5FD] rounded-2xl p-6 shadow-sm space-y-3">
+                  <div className="relative bg-[#DBEAFE] border border-[#93C5FD] rounded-2xl p-6 shadow-sm">
                     <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
                       "{branchCounsellor.quote}"
-                    </p>
-                    <p className="text-xs sm:text-sm font-mono font-bold text-[#1E40AF]">
-                      — On transforming student engineers into ethical computing scholars.
                     </p>
                   </div>
 
@@ -337,7 +334,7 @@ export default function WhoWeAre() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {facultyMentorsList.map((mentor) => (
                   <motion.div
                     key={mentor.id}
@@ -371,13 +368,13 @@ export default function WhoWeAre() {
                       </div>
 
                       {/* Pull Quote excerpt */}
-                      <blockquote className="italic text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed border-l-2 border-[#1D4ED8] pl-3">
+                      <blockquote className="italic text-sm sm:text-base text-[#1E40AF] font-medium leading-relaxed border-l-2 border-[#1D4ED8] pl-3 line-clamp-3">
                         "{mentor.quote}"
                       </blockquote>
                     </div>
 
                     <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
-                      <span>Explore Perspective</span>
+                      <span>Continue Reading</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </motion.div>
@@ -394,11 +391,11 @@ export default function WhoWeAre() {
                   <h3 className="font-display font-black text-2xl text-[#0B1F33] uppercase tracking-tight">
                     Student Leadership Perspectives
                   </h3>
-                  <p className="text-xs text-[#1E40AF] mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#1E40AF] mt-0.5">
                     Real reflections and insights from student core committee leaders.
                   </p>
                 </div>
-                <span className="hidden sm:inline-block font-mono text-xs text-[#1E40AF] font-bold">
+                <span className="hidden sm:inline-block font-mono text-xs sm:text-sm text-[#1E40AF] font-bold">
                   {studentPerspectivesList.length} Reflections
                 </span>
               </div>
@@ -434,14 +431,14 @@ export default function WhoWeAre() {
                       </div>
 
                       {/* Quote */}
-                      <p className="italic text-xs text-[#1E40AF] font-medium leading-relaxed line-clamp-4 border-l-2 border-[#1D4ED8] pl-3">
+                      <p className="italic text-sm text-[#1E40AF] font-medium leading-relaxed line-clamp-3 border-l-2 border-[#1D4ED8] pl-3">
                         "{student.quote}"
                       </p>
                     </div>
 
                     {/* Card Footer */}
-                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-[11px] font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
-                      <span>Read Experience</span>
+                    <div className="pt-3 border-t border-[#93C5FD] flex items-center justify-between text-xs font-mono font-bold text-[#0B1F33] group-hover:text-[#1E40AF] transition-colors">
+                      <span>Continue Reading</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </motion.div>
@@ -499,7 +496,7 @@ export default function WhoWeAre() {
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#1E40AF] font-medium leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#1E40AF] font-medium leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
