@@ -20,7 +20,19 @@ import {
  */
 
 export const MEMORY_CARDS = [
-  // 1. PixxelHack Webathon 2.0 Live Moments (2026-27)
+  // 1. TCET ACM SIGITE Core Committee 2026-27 (2026-27)
+  {
+    id: 100,
+    year: "2026-27",
+    title: "TCET ACM SIGITE Core Committee 2026-27",
+    date: "AUG 01, 2026",
+    location: "TCET Campus Foyer",
+    category: "Core Leadership",
+    description: "The executive student core committee and domain heads steering TCET ACM SIGITE throughout the 2026-27 tenure.",
+    imageUrl: core26
+  },
+
+  // 2. PixxelHack Webathon 2.0 Live Moments (2026-27)
   {
     id: 0,
     year: "2026-27",
@@ -42,7 +54,7 @@ export const MEMORY_CARDS = [
     imageUrl: pixxelhack26_2
   },
 
-  // 2. Alumni Interaction 2026 (2026-27)
+  // 3. Alumni Interaction 2026 (2026-27)
   {
     id: 21,
     year: "2026-27",
@@ -138,18 +150,6 @@ export const MEMORY_CARDS = [
     category: "Orientation",
     description: "Inducting fresh minds into the chapter's research, competitive programming, and web development wings.",
     imageUrl: membershipdrive26_3
-  },
-
-  // 6. TCET ACM SIGITE Core Committee 2026-27 (2026-27)
-  {
-    id: 100,
-    year: "2026-27",
-    title: "TCET ACM SIGITE Core Committee 2026-27",
-    date: "AUG 01, 2026",
-    location: "TCET Campus Foyer",
-    category: "Core Leadership",
-    description: "The executive student core committee and domain heads steering TCET ACM SIGITE throughout the 2026-27 tenure.",
-    imageUrl: core26
   },
 
   // 7. Chapter Archive & Historic Memories (2025-26)

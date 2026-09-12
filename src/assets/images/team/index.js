@@ -1,7 +1,9 @@
-﻿import drRajeshBansode from './dr-rajesh-bansode.webp';
+import drRajeshBansode from './dr-rajesh-bansode.webp';
 import profMaryMargarat from './prof-mary-margarat.webp';
 import profApekshaWaghmare from './prof-apeksha-waghmare.webp';
 import profArchitaAgar from './prof-archita-agar.webp';
+import profSwatiChiplunkar from './prof-swati-chiplunkar.webp';
+import profKomalDhule from './prof-komal-dhule.webp';
 import girikShukla from './girik-shukla.webp';
 import anannyaSalvi from './anannya-salvi.webp';
 import vedantSingh from './vedant-singh.webp';
@@ -20,6 +22,8 @@ export const teamImages = {
   profMaryMargarat,
   profApekshaWaghmare,
   profArchitaAgar,
+  profSwatiChiplunkar,
+  profKomalDhule,
   girikShukla,
   anannyaSalvi,
   vedantSingh,

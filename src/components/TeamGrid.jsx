@@ -303,7 +303,7 @@ export default function TeamGrid() {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${member.id === 'archita-agar' ? 'object-[center_15%]' : 'object-center'}`}
             loading={member.id === 'rajesh-bansode' ? 'eager' : 'lazy'}
             fetchPriority={member.id === 'rajesh-bansode' ? 'high' : 'auto'}
             width={400}
@@ -558,7 +558,7 @@ export default function TeamGrid() {
                     : 'text-[#1E40AF] hover:text-[#1E40AF]'
                 }`}
               >
-                Officers
+                Student Core
               </button>
             </div>
           </div>
@@ -662,7 +662,7 @@ export default function TeamGrid() {
 
           {/* Stat 2 */}
           <div className="stat-block relative z-10">
-            <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="250">
+            <div className="stat-number font-display font-black text-5xl sm:text-6xl text-white tracking-tight leading-none" data-count="140">
               <span>0</span><span className="text-[#34D399] text-3xl sm:text-4xl">+</span>
             </div>
             <div className="text-sm font-mono uppercase tracking-widest text-[#DBEAFE] mt-3 pt-3 border-t border-white/20">

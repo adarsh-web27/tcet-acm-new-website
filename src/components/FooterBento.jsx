@@ -152,7 +152,7 @@ export default function FooterBento() {
             © 2026 TCET ACM SIGITE Chapter • Made with <Heart className="w-3.5 h-3.5 inline text-rose-500 fill-rose-500 mx-0.5" /> for engineering excellence.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
             {/* Instagram - Refined Brand Pill */}
             <a 
               href="https://www.instagram.com/tcet_acm_sigite" 
@@ -160,9 +160,9 @@ export default function FooterBento() {
               rel="noreferrer" 
               aria-label="TCET ACM SIGITE Instagram"
               title="Instagram"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 border border-pink-200 text-xs sm:text-sm font-semibold shadow-xs hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#FD1D1D] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(225,48,108,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/95 border-2 border-pink-200 text-sm sm:text-base font-bold shadow-xs hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#FD1D1D] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(225,48,108,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
-              <Instagram className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#E1306C] group-hover:text-white transition-colors shrink-0" />
+              <Instagram className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#E1306C] group-hover:text-white transition-colors shrink-0" />
               <span className="text-[#BE185D] group-hover:text-white transition-colors">Instagram</span>
             </a>
 
@@ -173,9 +173,9 @@ export default function FooterBento() {
               rel="noreferrer" 
               aria-label="TCET ACM SIGITE LinkedIn"
               title="LinkedIn"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 border border-[#0A66C2]/30 text-xs sm:text-sm font-semibold shadow-xs hover:bg-[#0A66C2] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(10,102,194,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/95 border-2 border-[#0A66C2]/30 text-sm sm:text-base font-bold shadow-xs hover:bg-[#0A66C2] hover:text-white hover:border-transparent hover:shadow-[0_8px_20px_-4px_rgba(10,102,194,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
-              <Linkedin className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#0A66C2] group-hover:text-white transition-colors shrink-0" />
+              <Linkedin className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#0A66C2] group-hover:text-white transition-colors shrink-0" />
               <span className="text-[#0A66C2] group-hover:text-white transition-colors">LinkedIn</span>
             </a>
           </div>

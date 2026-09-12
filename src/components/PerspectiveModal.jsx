@@ -76,14 +76,9 @@ export default function PerspectiveModal({ selectedPerspective, onClose }) {
                 </div>
 
                 {/* Tinted Pull Quote Box */}
-                <div className="relative bg-[#DBEAFE] border border-[#93C5FD] rounded-2xl p-4 sm:p-5 shadow-sm space-y-2">
-                  <p className="italic text-sm sm:text-base text-[#0B1F33] font-medium leading-relaxed">
+                <div className="relative bg-[#DBEAFE] border border-[#93C5FD] rounded-2xl p-5 sm:p-6 shadow-sm">
+                  <p className="italic text-base sm:text-lg text-[#0B1F33] font-medium leading-relaxed">
                     "{selectedPerspective.quote}"
-                  </p>
-                  <p className="text-xs font-mono font-bold text-[#1E40AF]">
-                    — {selectedPerspective.id === 'rajesh-bansode'
-                        ? 'On transforming student engineers into ethical computing scholars.'
-                        : (selectedPerspective.experience || 'On fostering technical excellence and ethical computing leadership.')}
                   </p>
                 </div>
 
@@ -121,11 +116,13 @@ export default function PerspectiveModal({ selectedPerspective, onClose }) {
                     </a>
                   )}
 
-                  {selectedPerspective.email && (
+                  {selectedPerspective.perspectiveType !== 'student' && selectedPerspective.email && (
                     <a
-                      href={`mailto:${selectedPerspective.email}`}
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(selectedPerspective.email)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 rounded-full bg-[#DBEAFE] text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white transition-all border border-[#93C5FD]"
-                      title="Email Contact"
+                      title="Compose Email via Gmail"
                     >
                       <Mail className="w-3.5 h-3.5" />
                     </a>

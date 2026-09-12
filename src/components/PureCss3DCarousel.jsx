@@ -16,10 +16,11 @@ import membershipdrive26_2 from '../assets/images/gallery/membershipdrive26_2.we
 import membershipdrive26_3 from '../assets/images/gallery/membershipdrive26_3.webp';
 import core26 from '../assets/images/gallery/core26.webp';
 
-const eventText = "PIXXELHACK 2.0  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  TREE PLANTATION DRIVE  ★  MEMBERSHIP DRIVE  ★  CORE COMMITTEE 2026-27  ★  ";
+const eventText = "CORE COMMITTEE 2026-27  ★  PIXXELHACK 2.0  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  TREE PLANTATION DRIVE  ★  MEMBERSHIP DRIVE  ★  ";
 const fullTickerText = eventText.repeat(5);
 
 const carouselImages = [
+  core26,
   pixxelhack26_1,
   pixxelhack26_2,
   alumniinteraction26_1,
@@ -30,11 +31,11 @@ const carouselImages = [
   treeplantation26_3,
   treeplantation26_4,
   membershipdrive26_2,
-  membershipdrive26_3,
-  core26
+  membershipdrive26_3
 ];
 
 const mobileCards = [
+  { image: core26, title: "TCET ACM SIGITE Core Committee 2026-27", tag: "LEADERSHIP" },
   { image: pixxelhack26_1, title: "PixxelHack 2.0 • Live Coding Showdown", tag: "HACKATHON" },
   { image: pixxelhack26_2, title: "PixxelHack 2.0 • Participant Teams", tag: "HACKATHON" },
   { image: alumniinteraction26_1, title: "Alumni Interaction 2026 • Felicitation", tag: "MENTORSHIP" },
@@ -45,8 +46,7 @@ const mobileCards = [
   { image: treeplantation26_3, title: "Community Sustainability Campaign", tag: "SOCIAL CAUSE" },
   { image: treeplantation26_4, title: "Faculty Greening Drive • Divider Plantation", tag: "SOCIAL CAUSE" },
   { image: membershipdrive26_2, title: "Student Technical Orientation & Perks", tag: "ORIENTATION" },
-  { image: membershipdrive26_3, title: "New ACM Members Welcome Ceremony", tag: "ORIENTATION" },
-  { image: core26, title: "TCET ACM SIGITE Core Committee 2026-27", tag: "LEADERSHIP" }
+  { image: membershipdrive26_3, title: "New ACM Members Welcome Ceremony", tag: "ORIENTATION" }
 ];
 
 export default function PureCss3DCarousel() {

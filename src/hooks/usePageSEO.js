@@ -20,7 +20,7 @@ const ROUTE_META = {
   },
   '/team': {
     title: 'Core Committee & Faculty — TCET ACM SIGITE',
-    description: 'Meet the faculty mentors, branch counsellors, and student officers driving innovation at TCET ACM SIGITE.'
+    description: 'Meet the faculty mentors, branch counsellors, and student core driving innovation at TCET ACM SIGITE.'
   },
   '/gallery': {
     title: 'Visual Archive & Memories — TCET ACM SIGITE',
