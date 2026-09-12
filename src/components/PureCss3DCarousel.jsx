@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // 2026-27 Gallery Section Moments (100% Sourced from Gallery 2026-27)
 import pixxelhack26_1 from '../assets/images/gallery/pixxelhack26_1.webp';
-import pixxelhack26_2 from '../assets/images/gallery/pixxelhack26_2.webp';
 import alumniinteraction26_1 from '../assets/images/gallery/alumniinteraction26_1.webp';
 import localiv26_2 from '../assets/images/gallery/localiv26_2.webp';
 import localiv26_3 from '../assets/images/gallery/localiv26_3.webp';
@@ -22,7 +21,6 @@ const fullTickerText = eventText.repeat(5);
 const carouselImages = [
   core26,
   pixxelhack26_1,
-  pixxelhack26_2,
   alumniinteraction26_1,
   localiv26_2,
   localiv26_3,
@@ -37,7 +35,6 @@ const carouselImages = [
 const mobileCards = [
   { image: core26, title: "TCET ACM SIGITE Core Committee 2026-27", tag: "LEADERSHIP" },
   { image: pixxelhack26_1, title: "PixxelHack 2.0 • Live Coding Showdown", tag: "HACKATHON" },
-  { image: pixxelhack26_2, title: "PixxelHack 2.0 • Participant Teams", tag: "HACKATHON" },
   { image: alumniinteraction26_1, title: "Alumni Interaction 2026 • Felicitation", tag: "MENTORSHIP" },
   { image: localiv26_4, title: "Automation Expo 2026 • Delegation Cohort", tag: "INDUSTRIAL VISIT" },
   { image: localiv26_3, title: "Autonomous Quadruped AI & Robotics", tag: "AI & ROBOTICS" },

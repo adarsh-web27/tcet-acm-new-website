@@ -156,7 +156,9 @@ export default function Achievements() {
                     {/* Highlight Spec Badge */}
                     <div className="pt-2">
                       <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#DBEAFE]/80 border border-[#93C5FD] text-xs sm:text-sm font-mono font-bold text-[#0B1F33]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0" />
+                        {!item.highlight.startsWith('🥇') && (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0" />
+                        )}
                         <span>{item.highlight}</span>
                       </div>
                     </div>
@@ -166,7 +168,7 @@ export default function Achievements() {
                   <div className="pt-5 border-t border-[#93C5FD]/60 flex items-center justify-between text-xs sm:text-sm text-[#1E40AF] font-mono">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#059669]" />
-                      <span className="font-bold">VERIFIED BY TCET IT DEPT</span>
+                      <span className="font-bold">{item.verificationText || 'VERIFIED BY TCET IT DEPT'}</span>
                     </div>
 
                     <div className="flex items-center gap-2">

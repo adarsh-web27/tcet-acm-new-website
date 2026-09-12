@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     host: true,
     watch: {
-      ignored: ['**/*.zip', '**/public/fonts/**', '**/.git/**']
+      ignored: ['**/*.zip', '**/public/fonts/**', '**/.git/**', '**/*.~tmp', '**/*.tmp', '**/*~']
     }
   },
   build: {
