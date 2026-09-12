@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import Lenis from 'lenis';
-import { gsap, ScrollTrigger } from '../lib/gsap';
 
 let globalLenis = null;
 
@@ -18,28 +16,101 @@ export function scrollToTop(immediate = true) {
 
 export default function useLenis() {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.0,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1,
-      syncTouch: false,
-    });
+    let lenisInstance = null;
+    let updateTicker = null;
+    let cleanupGsap = null;
+    let isCancelled = false;
 
-    globalLenis = lenis;
-    lenis.on('scroll', ScrollTrigger.update);
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileTouchQuery = window.matchMedia('(max-width: 767px) and (pointer: coarse)');
 
-    const updateTicker = (time) => {
-      lenis.raf(time * 1000);
+    const shouldEnableLenis = () => {
+      if (reducedMotionQuery.matches) return false;
+      if (mobileTouchQuery.matches) return false;
+      return true;
     };
 
-    gsap.ticker.add(updateTicker);
+    const startLenis = async () => {
+      if (lenisInstance || isCancelled) return;
+
+      try {
+        const [{ default: Lenis }, { gsap, ScrollTrigger }] = await Promise.all([
+          import('lenis'),
+          import('../lib/gsap')
+        ]);
+
+        if (isCancelled || lenisInstance) return;
+
+        lenisInstance = new Lenis({
+          duration: 1.0,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 1,
+          syncTouch: false,
+        });
+
+        globalLenis = lenisInstance;
+        lenisInstance.on('scroll', ScrollTrigger.update);
+
+        updateTicker = (time) => {
+          if (lenisInstance) {
+            lenisInstance.raf(time * 1000);
+          }
+        };
+
+        gsap.ticker.add(updateTicker);
+        cleanupGsap = () => {
+          gsap.ticker.remove(updateTicker);
+        };
+      } catch {
+        // Fallback gracefully
+      }
+    };
+
+    const stopLenis = () => {
+      if (cleanupGsap) {
+        cleanupGsap();
+        cleanupGsap = null;
+      }
+      updateTicker = null;
+      if (lenisInstance) {
+        lenisInstance.destroy();
+        lenisInstance = null;
+      }
+      globalLenis = null;
+    };
+
+    const syncState = () => {
+      if (shouldEnableLenis()) {
+        startLenis();
+      } else {
+        stopLenis();
+      }
+    };
+
+    syncState();
+
+    const handleQueryChange = () => syncState();
+
+    if (reducedMotionQuery.addEventListener) {
+      reducedMotionQuery.addEventListener('change', handleQueryChange);
+      mobileTouchQuery.addEventListener('change', handleQueryChange);
+    } else {
+      reducedMotionQuery.addListener(handleQueryChange);
+      mobileTouchQuery.addListener(handleQueryChange);
+    }
 
     return () => {
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
-      globalLenis = null;
+      isCancelled = true;
+      if (reducedMotionQuery.removeEventListener) {
+        reducedMotionQuery.removeEventListener('change', handleQueryChange);
+        mobileTouchQuery.removeEventListener('change', handleQueryChange);
+      } else {
+        reducedMotionQuery.removeListener(handleQueryChange);
+        mobileTouchQuery.removeListener(handleQueryChange);
+      }
+      stopLenis();
     };
   }, []);
 }

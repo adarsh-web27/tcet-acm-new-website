@@ -11,6 +11,10 @@ export default defineConfig({
       ignored: ['**/*.zip', '**/public/fonts/**', '**/.git/**', '**/*.~tmp', '**/*.tmp', '**/*~']
     }
   },
+  preview: {
+    port: 4173,
+    host: true
+  },
   build: {
     rollupOptions: {
       output: {

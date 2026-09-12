@@ -70,23 +70,14 @@ export default function Achievements() {
                       : 'order-1 md:order-2'
                   }`}
                 >
-                  <div className="relative w-full h-64 md:h-full min-h-[250px] sm:min-h-[290px] rounded-2xl lg:rounded-[26px] overflow-hidden bg-slate-950 shadow-inner">
+                  <div className="relative w-full h-64 md:h-full min-h-[250px] sm:min-h-[290px] rounded-2xl lg:rounded-[26px] overflow-hidden poster-ambient-backing shadow-inner">
                     
-                    {/* Ambient blurred backdrop for vertical certificates & odd ratios */}
-                    <img 
-                      src={item.image} 
-                      alt="" 
-                      aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
-                    />
-
                     {/* Achievement Photograph */}
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="relative z-[1] w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500"
-                      loading={idx === 0 ? "eager" : "lazy"}
-                      fetchPriority={idx === 0 ? "high" : "auto"}
+                      className="w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500"
+                      loading="lazy"
                       decoding="async"
                       width={800}
                       height={533}

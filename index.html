@@ -32,8 +32,20 @@
 
     <!-- Preload Primary Self-Hosted Fonts for 0ms Font Delay & Zero CLS -->
     <link rel="preload" href="/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
 
+    <!-- Preload LCP Hero Image only on Home route to prevent unused preload warnings on secondary routes -->
+    <script>
+      if (window.location.pathname === '/' || window.location.pathname === '' || window.location.pathname === '/index.html') {
+        var heroPreload = document.createElement('link');
+        heroPreload.rel = 'preload';
+        heroPreload.as = 'image';
+        heroPreload.setAttribute('imagesrcset', '/images/hero-team-480.webp 480w, /images/hero-team-700.webp 700w, /images/hero-team-sm.webp 1000w, /images/hero-team-1600.webp 1600w');
+        heroPreload.setAttribute('imagesizes', '(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 672px');
+        heroPreload.setAttribute('fetchpriority', 'high');
+        document.head.appendChild(heroPreload);
+      }
+    </script>
 
     <!-- Organization Structured Data (JSON-LD) for Search Engine Authority -->
     <script type="application/ld+json">
@@ -54,7 +66,7 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "tcetacm@thakureducation.org",
+        "email": "acm.sigite@tcetmumbai.in",
         "contactType": "student chapter operations"
       }
     }

@@ -218,18 +218,11 @@ export default function Events() {
                   className="space-y-5 sm:space-y-6"
                 >
                   {/* Event Showcase Image */}
-                  <div className="relative group overflow-hidden rounded-2xl border-2 border-[#BFDBFE] shadow-md aspect-[16/9] bg-slate-950">
-                    {/* Ambient blurred backdrop for vertical/square posters */}
-                    <img
-                      src={activeEvent.image}
-                      alt=""
-                      aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
-                    />
+                  <div className="relative group overflow-hidden rounded-2xl border-2 border-[#BFDBFE] shadow-md aspect-[16/9] poster-ambient-backing">
                     <img
                       src={activeEvent.image}
                       alt={activeEvent.title}
-                      className="relative z-[1] w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                       width={640}

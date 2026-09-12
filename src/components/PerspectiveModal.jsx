@@ -40,10 +40,13 @@ export default function PerspectiveModal({ selectedPerspective, onClose }) {
               {/* Left Column: Portrait & Badge Pill */}
               <div className="md:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-3">
                 <div className="relative">
-                  <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md bg-[#DBEAFE]">
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 aspect-square rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md bg-[#DBEAFE]">
                     <img 
                       src={selectedPerspective.image} 
                       alt={selectedPerspective.name}
+                      decoding="async"
+                      width={192}
+                      height={192}
                       className={`w-full h-full object-cover ${selectedPerspective.id === 'rajesh-bansode' ? 'object-top' : 'object-[center_18%]'}`}
                     />
                   </div>

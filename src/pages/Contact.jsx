@@ -260,6 +260,10 @@ export default function Contact() {
         setTimeout(() => setSubmitStatus(null), 7000);
       } else {
         const errorData = await response.json().catch(() => ({}));
+        if (response.status === 429) {
+          setRateLimitMessage(errorData.error || 'Submission limit reached. Please wait a few minutes before trying again.');
+          return;
+        }
         throw new Error(errorData.error || 'Contact API returned a non-OK status.');
       }
     } catch (_err) {
@@ -274,7 +278,7 @@ export default function Contact() {
         `\nMessage Details:\n${trimmedMessage}`
       ].join('\n');
       
-      window.location.href = `mailto:tcetacm@thakureducation.org?subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
+      window.location.href = `mailto:acm.sigite@tcetmumbai.in?cc=Shukla.girik@gmail.com&subject=${subjectEncoded}&body=${encodeURIComponent(bodyContent)}`;
       setSubmitStatus('fallback');
       setTimeout(() => setSubmitStatus(null), 8000);
     } finally {
@@ -370,13 +374,13 @@ export default function Contact() {
                     Official Email:
                   </span>
                   <a 
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=tcetacm@thakureducation.org" 
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=acm.sigite@tcetmumbai.in&cc=Shukla.girik@gmail.com" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs sm:text-sm text-[#0B1F33] font-bold hover:underline"
                     title="Send email via Gmail"
                   >
-                    tcetacm@thakureducation.org
+                    acm.sigite@tcetmumbai.in
                   </a>
                 </div>
               </div>
@@ -543,6 +547,7 @@ export default function Contact() {
                     type="text"
                     name="fullName"
                     required
+                    maxLength={100}
                     value={formData.fullName}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -565,6 +570,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     required
+                    maxLength={254}
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -590,6 +596,7 @@ export default function Contact() {
                     id="contact-phone"
                     type="tel"
                     name="phone"
+                    maxLength={20}
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -611,6 +618,7 @@ export default function Contact() {
                     id="contact-department"
                     type="text"
                     name="department"
+                    maxLength={100}
                     value={formData.department}
                     onChange={handleChange}
                     placeholder="e.g. Information Technology"
@@ -659,6 +667,7 @@ export default function Contact() {
                     type="text"
                     name="subject"
                     required
+                    maxLength={150}
                     value={formData.subject}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -687,6 +696,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={4}
+                  maxLength={3000}
                   value={formData.message}
                   onChange={handleChange}
                   onBlur={handleBlur}

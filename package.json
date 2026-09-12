@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "convert:webp": "node scripts/convert-to-webp.js"
+    "convert:webp": "node scripts/convert-to-webp.js",
+    "optimize:webp": "node scripts/optimize-webp.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

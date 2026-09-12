@@ -1,8 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ArrowDown, Users, Monitor, ArrowRight } from 'lucide-react';
-import { LoadingContext } from '../App';
 import InfiniteTextMarquee from './InfiniteTextMarquee';
 import { getLenis } from '../hooks/useLenis';
 
@@ -118,21 +116,18 @@ export default function Hero() {
                 {/* Inner Image Container (exact aspect matching cropped 1900x1400 master photo) */}
                 <div className="relative aspect-[19/14] w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-slate-100 shadow-inner">
                   {/* Faculty & Core Photo (Rendered directly at native display density) */}
-                  <picture className="w-full h-full block">
-                    <source media="(max-width: 640px)" srcSet="/images/hero-team-sm.webp?v=1.1" type="image/webp" />
                     <img 
-                      src="/images/hero-team.webp?v=1.1" 
-                      srcSet="/images/hero-team-sm.webp?v=1.1 1000w, /images/hero-team.webp?v=1.1 1900w"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
+                      src="/images/hero-team-700.webp" 
+                      srcSet="/images/hero-team-480.webp 480w, /images/hero-team-700.webp 700w, /images/hero-team-sm.webp 1000w, /images/hero-team-1600.webp 1600w"
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 672px"
                       alt="TCET ACM SIGITE Faculty Counsellors and Student Executive Core Committee"
                       className="w-full h-full object-cover object-center"
                       loading="eager"
                       decoding="async"
-                      fetchPriority="high"
-                      width={1900}
-                      height={1400}
+                      fetchpriority="high"
+                      width={700}
+                      height={516}
                     />
-                  </picture>
                 </div>
 
               </div>

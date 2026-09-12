@@ -28,10 +28,10 @@ export default function FooterBento() {
   const handleCopyEmail = async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText("tcetacm@thakureducation.org");
+        await navigator.clipboard.writeText("acm.sigite@tcetmumbai.in");
       } else {
         const textArea = document.createElement("textarea");
-        textArea.value = "tcetacm@thakureducation.org";
+        textArea.value = "acm.sigite@tcetmumbai.in";
         textArea.style.position = "fixed";
         textArea.style.left = "-9999px";
         document.body.appendChild(textArea);
@@ -43,7 +43,7 @@ export default function FooterBento() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      window.location.href = "mailto:tcetacm@thakureducation.org";
+      window.location.href = "mailto:acm.sigite@tcetmumbai.in?cc=Shukla.girik@gmail.com";
     }
   };
 

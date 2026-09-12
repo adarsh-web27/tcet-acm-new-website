@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap, ScrollTrigger } from '../lib/gsap';
 import { Github, Linkedin, Mail, Users, Award, ShieldCheck } from 'lucide-react';
-import { teamAssets } from '../assets';
+import { teamAssets } from '../assets/teamAssets';
 
 export default function TeamGrid() {
   const containerRef = useRef(null);
@@ -111,22 +111,10 @@ export default function TeamGrid() {
         introTl.progress(1);
       }
 
-      // 3. Floating sine oscillation on the INNER card element (never conflicts with scroll transforms!)
+      // 3. Floating sine oscillation: Handled off-main-thread via CSS GPU keyframes
+      // (.animate-team-float-a / .animate-team-float-b) to eliminate 8 perpetual JS ticker loops.
       const innerCards = gsap.utils.toArray('.hero-team-card-inner');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!prefersReducedMotion) {
-        innerCards.forEach((inner, i) => {
-          gsap.to(inner, {
-            y: i % 2 === 0 ? 6 : -6,
-            duration: 2.8 + (i % 3) * 0.4,
-            delay: 1.8 + i * 0.1,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1
-          });
-        });
-      }
 
       // 4. Parallax mouse effect (RAF-throttled to avoid layout thrashing and tween pileups)
       const heroElem = heroRef.current;
@@ -304,10 +292,10 @@ export default function TeamGrid() {
             src={member.image}
             alt={member.name}
             className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${member.id === 'archita-agar' ? 'object-[center_15%]' : 'object-center'}`}
-            loading={member.id === 'rajesh-bansode' ? 'eager' : 'lazy'}
-            fetchPriority={member.id === 'rajesh-bansode' ? 'high' : 'auto'}
+            loading="lazy"
+            decoding="async"
             width={400}
-            height={540}
+            height={533}
           />
           
           {/* Top Badge */}
@@ -400,12 +388,26 @@ export default function TeamGrid() {
         <div className="flex items-center justify-center -space-x-4 py-2 cursor-pointer mb-6" onClick={scrollToGrid}>
           {facultyMentors.slice(0, 2).map((m, idx) => (
             <div key={m.id} className={`w-20 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-white shadow-lg bg-[#DBEAFE] ${idx === 0 ? '-rotate-6 translate-y-1' : 'rotate-6 translate-y-1'}`}>
-              <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+              <img 
+                src={m.image} 
+                alt={m.name} 
+                decoding="async"
+                width={80}
+                height={107}
+                className="w-full h-full object-cover" 
+              />
             </div>
           ))}
           {branchCounsellor && (
             <div className="w-24 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shadow-2xl bg-white relative z-10 scale-105 -translate-y-1">
-              <img src={branchCounsellor.image} alt={branchCounsellor.name} className="w-full h-full object-cover" />
+              <img 
+                src={branchCounsellor.image} 
+                alt={branchCounsellor.name} 
+                decoding="async"
+                width={96}
+                height={128}
+                className="w-full h-full object-cover" 
+              />
               <div className="absolute bottom-0 inset-x-0 bg-[#0B1F33]/90 text-white text-[10px] font-mono font-bold py-0.5 px-1 truncate text-center">
                 Dr. Rajesh Bansode
               </div>
@@ -461,42 +463,48 @@ export default function TeamGrid() {
                 onClick={scrollToGrid}
               >
                 <div className="hero-team-card-drop w-full h-full">
-                  <div
-                    className="hero-team-card-inner w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer pointer-events-auto border-2 border-[#93C5FD] shadow-[0_20px_45px_-10px_rgba(0,96,185,0.35)] group transition-shadow duration-300 relative"
-                    onMouseMove={(e) => {
-                      const r = e.currentTarget.getBoundingClientRect();
-                      const px = (e.clientX - r.left) / r.width - 0.5;
-                      const py = (e.clientY - r.top) / r.height - 0.5;
-                      gsap.to(e.currentTarget, {
-                        rotateX: -py * 16,
-                        rotateY: px * 16,
-                        scale: 1.08,
-                        duration: 0.3,
-                        ease: 'power2.out',
-                        transformPerspective: 700,
-                        overwrite: 'auto'
-                      });
-                    }}
-                    onMouseLeave={(e) => {
-                      gsap.to(e.currentTarget, {
-                        rotateX: 0,
-                        rotateY: 0,
-                        scale: 1,
-                        duration: 0.6,
-                        ease: 'power2.out',
-                        overwrite: 'auto'
-                      });
-                    }}
-                  >
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-2 left-2 right-2 text-xs font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
-                      {member.name}
-                    </span>
+                  <div className={`w-full h-full ${i % 2 === 0 ? 'animate-team-float-a' : 'animate-team-float-b'}`}>
+                    <div
+                      className="hero-team-card-inner w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer pointer-events-auto border-2 border-[#93C5FD] shadow-[0_20px_45px_-10px_rgba(0,96,185,0.35)] group transition-shadow duration-300 relative"
+                      onMouseMove={(e) => {
+                        const r = e.currentTarget.getBoundingClientRect();
+                        const px = (e.clientX - r.left) / r.width - 0.5;
+                        const py = (e.clientY - r.top) / r.height - 0.5;
+                        gsap.to(e.currentTarget, {
+                          rotateX: -py * 16,
+                          rotateY: px * 16,
+                          scale: 1.08,
+                          duration: 0.3,
+                          ease: 'power2.out',
+                          transformPerspective: 700,
+                          overwrite: 'auto'
+                        });
+                      }}
+                      onMouseLeave={(e) => {
+                        gsap.to(e.currentTarget, {
+                          rotateX: 0,
+                          rotateY: 0,
+                          scale: 1,
+                          duration: 0.6,
+                          ease: 'power2.out',
+                          overwrite: 'auto'
+                        });
+                      }}
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        loading={i < 4 ? "eager" : "lazy"}
+                        fetchpriority={i === 4 ? "high" : "auto"}
+                        decoding="async"
+                        width={180}
+                        height={240}
+                      />
+                      <span className="absolute bottom-2 left-2 right-2 text-xs font-mono font-bold text-white text-center py-1 px-1.5 rounded-lg bg-[#0B1F33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 truncate">
+                        {member.name}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
