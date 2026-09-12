@@ -34,22 +34,6 @@
   src: url('/fonts/syne.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Rebond Grotesque';
-  font-style: normal;
-  font-weight: 700 900;
-  font-display: swap;
-  src: url('/fonts/rebondgrotesque-bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Rebond Grotesque';
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: url('/fonts/rebondgrotesque-medium.woff2') format('woff2');
-}
-
 @layer base {
   html {
     scroll-behavior: auto;
@@ -113,6 +97,32 @@
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(147, 197, 253, 0.6);
     box-shadow: 0 10px 30px -5px rgba(29, 78, 216, 0.07);
+  }
+
+  @keyframes teamFloatA {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(6px); }
+  }
+
+  @keyframes teamFloatB {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .animate-team-float-a {
+    animation: teamFloatA 3.2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .animate-team-float-b {
+    animation: teamFloatB 3.6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .poster-ambient-backing {
+    background: radial-gradient(circle at 50% 25%, rgba(29, 78, 216, 0.32), transparent 70%),
+                radial-gradient(circle at 85% 85%, rgba(14, 116, 144, 0.25), transparent 60%),
+                #0B1F33;
   }
 
   /* Dark mode variant for glass-card */
@@ -227,11 +237,6 @@
     transform-style: preserve-3d;
     backface-visibility: hidden;
   }
-}
-
-/* Ice Noise Texture Overlay */
-.bg-ice-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
 /* Photo Frame Glassmorphism & High Performance Shadows */

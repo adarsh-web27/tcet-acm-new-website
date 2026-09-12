@@ -413,9 +413,8 @@ export default function Gallery() {
                   src={item.imageUrl}
                   alt={item.title}
                   className="w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
-                  loading={index === 0 ? "eager" : "lazy"}
+                  loading="lazy"
                   decoding="async"
-                  fetchPriority={index === 0 ? "high" : "auto"}
                   sizes="(max-width: 640px) 92vw, (max-width: 1024px) 700px, 850px"
                   width={850}
                   height={567}

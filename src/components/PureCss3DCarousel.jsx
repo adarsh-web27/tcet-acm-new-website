@@ -2,55 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// 2026-27 Gallery Section Moments (100% Sourced from Gallery 2026-27)
-import pixxelhack26_1 from '../assets/images/gallery/pixxelhack26_1.webp';
-import alumniinteraction26_1 from '../assets/images/gallery/alumniinteraction26_1.webp';
-import localiv26_2 from '../assets/images/gallery/localiv26_2.webp';
-import localiv26_3 from '../assets/images/gallery/localiv26_3.webp';
-import localiv26_4 from '../assets/images/gallery/localiv26_4.webp';
-import treeplantation26_1 from '../assets/images/gallery/treeplantation26_1.webp';
-import treeplantation26_3 from '../assets/images/gallery/treeplantation26_3.webp';
-import treeplantation26_4 from '../assets/images/gallery/treeplantation26_4.webp';
-import membershipdrive26_2 from '../assets/images/gallery/membershipdrive26_2.webp';
-import membershipdrive26_3 from '../assets/images/gallery/membershipdrive26_3.webp';
-import core26 from '../assets/images/gallery/core26.webp';
+import carouselMoments from '../data/carouselData';
 
 const eventText = "CORE COMMITTEE 2026-27  ★  PIXXELHACK 2.0  ★  ALUMNI INTERACTION  ★  AUTOMATION EXPO  ★  TREE PLANTATION DRIVE  ★  MEMBERSHIP DRIVE  ★  ";
 const fullTickerText = eventText.repeat(5);
 
-const carouselImages = [
-  core26,
-  pixxelhack26_1,
-  alumniinteraction26_1,
-  localiv26_2,
-  localiv26_3,
-  localiv26_4,
-  treeplantation26_1,
-  treeplantation26_3,
-  treeplantation26_4,
-  membershipdrive26_2,
-  membershipdrive26_3
-];
-
-const mobileCards = [
-  { image: core26, title: "TCET ACM SIGITE Core Committee 2026-27", tag: "LEADERSHIP" },
-  { image: pixxelhack26_1, title: "PixxelHack 2.0 • Live Coding Showdown", tag: "HACKATHON" },
-  { image: alumniinteraction26_1, title: "Alumni Interaction 2026 • Felicitation", tag: "MENTORSHIP" },
-  { image: localiv26_4, title: "Automation Expo 2026 • Delegation Cohort", tag: "INDUSTRIAL VISIT" },
-  { image: localiv26_3, title: "Autonomous Quadruped AI & Robotics", tag: "AI & ROBOTICS" },
-  { image: localiv26_2, title: "Industry 4.0 & Smart Manufacturing", tag: "INDUSTRIAL VISIT" },
-  { image: treeplantation26_1, title: "Tree Plantation • Greening Thakur Junction", tag: "SOCIAL CAUSE" },
-  { image: treeplantation26_3, title: "Community Sustainability Campaign", tag: "SOCIAL CAUSE" },
-  { image: treeplantation26_4, title: "Faculty Greening Drive • Divider Plantation", tag: "SOCIAL CAUSE" },
-  { image: membershipdrive26_2, title: "Student Technical Orientation & Perks", tag: "ORIENTATION" },
-  { image: membershipdrive26_3, title: "New ACM Members Welcome Ceremony", tag: "ORIENTATION" }
-];
+const mobileCards = carouselMoments;
 
 export default function PureCss3DCarousel() {
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileIdx, setMobileIdx] = useState(0);
-  const total = carouselImages.length;
+  const total = carouselMoments.length;
 
   // Stop 3D animation when scrolled away from view
   useEffect(() => {
@@ -119,6 +82,7 @@ export default function PureCss3DCarousel() {
               >
                 <img
                   src={mobileCards[mobileIdx].image}
+                  srcSet={`${mobileCards[mobileIdx].image} 360w, ${mobileCards[mobileIdx].image2x} 720w`}
                   alt={mobileCards[mobileIdx].title}
                   className="w-full h-full object-cover select-none pointer-events-none"
                   loading="lazy"
@@ -303,17 +267,19 @@ export default function PureCss3DCarousel() {
               animationPlayState: isVisible ? 'running' : 'paused'
             }}
           >
-            {carouselImages.map((src, index) => (
+            {carouselMoments.map((item, index) => (
               <img
                 key={index}
-                src={src}
-                alt={`TCET ACM SIGITE 2026-27 Highlight ${index + 1}`}
+                src={item.image}
+                srcSet={`${item.image} 360w, ${item.image2x} 720w`}
+                sizes="(max-width: 768px) 320px, 400px"
+                alt={item.title || `TCET ACM SIGITE Highlight ${index + 1}`}
                 className="carousel-card"
                 style={{ '--i': index }}
                 loading="lazy"
                 decoding="async"
-                width={640}
-                height={400}
+                width={400}
+                height={250}
               />
             ))}
           </div>
@@ -358,13 +324,13 @@ export default function PureCss3DCarousel() {
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
           transform: rotateY(calc(var(--i) * var(--ba))) translateZ(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
-          box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-          will-change: transform;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
         }
 
         @media (prefers-reduced-motion: reduce) {
           .carousel-a3d {
-            animation-duration: 128s;
+            animation: none;
           }
         }
       `}</style>

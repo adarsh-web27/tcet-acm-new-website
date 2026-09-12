@@ -25,7 +25,7 @@ import {
   Code,
   MessageSquare
 } from 'lucide-react';
-import { logoAssets } from '../assets';
+import { logoAssets } from '../assets/logoAssets';
 
 const NAV_LINKS = [
   { path: '/', label: 'Home', number: '01' },
@@ -111,6 +111,7 @@ export default function Navbar() {
             <img 
               src={logoAssets.logoImage} 
               alt="TCET ACM SIGITE Chapter Logo" 
+              decoding="async"
               className={`object-contain transition-all duration-300 drop-shadow-md shrink-0 group-hover:scale-105 ${
                 isHero 
                   ? 'w-10 h-10 sm:w-12 sm:h-12 lg:w-11 lg:h-11 xl:w-[56px] xl:h-[56px] -my-1 sm:-my-1.5' 

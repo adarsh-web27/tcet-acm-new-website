@@ -27,6 +27,9 @@ export default function AnimatedCube() {
 
   // Instantiates the Mascot Engine
   useLayoutEffect(() => {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     engineRef.current = new MascotEngine(refs);
 
     return () => {
@@ -36,6 +39,9 @@ export default function AnimatedCube() {
 
   // Window Event Management (Visibility & Intersection Observer)
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     let rafId = null;
     let isVisible = false;
 

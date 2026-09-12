@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { gsap } from '../lib/gsap';
 
 export default function TechTypographyStack() {
   const containerRef = useRef(null);
@@ -13,59 +12,67 @@ export default function TechTypographyStack() {
     const container = containerRef.current;
     if (!container) return;
 
-    const mm = gsap.matchMedia();
+    if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
 
-    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", (context) => {
-      const isTablet = window.innerWidth < 1024;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: 'top 85%',
-          end: 'bottom 15%',
-          scrub: 0.8,
-          invalidateOnRefresh: true,
-        }
+    let mm = null;
+    let isCancelled = false;
+
+    import('../lib/gsap').then(({ gsap }) => {
+      if (isCancelled || !containerRef.current) return;
+
+      mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+        const isTablet = window.innerWidth < 1024;
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 85%',
+            end: 'bottom 15%',
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+          }
+        });
+
+        // Dramatic kinetic vertical spread & horizontal tracking expansion on scroll
+        tl.fromTo(topOuterRef.current, 
+          { y: 48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
+          { y: isTablet ? -38 : -48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
+          0
+        );
+
+        tl.fromTo(topInnerRef.current, 
+          { y: 24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
+          { y: isTablet ? -18 : -24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
+          0
+        );
+
+        tl.fromTo(centerLineRef.current, 
+          { scale: 0.92, opacity: 0.85 },
+          { scale: 1.05, opacity: 1, ease: 'power2.out' },
+          0
+        );
+
+        tl.fromTo(bottomInnerRef.current, 
+          { y: -24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
+          { y: isTablet ? 18 : 24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
+          0
+        );
+
+        tl.fromTo(bottomOuterRef.current, 
+          { y: -48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
+          { y: isTablet ? 38 : 48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
+          0
+        );
       });
+    }).catch(() => {});
 
-      // Dramatic kinetic vertical spread & horizontal tracking expansion on scroll
-      tl.fromTo(topOuterRef.current, 
-        { y: 48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
-        { y: isTablet ? -38 : -48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
-        0
-      );
-
-      tl.fromTo(topInnerRef.current, 
-        { y: 24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
-        { y: isTablet ? -18 : -24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
-        0
-      );
-
-      tl.fromTo(centerLineRef.current, 
-        { scale: 0.92, opacity: 0.85 },
-        { scale: 1.05, opacity: 1, ease: 'power2.out' },
-        0
-      );
-
-      tl.fromTo(bottomInnerRef.current, 
-        { y: -24, opacity: 0.35, scale: 0.96, letterSpacing: '0.01em' },
-        { y: isTablet ? 18 : 24, opacity: 0.85, scale: 1, letterSpacing: '0.08em', ease: 'power2.out' },
-        0
-      );
-
-      tl.fromTo(bottomOuterRef.current, 
-        { y: -48, opacity: 0.15, scale: 0.94, letterSpacing: '0.01em' },
-        { y: isTablet ? 38 : 48, opacity: 0.5, scale: 1, letterSpacing: '0.12em', ease: 'power2.out' },
-        0
-      );
-    });
-
-    mm.add("(max-width: 767px), (prefers-reduced-motion: reduce)", () => {
-      gsap.set([topOuterRef.current, topInnerRef.current, centerLineRef.current, bottomInnerRef.current, bottomOuterRef.current], {
-        clearProps: "all"
-      });
-    });
-
-    return () => mm.revert();
+    return () => {
+      isCancelled = true;
+      if (mm) mm.revert();
+    };
   }, []);
 
   return (

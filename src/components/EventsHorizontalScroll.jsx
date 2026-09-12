@@ -1,6 +1,5 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { gsap, ScrollTrigger } from '../lib/gsap';
 import { ArrowUpRight, MapPin, FileText, Calendar } from 'lucide-react';
 import { clubEvents } from '../assets/eventsAssets';
 
@@ -8,63 +7,71 @@ export default function EventsHorizontalScroll() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const trigger = triggerRef.current;
     const section = sectionRef.current;
     if (!trigger || !section) return;
 
-    const mm = gsap.matchMedia();
+    if (window.innerWidth < 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
 
-    // Desktop: Pin & horizontal scrub when viewport >= 1024px and motion is enabled
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-      const getScrollAmount = () => {
-        const availableWidth = trigger.clientWidth || document.documentElement.clientWidth;
-        return -(section.scrollWidth - availableWidth + 80);
-      };
+    let mm = null;
+    let ro = null;
+    let resizeTimer = null;
+    let isCancelled = false;
 
-      const tween = gsap.to(section, {
-        x: getScrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: trigger,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.5,
-          invalidateOnRefresh: true,
-          start: "top top",
-          end: () => `+=${Math.abs(getScrollAmount())}`,
-          fastScrollEnd: true,
-          preventOverlaps: true,
-        }
+    import('../lib/gsap').then(({ gsap, ScrollTrigger }) => {
+      if (isCancelled || !triggerRef.current || !sectionRef.current) return;
+
+      mm = gsap.matchMedia();
+
+      // Desktop: Pin & horizontal scrub when viewport >= 1024px and motion is enabled
+      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+        const getScrollAmount = () => {
+          const availableWidth = trigger.clientWidth || document.documentElement.clientWidth;
+          return -(section.scrollWidth - availableWidth + 80);
+        };
+
+        const tween = gsap.to(section, {
+          x: getScrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: trigger,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.5,
+            invalidateOnRefresh: true,
+            start: "top top",
+            end: () => `+=${Math.abs(getScrollAmount())}`,
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          }
+        });
+
+        return () => {
+          tween.kill();
+        };
       });
 
-      return () => {
-        tween.kill();
-      };
-    });
+      // ResizeObserver to automatically refresh ScrollTrigger if content or fonts resize
+      ro = new ResizeObserver(() => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 60);
+      });
 
-    // Mobile / Tablet (< 1024px) or reduced motion fallback: clean transforms for native touch scroll
-    mm.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
-      gsap.set(section, { clearProps: "transform" });
-    });
-
-    // ResizeObserver to automatically refresh ScrollTrigger if content or fonts resize
-    let resizeTimer;
-    const ro = new ResizeObserver(() => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 60);
-    });
-
-    ro.observe(section);
-    ro.observe(trigger);
+      ro.observe(section);
+      ro.observe(trigger);
+    }).catch(() => {});
 
     return () => {
-      clearTimeout(resizeTimer);
-      ro.disconnect();
-      mm.revert();
+      isCancelled = true;
+      if (resizeTimer) clearTimeout(resizeTimer);
+      if (ro) ro.disconnect();
+      if (mm) mm.revert();
     };
   }, []);
 
@@ -117,15 +124,8 @@ export default function EventsHorizontalScroll() {
             >
 
               <div>
-                {/* Media frame with ambient backdrop to prevent poster clipping */}
-                <div className="w-full h-[175px] sm:h-[190px] lg:h-[180px] xl:h-[200px] rounded-xl sm:rounded-2xl overflow-hidden mb-3 relative bg-slate-900 border border-slate-100">
-                  {/* Ambient blurred backdrop for vertical/square posters */}
-                  <img 
-                    src={event.image} 
-                    alt="" 
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-40 pointer-events-none"
-                  />
+                {/* Media frame with clean dark backing & ambient radial glow */}
+                <div className="w-full h-[175px] sm:h-[190px] lg:h-[180px] xl:h-[200px] rounded-xl sm:rounded-2xl overflow-hidden mb-3 relative poster-ambient-backing border border-slate-100/10">
                   <img 
                     src={event.image} 
                     alt={event.title} 
@@ -133,7 +133,7 @@ export default function EventsHorizontalScroll() {
                     decoding="async"
                     width={390}
                     height={220}
-                    className="relative z-[1] w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   
                   {/* Floating Date Chip (Positioned bottom-left to never collide with top category badge) */}

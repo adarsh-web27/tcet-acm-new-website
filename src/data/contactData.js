@@ -27,7 +27,7 @@ export const CONTACT_FAQS = [
   },
   {
     question: "How can industry partners or sponsors collaborate with the chapter?",
-    answer: "Corporate partners can sponsor problem statements, conduct technical recruitment drives, or host specialized masterclasses. Reach out via the form selecting 'Sponsorship & Industry Collaboration' or email tcetacm@thakureducation.org."
+    answer: "Corporate partners can sponsor problem statements, conduct technical recruitment drives, or host specialized masterclasses. Reach out via the form selecting 'Sponsorship & Industry Collaboration' or email acm.sigite@tcetmumbai.in."
   }
 ];
 
@@ -49,7 +49,7 @@ export const CONTACT_INFO_CARDS = [
     title: "Official Communications",
     badge: "Institutional Email",
     lines: [
-      "tcetacm@thakureducation.org",
+      "acm.sigite@tcetmumbai.in",
       "For student memberships, sponsorships, research papers & event inquiries"
     ],
     highlight: "Response within 24 business hours"

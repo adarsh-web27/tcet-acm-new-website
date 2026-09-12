@@ -184,7 +184,7 @@ export default function WhoWeAre() {
                 {/* Left: Portrait & Badges */}
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
                   <div className="relative group cursor-pointer" onClick={() => setSelectedPerspective(deanSSW)}>
-                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-50">
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 aspect-square rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-50">
                       <img 
                         src={deanSSW.image} 
                         alt={deanSSW.name}
@@ -262,10 +262,14 @@ export default function WhoWeAre() {
                 {/* Left: Portrait & Badges */}
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
                   <div className="relative group cursor-pointer" onClick={() => setSelectedPerspective(branchCounsellor)}>
-                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 aspect-square rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shadow-md group-hover:scale-105 transition-transform duration-300">
                       <img 
                         src={branchCounsellor.image} 
                         alt={branchCounsellor.name}
+                        loading="lazy"
+                        decoding="async"
+                        width={224}
+                        height={224}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -347,10 +351,14 @@ export default function WhoWeAre() {
                     <div className="space-y-4">
                       {/* Header row */}
                       <div className="flex items-center gap-4 sm:gap-5">
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-lg group-hover:scale-105 transition-transform bg-[#DBEAFE]">
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-lg group-hover:scale-105 transition-transform bg-[#DBEAFE]">
                           <img 
                             src={mentor.image} 
                             alt={mentor.name} 
+                            loading="lazy"
+                            decoding="async"
+                            width={128}
+                            height={128}
                             className="w-full h-full object-cover object-[center_18%]" 
                           />
                         </div>
@@ -414,8 +422,16 @@ export default function WhoWeAre() {
                     <div className="space-y-3.5">
                       {/* Top Profile */}
                       <div className="flex items-center gap-4">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-md group-hover:scale-105 transition-transform bg-[#DBEAFE]">
-                          <img src={student.image} alt={student.name} className="w-full h-full object-cover object-[center_18%]" />
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 aspect-square rounded-2xl overflow-hidden border-2 border-[#1D4ED8] shrink-0 shadow-md group-hover:scale-105 transition-transform bg-[#DBEAFE]">
+                          <img 
+                            src={student.image} 
+                            alt={student.name} 
+                            loading="lazy"
+                            decoding="async"
+                            width={96}
+                            height={96}
+                            className="w-full h-full object-cover object-[center_18%]" 
+                          />
                         </div>
                         <div className="min-w-0 flex-1">
                           <h4 className="font-display font-black text-base text-[#0B1F33] leading-tight group-hover:text-[#1E40AF] transition-colors">

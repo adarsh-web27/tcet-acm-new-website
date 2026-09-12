@@ -12,7 +12,7 @@ const zephyrEvent = {
 
 export default function InfiniteTextMarquee({ direction = 'left-to-right' }) {
   const isLTR = direction === 'left-to-right';
-  const repeated = Array.from({ length: 12 }, () => zephyrEvent);
+  const repeated = Array.from({ length: 6 }, () => zephyrEvent);
 
   return (
     <div className="w-full overflow-hidden bg-[#2C4F99] py-2 sm:py-2.5 shadow-sm border-y border-[#4367B0]/60 select-none group">
