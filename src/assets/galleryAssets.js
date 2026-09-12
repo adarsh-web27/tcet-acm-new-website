@@ -1,6 +1,5 @@
 import {
   pixxelhack26_1,
-  pixxelhack26_2,
   alumniinteraction26_1,
   localiv26_2,
   localiv26_3,
@@ -43,16 +42,6 @@ export const MEMORY_CARDS = [
     description: "400+ developers competing in the intense 48-hour continuous full-stack web engineering hackathon.",
     imageUrl: pixxelhack26_1
   },
-  {
-    id: 1,
-    year: "2026-27",
-    title: "PixxelHack 2.0 • Participant Teams",
-    date: "AUG 07, 2026",
-    location: "TCET Computing Labs",
-    category: "Hackathon",
-    description: "Student developer squads brainstorming, testing APIs, and deploying modern web applications under pressure.",
-    imageUrl: pixxelhack26_2
-  },
 
   // 3. Alumni Interaction 2026 (2026-27)
   {
@@ -70,17 +59,17 @@ export const MEMORY_CARDS = [
   {
     id: 4,
     year: "2026-27",
-    title: "Industry 4.0 & Smart Manufacturing Tour",
+    title: "Automation Expo 2026 ",
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
     category: "Industrial Visit",
-    description: "TCET ACM SIGITE student scholars learning next-gen IoT control systems, PLCs, and automated assembly robotics.",
+    description: "TCET ACM SIGITE student learning next-gen IoT control systems, PLCs, and automated assembly robotics.",
     imageUrl: localiv26_2
   },
   {
     id: 41,
     year: "2026-27",
-    title: "Autonomous Quadruped AI & Robotics Showcase",
+    title: "Automation Expo 2026",
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
     category: "AI & Robotics",
@@ -90,7 +79,7 @@ export const MEMORY_CARDS = [
   {
     id: 42,
     year: "2026-27",
-    title: "Automation Expo 2026 • Chapter Delegation Cohort",
+    title: "Automation Expo 2026 ",
     date: "JUL 25, 2026",
     location: "NESCO Exhibition Center, Mumbai",
     category: "Industrial Delegation",
@@ -102,7 +91,7 @@ export const MEMORY_CARDS = [
   {
     id: 5,
     year: "2026-27",
-    title: "Tree Plantation • Greening Thakur Junction",
+    title: "Tree Plantation Drive 2026",
     date: "JUL 24, 2026",
     location: "Thakur Shyam Narayan Marg Junction",
     category: "Social Cause",
@@ -112,7 +101,7 @@ export const MEMORY_CARDS = [
   {
     id: 7,
     year: "2026-27",
-    title: "Community Sustainability Campaign",
+    title: "EK PED MAA KE NAAM ",
     date: "JUL 24, 2026",
     location: "Kandivali East, Mumbai",
     category: "Social Cause",
@@ -122,7 +111,7 @@ export const MEMORY_CARDS = [
   {
     id: 71,
     year: "2026-27",
-    title: "Faculty Greening Drive • Road Divider Plantation",
+    title: "Tree plantation drive ",
     date: "JUL 24, 2026",
     location: "Thakur Complex, Kandivali East",
     category: "Social Cause",
@@ -134,21 +123,21 @@ export const MEMORY_CARDS = [
   {
     id: 8,
     year: "2026-27",
-    title: "Student Technical Orientation & Perks",
+    title: "Membership drive 2026",
     date: "JUL 11, 2026",
     location: "TCET Campus",
     category: "Orientation",
-    description: "Introducing incoming engineers to ACM digital libraries, research groups, hackathons, and certifications.",
+    description: "TCET ACM SIGITE conducted its annual Membership Drive 2026 to welcome enthusiastic students into the ACM community.",
     imageUrl: membershipdrive26_2
   },
   {
     id: 9,
     year: "2026-27",
-    title: "New ACM Members Welcome Ceremony",
+    title: "Membership Drive 2026",
     date: "JUL 11, 2026",
     location: "TCET Campus",
     category: "Orientation",
-    description: "Inducting fresh minds into the chapter's research, competitive programming, and web development wings.",
+    description: "The Membership Drive 2026 served as a gateway for students to become part of the global ACM community.",
     imageUrl: membershipdrive26_3
   },
 
@@ -206,7 +195,7 @@ export const MEMORY_CARDS = [
   {
     id: 15,
     year: "2025-26",
-    title: "Taiwan Automation Expo 2025",
+    title: "Automation Expo 2025",
     date: "AUG 13, 2025",
     location: "Nesco Exhibition Center, Goregaon",
     category: "Industrial Visit",
@@ -306,7 +295,7 @@ export const MEMORY_CARDS = [
   {
     id: 25,
     year: "2025-26",
-    title: "Taiwan Automation Expo Delegation",
+    title: "Automation Expo Delegation",
     date: "AUG 14, 2025",
     location: "Nesco Exhibition Center",
     category: "Industrial Visit",

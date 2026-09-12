@@ -9,6 +9,21 @@ import { achievementImages } from './images/achievements';
 export const achievementsData = [
   {
     id: '01',
+    year: '2026',
+    category: 'FLAGSHIP WEBATHON CHAMPION',
+    title: 'Winner of Pixxelhack Webathon 2.0',
+    organization: 'TCET ACM SIGITE FLAGSHIP WEBATHON',
+    description: 'Pixxelhack Webathon 2.0, organized by TCET ACM SIGITE, witnessed outstanding participation from students across disciplines. Team BEGINERS from the Department of Information Technology secured First Position for their intuitive problem-solving approach and exceptional UI/UX design, demonstrating creativity, innovation, and user-centric thinking.',
+    highlight: '🥇 1st Position • Intuitive Thinking & Exceptional UI/UX',
+    tags: ['1st Position', 'Intuitive Thinking', 'UI/UX Design'],
+    image: achievementImages.pixxelhack2Winner,
+    icon: Trophy,
+    badgeColor: 'text-amber-500',
+    recordType: 'CHAPTER ACHIEVEMENT',
+    verificationText: 'VERIFIED BY TCET ACM SIGITE',
+  },
+  {
+    id: '02',
     year: '2025',
     category: 'Publication & Editorial Excellence',
     title: 'Third Place - Inter-Department Magazine Presentation',
@@ -22,7 +37,7 @@ export const achievementsData = [
     recordType: 'Institutional Record',
   },
   {
-    id: '02',
+    id: '03',
     year: '2025',
     category: 'National Chapter Recognition',
     title: 'Honourable Mention – Best Website Award (ACM India Council)',
@@ -36,7 +51,7 @@ export const achievementsData = [
     recordType: 'ACM India Record',
   },
   {
-    id: '03',
+    id: '04',
     year: '2025',
     category: 'Innovation & Engineering',
     title: 'Second Place – Innov Genius 2025 (SE IT Department)',
@@ -50,7 +65,7 @@ export const achievementsData = [
     recordType: 'Institutional Record',
   },
   {
-    id: '04',
+    id: '05',
     year: '2025',
     category: 'Technical Skills & Prototyping',
     title: 'Third Place – Innov Genius 2025 (SE IT Department)',
@@ -64,7 +79,7 @@ export const achievementsData = [
     recordType: 'Institutional Record',
   },
   {
-    id: '05',
+    id: '06',
     year: '2025',
     category: 'Web3 & Blockchain Hackathon',
     title: 'Winner - Coherence - 2025 Blockchain Domain',
@@ -78,7 +93,7 @@ export const achievementsData = [
     recordType: 'National Record',
   },
   {
-    id: '06',
+    id: '07',
     year: '2025',
     category: 'Artificial Intelligence & Healthcare',
     title: 'Health-Guard AI : Predict Protect Prevent',
@@ -92,7 +107,7 @@ export const achievementsData = [
     recordType: 'Chapter Record',
   },
   {
-    id: '07',
+    id: '08',
     year: '2025',
     category: 'National Mathematics Championship',
     title: 'Secured 19th rank in National Maths Olympiad',
@@ -106,7 +121,7 @@ export const achievementsData = [
     recordType: 'National Record',
   },
   {
-    id: '08',
+    id: '09',
     year: '2025',
     category: 'Flagship Webathon Champion',
     title: 'Winner of Pixxelhack Webathon',

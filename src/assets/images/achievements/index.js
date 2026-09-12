@@ -6,6 +6,7 @@ import blockchainWinner from './blockchain-winner.webp';
 import healthguardAi from './healthguard-ai.webp';
 import mathsOlympiad from './maths-olympiad.webp';
 import pixxelhackWinner from './pixxelhack-winner.webp';
+import pixxelhack2Winner from './pixxelhack2-winner.webp';
 
 export const achievementImages = {
   ezineWinners,
@@ -16,6 +17,7 @@ export const achievementImages = {
   healthguardAi,
   mathsOlympiad,
   pixxelhackWinner,
+  pixxelhack2Winner,
 };
 
 export default achievementImages;
